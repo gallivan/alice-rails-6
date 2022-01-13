@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @segregation.code
+p
+  strong Name:
+  = @segregation.name
+p
+  strong Note:
+  = @segregation.note
+
+= link_to 'Edit', edit_segregation_path(@segregation)
+'|
+= link_to 'Back', segregations_path

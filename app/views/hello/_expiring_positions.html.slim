@@ -1,0 +1,28 @@
+
+div class="row"
+  div class="col-md-12"
+    div class="panel panel-info"
+      div class="panel-heading" Expiring Positions
+      div class="panel-body"
+
+        - @data[:expiring_positions] = [] if @data[:expiring_positions].blank?
+
+        .row
+          .large-12.columns
+            table class="table table-striped table-bordered table-condensed table-hover"
+              thead
+                tr
+                  th Account
+                  th Claim
+                  th Bot
+                  th Sld
+                  th Net
+
+              tbody
+                - @data[:expiring_positions].each do |position|
+                  tr
+                    td = position.account_code
+                    td = position.claim_code
+                    td = position.bot == 0 ? '' : position.bot.to_i
+                    td = position.sld == 0 ? '' : position.sld.to_i
+                    td = position.net == 0 ? '' : position.net.to_i

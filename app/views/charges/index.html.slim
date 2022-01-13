@@ -1,0 +1,35 @@
+h1 Listing charges
+
+table
+  thead
+    tr
+      th Account
+      th Chargeable
+      th Currency
+      th Segregation
+      th Amount
+      th Memo
+      th Posted on
+      th As of on
+      th
+      th
+      th
+
+  tbody
+    - @charges.each do |charge|
+      tr
+        td = charge.account_id
+        td = charge.chargeable_id
+        td = charge.currency_id
+        td = charge.segregation_id
+        td = charge.amount
+        td = charge.memo
+        td = charge.posted_on
+        td = charge.as_of_on
+        td = link_to 'Show', charge
+        td = link_to 'Edit', edit_charge_path(charge)
+        td = link_to 'Destroy', charge, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Charge', new_charge_path

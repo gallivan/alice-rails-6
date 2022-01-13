@@ -1,0 +1,32 @@
+= form_tag studies_traded_cash_flows_path, :method => 'get' do
+  %p
+    = text_field_tag :posting_date, @posting_date
+    = text_field_tag :account_code, @account_code
+    = submit_tag "Search", :name => nil
+
+%table
+  %thead
+    %tr
+      %th Account
+      %th TOD
+      %th Set
+      %th Year
+      %th Month
+      %th Day
+      %th Hour
+      %th Gross Done
+      %th Net Done
+      %th Net Cash
+  %tbody
+  - @postings.each do |posting|
+    %tr
+      %td= posting['account_code']
+      %td= posting['tod_code']
+      %td= posting['tradeable_set_code']
+      %td= posting['yr']
+      %td= posting['mn']
+      %td= posting['dy']
+      %td= posting['hr']
+      %td= posting['grs_done']
+      %td= posting['net_done']
+      %td= posting['net_cash']

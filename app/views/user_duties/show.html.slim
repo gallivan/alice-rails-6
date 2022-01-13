@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @user_duty.user
+p
+  strong Duty:
+  = @user_duty.duty
+
+= link_to 'Edit', edit_user_duty_path(@user_duty)
+'|
+= link_to 'Back', user_duties_path

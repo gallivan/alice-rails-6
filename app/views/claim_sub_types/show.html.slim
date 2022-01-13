@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @claim_sub_type.code
+p
+  strong Name:
+  = @claim_sub_type.name
+
+= link_to 'Edit', edit_claim_sub_type_path(@claim_sub_type)
+'|
+= link_to 'Back', claim_sub_types_path

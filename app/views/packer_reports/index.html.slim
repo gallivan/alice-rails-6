@@ -1,0 +1,33 @@
+h1 Listing packer_reports
+
+.row
+== render 'shared/reports_search_form'
+
+.row
+  = paginate @packer_reports
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th ID
+          th Posted
+          th Created
+          th Kind
+          th Fate
+          th Data
+          th
+          th
+
+      tbody
+        - @packer_reports.each do |packer_report|
+          tr
+            td = packer_report.id
+            td = packer_report.posted_on
+            td = packer_report.created_at
+            td = packer_report.kind
+            td = packer_report.fate
+            td = packer_report.data
+            td = link_to 'Show', packer_report
+            td = link_to 'Redo', redo_packer_report_path(packer_report)

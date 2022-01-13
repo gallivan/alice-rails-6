@@ -1,0 +1,17 @@
+= simple_form_for(@claim) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :claim_set_id
+    = f.input :claim_type_id
+    = f.input :entity_id
+    = f.input :claimable_id
+    = f.input :claimable_type
+    = f.input :code
+    = f.input :name
+    = f.input :size
+    = f.input :point_value
+    = f.input :point_currency_id
+
+  .form-actions
+    = f.button :submit

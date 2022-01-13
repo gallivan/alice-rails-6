@@ -1,0 +1,39 @@
+= form_tag studies_offset_flows_by_hour_path, :method => 'get' do
+  .row
+    .large-3.columns
+      = label_tag 'Out At'
+    -#= text_field_tag :posting_date, @posting_date
+    .large-3.columns
+      = text_field_tag :posting_date, @posting_date, :size => 10, :class => 'posting_date'
+    .large-6.columns
+      = submit_tag "Search", :name => nil, :class => "small button"
+
+.row{ :style => "margin-left: 20px;" }
+  .large-3.columns
+    =render partial: 'offset_flows_by_hour_table_html'
+  .large-9.columns
+    #offset_flows_by_hour
+
+-#%table
+-#  %tr
+-#    %td=render partial: 'offset_flows_by_hour_table_html'
+-#    %td#offset_flows_by_hour
+
+:javascript
+  var width = 500;
+  var height = 700;
+  var padding = 150;
+  var shift = 100
+  var qry = posting_date.value
+  var url = "/studies_offset_flows_by_hour.json?posting_date=" + qry;
+  d3.json(url, function (data) {
+    var svg = dimple.newSvg("#offset_flows_by_hour", width + padding, height + padding);
+    var myChart = new dimple.chart(svg, data);
+    myChart.setBounds(0, 0, width-100, height-200)
+    var xAxis = myChart.addCategoryAxis("x", "out_at");
+    var yAxis = myChart.addMeasureAxis("y", "flow");
+    myChart.addSeries(null, dimple.plot.bar);
+    myChart.x = shift; // push chart rightward
+    myChart.y = shift; // push chart downard
+    myChart.draw();
+  });

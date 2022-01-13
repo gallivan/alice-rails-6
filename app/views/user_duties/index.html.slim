@@ -1,0 +1,23 @@
+h1 Listing user_duties
+
+table
+  thead
+    tr
+      th User
+      th Duty
+      th
+      th
+      th
+
+  tbody
+    - @user_duties.each do |user_duty|
+      tr
+        td = user_duty.user
+        td = user_duty.duty
+        td = link_to 'Show', user_duty
+        td = link_to 'Edit', edit_user_duty_path(user_duty)
+        td = link_to 'Destroy', user_duty, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New User duty', new_user_duty_path

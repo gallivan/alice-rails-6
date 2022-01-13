@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @chargeable_type.code
+p
+  strong Name:
+  = @chargeable_type.name
+
+= link_to 'Edit', edit_chargeable_type_path(@chargeable_type)
+'|
+= link_to 'Back', chargeable_types_path

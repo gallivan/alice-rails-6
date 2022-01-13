@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>README - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Overview">Overview</a>
+    <li><a href="#label-Institutional+Interactions">Institutional Interactions</a>
+    <li><a href="#label-Software+Dependencies">Software Dependencies</a>
+    <li><a href="#label-Back+Office+Use">Back Office Use</a>
+    <li><a href="#label-Statement">Statement</a>
+    <li><a href="#label-Statement+Components">Statement Components</a>
+    <li><a href="#label-DealLegFill+-+Execution+Reports+-+Fills">DealLegFill - Execution Reports - Fills</a>
+    <li><a href="#label-PositionNetting+-+Offsets">PositionNetting - Offsets</a>
+    <li><a href="#label-Position">Position</a>
+    <li><a href="#label-Charge">Charge</a>
+    <li><a href="#label-Adjustment">Adjustment</a>
+    <li><a href="#label-MoneyLine">MoneyLine</a>
+    <li><a href="#label-Statement+Information+Access">Statement Information Access</a>
+    <li><a href="#label-Screen">Screen</a>
+    <li><a href="#label-Print">Print</a>
+    <li><a href="#label-Regulatory+Reports">Regulatory Reports</a>
+    <li><a href="#label-CFTC">CFTC</a>
+    <li><a href="#label-CME">CME</a>
+    <li><a href="#label-Back+Office+Reports">Back Office Reports</a>
+    <li><a href="#label-Cash+Enteries+-26+Adjustments+-+Cash+Cards">Cash Enteries &amp; Adjustments - Cash Cards</a>
+    <li><a href="#label-Trade+Enteries+-+Trade+Cards">Trade Enteries - Trade Cards</a>
+    <li><a href="#label-Position+Transfers">Position Transfers</a>
+    <li><a href="#label-Data+Maintenance">Data Maintenance</a>
+    <li><a href="#label-Accounts+-26+Account+Aliases">Accounts &amp; Account Aliases</a>
+    <li><a href="#label-Charges">Charges</a>
+    <li><a href="#label-Claims+-26+Claim+Aliases">Claims &amp; Claim Aliases</a>
+    <li><a href="#label-Front+Office+Use">Front Office Use</a>
+    <li><a href="#label-Operations">Operations</a>
+    <li><a href="#label-Clone">Clone</a>
+    <li><a href="#label-Database">Database</a>
+    <li><a href="#label-Creation">Creation</a>
+    <li><a href="#label-Initialization">Initialization</a>
+    <li><a href="#label-Configuration">Configuration</a>
+    <li><a href="#label-How+to+run+the+test+suite">How to run the test suite</a>
+    <li><a href="#label-Services+-28job+queues-2C+cache+servers-2C+search+engines-2C+etc.-29">Services (job queues, cache servers, search engines, etc.)</a>
+    <li><a href="#label-Deployment+instructions">Deployment instructions</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-Overview">Overview<span><a href="#label-Overview">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><code>rake doc:app</code></p>
+
+<p>The application supports accounting, regulatory reporting, light trade
+analytics and risk management duties.</p>
+
+<p>Information is extracted from files provided by the CME and ABN.</p>
+
+<h1 id="label-Institutional+Interactions">Institutional Interactions<span><a href="#label-Institutional+Interactions">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>The Commodity Futures Trading Commission</p>
+</li><li>
+<p>The Chicago Mercantile Exchange Group</p>
+</li><li>
+<p>ABN AMRO Clearing Corp.</p>
+</li><li>
+<p>Quandl Inc.</p>
+</li><li>
+<p>Linode LLC</p>
+</li></ul>
+
+<h1 id="label-Software+Dependencies">Software Dependencies<span><a href="#label-Software+Dependencies">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Ruby version 2.2.2</p>
+</li><li>
+<p>Rails version 4.2.3</p>
+</li><li>
+<p>PostgreSQL version 9.5</p>
+</li><li>
+<p>RabbitMQ version 3.6</p>
+</li><li>
+<p>Linux - Ubuntu 16.04 LTS</p>
+</li></ul>
+
+<h1 id="label-Back+Office+Use">Back Office Use<span><a href="#label-Back+Office+Use">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Statement">Statement<span><a href="#label-Statement">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The fundamental accounting document is the statement. It represents all
+account activity including execution reports, position netting, positions,
+charges, adjustments, and money balances.</p>
+
+<p>Driving abstractions are account and claim. A claim is a multi-party
+(usually bilateral) contract that defines a collection of rules
+(obligations and/or expectations) by which claim valued is determined for
+each party. An account is a kind-of claim container.</p>
+
+<p>Parties enter and exit claims with associated account consequences, e.g.,
+accrual of transaction expenses and the recognition of claim value
+variation.</p>
+
+<h3 id="label-Statement+Components">Statement Components<span><a href="#label-Statement+Components">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-DealLegFill+-+Execution+Reports+-+Fills"><a href="DealLegFill.html">DealLegFill</a> - Execution Reports - Fills<span><a href="#label-DealLegFill+-+Execution+Reports+-+Fills">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Execution reports are the consequence of order execution through pit or
+electronic order matching. The statement fragment shown below notes the
+account and claims for which reports were received on a particular day -
+the Posted date. Reports may be posted for days other than that on which
+they were traded - showing different Posted and Traded dates</p>
+
+<p>The quantity of claims exchanged is shown and Bot, Sld and Net. The
+statement fragment shows two claims: 2 Year Note futures with expirations
+in June and September of 2017. The account was a buyer and seller of both
+claims but left with a net position to receive 32 of the June 2 Years and
+deliviver 32 of the September 2 Years.</p>
+
+<p>Two prices are represented in the statement fragment: Traded and Decimal.
+Some claims are traded with fractional prices, some with decimal prices.
+The statement shows both because the price traded is visible basis for the
+exchange. The decimal price is the used for accounting computation and
+derived from an conventional interpreation of the traded price.</p>
+
+<p>The September 2 Year activity shows two Traded prices: 108-070 and 108-072.
+The digits to the left side of the dash is “the handle” and those to the
+right called “the tail”. The handle, in this instance, is the whole number
+percentage of par that will be paid for the Note. The tail portion is the
+fractional percentage of part to be paid. The tail is expressed in 32 in
+terms of 32nds with the right-most digit representing a fraction of a 32nd.
+The fractional representation of 070 means 7 32nds and 072 means 7-1/4
+32nds.</p>
+
+<p>A position in a claim is due to the accumulation of claim exchanges for
+receipt and delivery. The reports below shows recipt of 41 units and
+delivery of 9 units leaving a net position of 32 units of June for receipt.
+The inverse is shown for September, leaving the account with 32 units of
+June to deliver.</p>
+
+<pre>    Posted     Traded    Account                                                        Claim      Bot      Sld      Net       Traded      Decimal
+
+2017-05-22 2017-05-22      54321                                   2 Yr Note Futures Jun 2017       41        9       32      108-110  108.3437500
+                                                                                                    41        9       32
+
+2017-05-22 2017-05-22      54321                                   2 Yr Note Futures Sep 2017        9        0        9      108-070  108.2187500
+2017-05-22 2017-05-22      54321                                   2 Yr Note Futures Sep 2017        0       41      -41      108-072  108.2265625
+                                                                                                     9       41      -32</pre>
+
+<h4 id="label-PositionNetting+-+Offsets"><a href="PositionNetting.html">PositionNetting</a> - Offsets<span><a href="#label-PositionNetting+-+Offsets">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>On any legal day of exchange, claims contracted for receipt and delivery
+may be netted through cancelation of offsetting claim positions.</p>
+
+<p>The execution reports above show 41 units of June contracted for receipt
+and 9 units of June contracted for delivery.The net claim responsibility is
+receipt of 32 June. The differences between 41 and 32 is derived from
+offsetting 9 of 41 claim units through cancellation.</p>
+
+<p>The following position netting fragment shows 9 units of both June and
+September offset. The difference in prices paid and received can result in
+a profit or loss realized during offset. June was contracted for receipt
+and delivery at the same price of 108-110 so offset generated neither a
+profit nor a loss. September was contracted for receipt at 108-070 and
+delivery at 108-072 for a 1/4 32nd difference in price, generating a 140.67
+USD profit.</p>
+
+<pre>    Posted    Account                                                             Claim How          Bot          Sld       Done            PnL CCY
+
+2017-05-22      54321                                        2 Yr Note Futures Jun 2017 SCH      108-110      108-110          9           0.00 USD
+                                                                                                                               9           0.00
+
+2017-05-22      54321                                        2 Yr Note Futures Sep 2017 DAY      108-070      108-072          9         140.67 USD
+                                                                                                                               9         140.67</pre>
+
+<h4 id="label-Position"><a href="Position.html">Position</a><span><a href="#label-Position">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The exchange of claims generates claim positions. The netting of positions
+may result in carried claims - also called open positions. The following
+statement fragment shows open positions in June and September. The account
+remains contracted to receive 32 June at a price of 108-110 and deliver 32
+September at a price of 108-072.</p>
+
+<p>Carried positions are subject to change in value with a settlement price
+marked for each claim each session. June is marked at 108-110 and September
+at 108-07 (108.2187500). Open Trade Euqity (OTE) indicates the variation in
+the value of the carried position given position size, price and mark. The
+September mark is below the contracted delivery price and implies a
+possible profit of 500.16 USD as OTE.</p>
+
+<pre>    Posted     Traded    Account                                              Claim    Bot    Sld    Net        Price         Mark          OTE CCY
+
+2017-05-22 2017-05-22      54321                         2 Yr Note Futures Jun 2017     32      0     32      108-110  108.3437500         0.00 USD
+                                                                                        32      0      0                                   0.00
+
+2017-05-22 2017-05-22      54321                         2 Yr Note Futures Sep 2017      0     32    -32      108-072  108.2187500       500.16 USD
+                                                                                         0     32      0</pre>
+
+<h4 id="label-Charge"><a href="Charge.html">Charge</a><span><a href="#label-Charge">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The contracting claims has costs. The statement fragment below reflects
+service (SRV) and exchange (EXG) transaction costs incurred by the account
+on the date posted. SRV charges were assessed at 0.035 USD per unit. EXG
+charges were assessed at 0.12 USD per unit.</p>
+
+<pre>  Posted    Account                                                                                                        Memo       Amount CCY
+
+2017-05-22      54321                                                             2 Yr Note Futures Jun 2017 50 at 0.035 USD SRV         -1.75 USD
+2017-05-22      54321                                                              2 Yr Note Futures Jun 2017 50 at 0.12 USD EXG         -6.00 USD
+
+2017-05-22      54321                                                             2 Yr Note Futures Sep 2017 50 at 0.035 USD SRV         -1.75 USD
+2017-05-22      54321                                                              2 Yr Note Futures Sep 2017 50 at 0.12 USD EXG         -6.00 USD</pre>
+
+<h4 id="label-Adjustment"><a href="Adjustment.html">Adjustment</a><span><a href="#label-Adjustment">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Cash adjustments may be entered for an account that reflects an external
+accounting events such as credits or debits outside the system, e.g., the
+rebate shown below. Adjustments may also reflect setup errors within the
+system, e.g., incorrect definition of a EXG unit cost.</p>
+
+<pre>    Posted    Account                                                         Memo     Amount CCY
+2017-05-22      54321                         Trader Development Rebate March 2017     548.00 EUR
+2017-05-22      54321              To adjust for incorrect coding of Exchange fees       0.02 USD</pre>
+
+<h4 id="label-MoneyLine"><a href="MoneyLine.html">MoneyLine</a><span><a href="#label-MoneyLine">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Moeny balances are are deived from claim exchange, offset, charges and
+adjustments in the currency balances held as appropriate to the accounted
+events. Each day, an account has a begnning balance from which a ledger
+balance is computed via the application of charges, adjustments and
+realized profit and loss. A net liquidating balance is computed with the
+application of OTE and cash to the ledger balance. Fianlly, a base currency
+balance in USD is computed using the sum of held balances adjusted to
+reflect current foreign exchange rates.</p>
+
+<p><a href="Ledger.html">Ledger</a> Balance = Beginning + Charges +
+Adjustments + Profit or Loss</p>
+
+<p>Net Liquidating Balance = <a href="Ledger.html">Ledger</a> Balance + OTE +
+Cash</p>
+
+<pre>    Posted    Account CCY  Seg Kind      Begin    Charges        Adj        PnL     Ledger        OTE       Cash        Net        Mark
+
+2017-05-22      54321 EUR SEGN HELD   -1727.29       0.00     548.00       0.00   -1179.29       0.00   -1179.29   -1179.29    1.125000
+2017-05-22      54321 USD SEGN HELD   65665.00    -333.51       0.02     772.04   66103.55     494.16   66597.71   66597.71    1.000000
+2017-05-22      54321 USD SEGB BASE   63721.80    -333.51     616.52     772.04   64776.85     494.16   65271.01   65271.01</pre>
+
+<h3 id="label-Statement+Information+Access">Statement Information Access<span><a href="#label-Statement+Information+Access">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The web user interface is the principal way through which statement
+information is accessed. Information can be shown on-screen or via PDF and
+TXT file downloads. Screen presentation allows for CSV, XML and JSON
+representation download also.</p>
+
+<h4 id="label-Screen">Screen<span><a href="#label-Screen">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Statement information can be found for screen presentation at links similar
+to the following.</p>
+<ul><li>
+<p>Executions - <a
+href="http://jackijack.com/admin/statement_deal_leg_fills">jackijack.com/admin/statement_deal_leg_fills</a></p>
+</li><li>
+<p>Nettings - <a
+href="http://jackijack.com/admin/statement_position_nettings">jackijack.com/admin/statement_position_nettings</a></p>
+</li><li>
+<p>Positions -<a
+href="http://jackijack.com/admin/statement_positions">jackijack.com/admin/statement_positions</a></p>
+</li><li>
+<p>Charges - <a
+href="http://jackijack.com/admin/statement_charges">jackijack.com/admin/statement_charges</a></p>
+</li><li>
+<p>Adjustments - <a
+href="http://jackijack.com/admin/statement_adjustments">jackijack.com/admin/statement_adjustments</a></p>
+</li><li>
+<p>Balances - <a
+href="https://jackijack.com/admin/statement_money_lines">jackijack.com/admin/statement_money_lines</a></p>
+</li></ul>
+
+<h4 id="label-Print">Print<span><a href="#label-Print">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Statement components assembled into PDF and TXT documents can be found via
+the Reports page <a
+href="http://jackijack.com/admin/reports">jackijack.com/admin/reports</a>.</p>
+
+<p>Select filter with the following options for PDF representations of all
+daily account statements.</p>
+<ul><li>
+<p><a href="Report.html">Report</a> Type: daily_account_statement</p>
+</li><li>
+<p>Format Type: PDF</p>
+</li></ul>
+
+<p>The set of reports can be further reduced using the following options.</p>
+<ul><li>
+<p>Memo: Contains &lt;account number&gt;</p>
+</li><li>
+<p>Posted On: first date - last date</p>
+</li></ul>
+
+<h2 id="label-Regulatory+Reports">Regulatory Reports<span><a href="#label-Regulatory+Reports">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-CFTC">CFTC<span><a href="#label-CFTC">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h3 id="label-CME">CME<span><a href="#label-CME">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h2 id="label-Back+Office+Reports">Back Office Reports<span><a href="#label-Back+Office+Reports">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h2 id="label-Cash+Enteries+-26+Adjustments+-+Cash+Cards">Cash Enteries &amp; Adjustments - Cash Cards<span><a href="#label-Cash+Enteries+-26+Adjustments+-+Cash+Cards">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>An credit or debit that to account for an error can be recorded by filling
+outt he form at NEED AN IMAGE URL.</p>
+
+<p>“<img
+src="http://s3.amazonaws.com/quietus_production/images/articles/14361/Slowdive_press_one_1390918257_crop_550x369.jpg"
+/>”</p>
+
+<p>Set the following properties.</p>
+<ul><li>
+<p>AdjustmentType: dropdown</p>
+</li><li>
+<p><a href="Account.html">Account</a> : dropdown</p>
+</li><li>
+<p>Currency: dropdown</p>
+</li><li>
+<p>Segregation: dropdown</p>
+</li><li>
+<p>Amount: signed decimal</p>
+</li><li>
+<p>Posted On: date select</p>
+</li><li>
+<p>As of On: date select (optional)</p>
+</li><li>
+<p>Memo: reason/description</p>
+</li></ul>
+
+<p>The adjustment will be visible through the <a
+href="Adjustment.html">Adjustment</a> URL <a
+href="https://jackijack.com/admin/adjustments">jackijack.com/admin/adjustments</a>.</p>
+
+<p>Recording cash credits of debits driven by reasons other than error
+rectification can be made in the same way.</p>
+
+<h2 id="label-Trade+Enteries+-+Trade+Cards">Trade Enteries - Trade Cards<span><a href="#label-Trade+Enteries+-+Trade+Cards">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Accounting for claim exchange (trade) outside the pits or matching systems
+requires <a href="DealLegFill.html">DealLegFill</a> creation via the URL.</p>
+
+<p><a
+href="https://jackijack.com/admin/deal_leg_fills/new">jackijack.com/admin/deal_leg_fills/new</a></p>
+
+<p>Set the following properties.</p>
+<ul><li>
+<p><a href="System.html">System</a> - dropdown - BKO for Back Office enteries</p>
+</li><li>
+<p>Dealing Venue - dropdown</p>
+</li><li>
+<p><a href="Account.html">Account</a> - dropdown</p>
+</li><li>
+<p><a href="Claim.html">Claim</a> - dropdown</p>
+</li><li>
+<p>Done - signed quantity of <a href="Claim.html">Claim</a> units</p>
+</li><li>
+<p>Price - decimal price</p>
+</li><li>
+<p>Price Traded - price as traded</p>
+</li><li>
+<p>Posted On: date selection</p>
+</li><li>
+<p>Traded On: date selection</p>
+</li></ul>
+
+<p>For fractionally traded claims the following guidlines are offered.</p>
+<ul><li>
+<p>CBT Soybeans, Corn, Wheat and KC Wheat with a decimal price of 3.6025 will
+have a traded price of 3.602, for 3.60-1/4.</p>
+</li><li>
+<p>CBT Coupon Treasury Notes and Bonds will have traded prices like 108-047
+witha decimal representation of 108.1484375.</p>
+</li></ul>
+
+<p>Note that coupon prices have three digits for the tail.</p>
+
+<h2 id="label-Position+Transfers"><a href="Position.html">Position</a> Transfers<span><a href="#label-Position+Transfers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A position transfer is just that: the transfer of a position from one
+account to another. It is not a trade entry.</p>
+
+<p><a href="Position.html">Position</a> transfer includes transfer of all
+econimic characteristics of the original exchange - dates and price - with
+their accounting consequences. OTE for the transfered position will be
+derived from the original prices.</p>
+
+<p>Transfer of a position includes a signed quantity of the associated <a
+href="Claim.html">Claim</a> and the associated original price and dates.</p>
+
+<p><a
+href="https://jackijack.com/admin/position_transfers/new">jackijack.com/admin/position_transfers/new</a></p>
+
+<p>Set the following properties.</p>
+<ul><li>
+<p>fm_position_id :integer          not null</p>
+</li><li>
+<p>to_position_id :integer          not null</p>
+</li><li>
+<p>bot_transfered :decimal(, )      not null</p>
+</li><li>
+<p>sld_transfered :decimal(, )      not null</p>
+</li><li>
+<p>user_id        :integer          not null</p>
+</li></ul>
+
+<h2 id="label-Data+Maintenance">Data Maintenance<span><a href="#label-Data+Maintenance">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Accounts+-26+Account+Aliases">Accounts &amp; <a href="Account.html">Account</a> Aliases<span><a href="#label-Accounts+-26+Account+Aliases">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h3 id="label-Charges">Charges<span><a href="#label-Charges">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h3 id="label-Claims+-26+Claim+Aliases">Claims &amp; <a href="Claim.html">Claim</a> Aliases<span><a href="#label-Claims+-26+Claim+Aliases">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h1 id="label-Front+Office+Use">Front Office Use<span><a href="#label-Front+Office+Use">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-Operations">Operations<span><a href="#label-Operations">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-Clone">Clone<span><a href="#label-Clone">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-Database">Database<span><a href="#label-Database">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Creation">Creation<span><a href="#label-Creation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h2 id="label-Initialization">Initialization<span><a href="#label-Initialization">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h1 id="label-Configuration">Configuration<span><a href="#label-Configuration">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-How+to+run+the+test+suite">How to run the test suite<span><a href="#label-How+to+run+the+test+suite">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-Services+-28job+queues-2C+cache+servers-2C+search+engines-2C+etc.-29">Services (job queues, cache servers, search engines, etc.)<span><a href="#label-Services+-28job+queues-2C+cache+servers-2C+search+engines-2C+etc.-29">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="label-Deployment+instructions">Deployment instructions<span><a href="#label-Deployment+instructions">&para;</a> <a href="#top">&uarr;</a></span></h1>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

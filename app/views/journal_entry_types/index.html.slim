@@ -1,0 +1,23 @@
+h1 Listing journal_entry_types
+
+.btn.btn-default = link_to 'New Journal entry type', new_journal_entry_type_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @journal_entry_types.each do |journal_entry_type|
+          tr
+            td = journal_entry_type.code
+            td = journal_entry_type.name
+            td = link_to 'Show', journal_entry_type
+            td = link_to 'Edit', edit_journal_entry_type_path(journal_entry_type)
+            td = link_to 'Destroy', journal_entry_type, data: {:confirm => 'Are you sure?'}, :method => :delete

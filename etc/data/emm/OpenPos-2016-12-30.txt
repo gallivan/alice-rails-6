@@ -1,0 +1,190 @@
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      1
+330  EAGLE MARKET MAKERS, INC                                                     ORIGIN: 2                                                                 RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                   CBT - CHICAGO BOARD OF TRADE                                                       RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+*********************************************************************
+* USD 06         SOYBEAN MEAL FUTURES                               *
+*********************************************************************
+
+  MAR17                                             00005             8                    316.60                      -1,920.00
+                                                                      8*         * MATURITY: 20170314                  -1,920.00*
+
+  MAY17                                             00005                       8          319.20                       2,240.00
+                                                                       *        8* MATURITY: 20170512                   2,240.00*
+
+*********************************************************************
+* USD 07         SOYBEAN OIL FUTURES                                *
+*********************************************************************
+
+  MAR17                                             00002            94                     34.66                     -25,122.00
+  MAR17                                             00071           163                     34.66                     -12,714.00
+  MAR17                                             00077           174                     34.66                      -1,356.00
+  MAR17                                             00333                      26           34.66                       2,028.00
+  MAR17                                             00525            26                     34.66                      -2,028.00
+  MAR17                                             00708           200                     34.66                     -15,600.00
+  MAR17                                             00877                      48           34.66                       3,744.00
+  MAR17                                             39009                     101           34.66                       7,878.00
+                                                                    657*      175* MATURITY: 20170314                 -43,170.00*
+
+  MAY17                                             00002                      94           34.92                      36,936.00
+  MAY17                                             00071                     163           34.92                      12,714.00
+  MAY17                                             00077                     174           34.92                       2,598.00
+  MAY17                                             00333            26                     34.92                      -1,878.00
+  MAY17                                             00525                      26           34.92                       2,028.00
+  MAY17                                             00708                     200           34.92                      15,600.00
+  MAY17                                             00877            48                     34.92                      -3,744.00
+  MAY17                                             39009           101                     34.92                      -7,878.00
+                                                                    175*      657* MATURITY: 20170512                  56,376.00*
+
+*********************************************************************
+* USD C          CORN FUTURES                                       *
+*********************************************************************
+
+  MAR17                                             00002                       3            3.52                        -337.50
+  MAR17                                             00099                       3            3.52                         375.00
+  MAR17                                             00333                      26            3.52                      -2,925.00
+  MAR17                                             00429                      16            3.52                         225.00
+  MAR17                                             00525             1                      3.52                         -12.50
+  MAR17                                             00708                      25            3.52                      -2,812.50
+  MAR17                                             01986                      20            3.52                      -2,250.00
+  MAR17                                             05520            10                      3.52                       1,125.00
+                                                                     11*       93* MATURITY: 20170314                  -6,612.50*
+
+  MAY17                                             00099                      32            3.57 1/2                  -2,800.00
+  MAY17                                             00333                      14            3.57 1/2                  -1,100.00
+  MAY17                                             00429             4                      3.57 1/2                    -112.50
+  MAY17                                             00525                       4            3.57 1/2                     -62.50
+  MAY17                                             05520                      10            3.57 1/2                  -1,000.00
+
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      2
+330  EAGLE MARKET MAKERS, INC                                                     ORIGIN: 2                                                                 RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                   CBT - CHICAGO BOARD OF TRADE                                                       RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+*********************************************************************
+* USD C          CORN FUTURES                                       *
+*********************************************************************
+
+                                                                      4*       60* MATURITY: 20170512                  -5,075.00*
+
+  JUL17                                             00002             3                      3.64 1/4                     225.00
+  JUL17                                             00099            28                      3.64 1/4                   2,375.00
+  JUL17                                             00429            12                      3.64 1/4                     862.50
+  JUL17                                             00525             3                      3.64 1/4                     225.00
+  JUL17                                             00708            25                      3.64 1/4                   2,500.00
+  JUL17                                             00902             1                      3.64 1/4                      62.50
+  JUL17                                             01986            20                      3.64 1/4                   1,500.00
+                                                                     92*         * MATURITY: 20170714                   7,750.00*
+
+  SEP17                                             00099             7                      3.71 1/4                     437.50
+  SEP17                                             00333            40                      3.71 1/4                   2,000.00
+  SEP17                                             00902                       1            3.71 1/4                     -50.00
+                                                                     47*        1* MATURITY: 20170914                   2,387.50*
+
+*********************************************************************
+* USD KW         KC HARD RED WINTER WHEAT FUTURES                   *
+*********************************************************************
+
+  MAR17                                             00005                      10            4.18 1/2                  -1,625.00
+  MAR17                                             00455            16                      4.18 1/2                   7,200.00
+  MAR17                                             00624                       5            4.18 1/2                    -812.50
+  MAR17                                             88888                       1            4.18 1/2                      12.50
+                                                                     16*       16* MATURITY: 20170314                   4,775.00*
+
+  MAY17                                             00005            11                      4.30                       1,650.00
+  MAY17                                             00455            16                      4.30                       2,400.00
+  MAY17                                             00624             5                      4.30                         862.50
+  MAY17                                             88888             1                      4.30                         -12.50
+                                                                     33*         * MATURITY: 20170512                   4,900.00*
+
+  JUL17                                             00005                       1            4.41 1/4                    -150.00
+  JUL17                                             00455                      32            4.41 1/4                  -5,175.00
+                                                                       *       33* MATURITY: 20170714                  -5,325.00*
+
+*********************************************************************
+* USD S          SOYBEAN FUTURES                                    *
+*********************************************************************
+
+  MAR17                                             00333            40                     10.04                     -17,500.00
+  MAR17                                             00429            20                     10.04                      -9,500.00
+                                                                     60*         * MATURITY: 20170314                 -27,000.00*
+
+  MAY17                                             00005             3                     10.12 1/2                  -1,350.00
+  MAY17                                             00333                      20           10.12 1/2                   8,750.00
+  MAY17                                             00877             1                     10.12 1/2                    -450.00
+
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      3
+330  EAGLE MARKET MAKERS, INC                                                     ORIGIN: 2                                                                 RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                   CBT - CHICAGO BOARD OF TRADE                                                       RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+*********************************************************************
+* USD S          SOYBEAN FUTURES                                    *
+*********************************************************************
+
+                                                                      4*       20* MATURITY: 20170512                   6,950.00*
+
+  JUL17                                             00005                       3           10.19                       1,350.00
+  JUL17                                             00333                      20           10.19                       9,000.00
+  JUL17                                             00429                      20           10.19                       9,000.00
+  JUL17                                             00877                       1           10.19                         437.50
+                                                                       *       44* MATURITY: 20170714                  19,787.50*
+
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      4
+330  EAGLE MARKET MAKERS, INC                                                  EXCHANGE TOTALS                                                              RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                   CBT - CHICAGO BOARD OF TRADE                                                       RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+                                                                                   ORIGIN 2 TOTALS USD                 16,063.50
+
+                                                                                   TOTAL USD                           16,063.50*
+
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      5
+330  EAGLE MARKET MAKERS, INC                                                     ORIGIN: 2                                                                 RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                CME - CHICAGO MERCANTILE EXCHANGE                                                     RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+*********************************************************************
+* USD ED         EURODOLLAR FUTURES                                 *
+*********************************************************************
+
+  SEP18                                             00525                     124           98.1250                    -7,750.00
+                                                                       *      124* MATURITY: 20180917                  -7,750.00*
+
+  DEC18                                             00525           124                     98.0000                     9,300.00
+                                                                    124*         * MATURITY: 20181217                   9,300.00*
+
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      6
+330  EAGLE MARKET MAKERS, INC                                                  EXCHANGE TOTALS                                                              RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                CME - CHICAGO MERCANTILE EXCHANGE                                                     RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+                                                                                   ORIGIN 2 TOTALS USD                  1,550.00
+
+                                                                                   TOTAL USD                            1,550.00*
+
+OPENPOSITIONSBYEXCHANGESUMMARY3                                     OPEN POSITIONS BY EXCHANGE SUMMARY #3                                                         PAGE:      7
+330  EAGLE MARKET MAKERS, INC                                                    FIRM TOTALS                                                                RUN DATE: 20161230
+CREATED FOR: Friday, December 30, 2016                                                                                                                      RUN TIME: 20:06:55
+
+        P
+EX DATE C        STRIKE PRICE OFFICE     SALESMAN   ACCOUNT        LONG     SHORT     SETTLEMENT PRICE          O.T.E. / PREMIUM
+------- - ------------------- ---------- ---------- ---------- --------  --------  ------------------- -------------------------
+                                                                                   ORIGIN 2 TOTALS USD                 17,613.50
+
+                                                                                   TOTAL USD                           17,613.50*
+
+

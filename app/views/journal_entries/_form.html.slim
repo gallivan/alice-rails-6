@@ -1,0 +1,15 @@
+= simple_form_for(@journal_entry) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :account, collection: Account.select_options, include_blank: false
+    = f.association :journal, collection: Journal.select_options, include_blank: false
+    = f.association :journal_entry_type, collection: JournalEntryType.select_options, include_blank: false
+    = f.association :currency, collection: Currency.select_options, include_blank: false
+    = f.input :posted_on, as: :date_picker
+    = f.input :as_of_on, as: :date_picker
+    = f.input :amount
+    = f.input :memo
+
+  .form-actions
+    = f.button :submit

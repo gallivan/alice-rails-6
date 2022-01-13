@@ -1,0 +1,8 @@
+https://www.sitepoint.com/easy-admin-interfaces-active-admin-rails/
+
+# activeadmin proxy for views
+
+https://lorefnon.me/2014/07/13/presenting-sql-views-through-active-admin.html
+
+rails g model ChargesByExchangeAndPostedOnProxy
+rails g active_admin:resource ChargesByExchangeAndPostedOnProxy

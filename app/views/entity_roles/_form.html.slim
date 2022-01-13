@@ -1,0 +1,9 @@
+= simple_form_for(@entity_role) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :entity_id
+    = f.input :role_id
+
+  .form-actions
+    = f.button :submit

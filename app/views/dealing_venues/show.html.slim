@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Entity:
+  = @dealing_venue.entity_id
+p
+  strong Dealing venue type:
+  = @dealing_venue.dealing_venue_type_id
+p
+  strong Code:
+  = @dealing_venue.code
+p
+  strong Name:
+  = @dealing_venue.name
+
+= link_to 'Edit', edit_dealing_venue_path(@dealing_venue)
+'|
+= link_to 'Back', dealing_venues_path

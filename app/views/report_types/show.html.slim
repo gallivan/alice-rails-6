@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @report_type.code
+p
+  strong Name:
+  = @report_type.name
+
+= link_to 'Edit', edit_report_type_path(@report_type)
+'|
+= link_to 'Back', report_types_path

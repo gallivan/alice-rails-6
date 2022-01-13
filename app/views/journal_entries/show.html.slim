@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Journal:
+  = @journal_entry.journal.code
+p
+  strong Journal entry type:
+  = @journal_entry.journal_entry_type.code
+p
+  strong Account:
+  = @journal_entry.account.code
+p
+  strong Currency:
+  = @journal_entry.currency.code
+p
+  strong Posted on:
+  = @journal_entry.posted_on
+p
+  strong As of on:
+  = @journal_entry.as_of_on
+p
+  strong Amount:
+  = @journal_entry.amount
+p
+  strong Memo:
+  = @journal_entry.memo
+
+= link_to 'Edit', edit_journal_entry_path(@journal_entry)
+'|
+= link_to 'Back', journal_entries_path

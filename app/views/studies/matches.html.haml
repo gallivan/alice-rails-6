@@ -1,0 +1,245 @@
+- content_for :head do
+  = javascript_include_tag "crossfilter.min"
+  = javascript_include_tag "d3.v3.min"
+  = javascript_include_tag "dc"
+  = stylesheet_link_tag "studies"
+  = stylesheet_link_tag "dc"
+
+.row  style=("margin-left: 20px;" )
+  .col-md-12
+    div id="message"
+      div style=("position: fixed; top: 40%; width: 100%;font-size: 200%; text-align: left; z-index: 11;")
+        | running....
+
+.row
+  .col-md-12 id="reset-button"
+    input type="button" value=("Reset All")
+.row
+  .col-md-12 id="dc-page"
+  .row
+    /.large-4.column{:id => "dc-left"}
+    /  .row
+    /    .col-md-12{:id => "dc-chart-line-nets-cumsum"}
+    /  .row
+    /    .col-md-12{:id => "dc-chart-line-flow-cumsum"}
+    /  .row
+    /    .col-md-12{:id => "dc-chart-line-cost-cumsum"}
+    /  .row
+    /    .col-md-12{:id => "dc-chart-line-done-cumsum"}
+    .col-md-6 id="dc-center"
+      .row
+        .col-md-12 id="dc-chart-bar-nets-totals"
+      .row
+        .col-md-12 id="dc-chart-bar-flow-totals"
+      .row
+        .col-md-12 id="dc-chart-bar-cost-totals"
+      .row
+        .col-md-12 id="dc-chart-bar-done-totals"
+    .col-md-6 id="dc-right"
+      .row
+        .col-md-4 id="dc-chart-exch"
+        .col-md-4 id="dc-chart-team"
+      .row
+        .col-md-4 id="dc-chart-acct-nets"
+        .col-md-4 id="dc-chart-name-nets"
+
+.row id='timestamp'
+  .col-md-8
+    = Time.now.to_s(:alice_time_short)
+  .col-md-4
+
+:javascript
+  'use strict';
+
+  // http://www.codeproject.com/Articles/693841/Making-Dashboards-with-Dc-js-Part-1-Using-Crossfil
+
+  document.getElementById("reset-button").onclick = function () { dc.filterAll(); dc.renderAll(); };
+
+  console.log('begun at ' + Date());
+
+  function print_filter(filter){
+  	var f=eval(filter);
+  	if (typeof(f.length) != "undefined") {}else{}
+  	if (typeof(f.top) != "undefined") {f=f.top(Infinity);}else{}
+  	if (typeof(f.dimension) != "undefined") {f=f.dimension(function(d) { return "";}).top(Infinity);}else{}
+  	console.log(filter+"("+f.length+") = "+JSON.stringify(f).replace("[","[\n\t").replace(/}\,/g,"},\n\t").replace("]","\n]"));
+  }
+
+  function ringChart(divID, dimension, group){
+    var chart = dc.pieChart(divID);
+    chart
+      .width(100).height(100)
+      .dimension(dimension)
+      .group(group)
+      .innerRadius(15);
+  }
+
+  function rowChart(div, dimension, group){
+    var chart = dc.rowChart(div);
+    chart
+      .width(250)
+      .height(700)
+      .elasticX(true)
+      .transitionDuration(1500)
+      .margins({top: 50, right: 50, bottom: 60, left: 10})
+      .dimension(dimension)
+      .group(group);
+    chart.renderlet(function(){
+      d3.select(div).selectAll(".tick text").attr('transform', "translate(-30,25) rotate(-90)");
+    });
+  }
+
+  function barChart(div, dimension, group, minDate, maxDate, label){
+    var chart = dc.barChart(div);
+    chart
+      .width(400)
+      .height(200)
+      .elasticY(true)
+      .elasticX(true)
+      .transitionDuration(1500)
+      .margins({top: 5, right: 50, bottom: 60, left: 60})
+      .yAxisLabel(label)
+      .dimension(dimension)
+      .centerBar(true)
+      .gap(1)
+      .group(group)
+      .x(d3.time.scale().domain([minDate, maxDate]));
+    chart.renderlet(function(chart){
+      chart.selectAll("g.axis.x text").attr('transform', "translate(0,25) rotate(-65)");
+    });
+  }
+
+  function lineChart(div, dimension, group, minDate, maxDate, label){
+    var chart = dc.lineChart(div);
+    chart
+      .width(400)
+      .height(200)
+      .elasticY(true)
+      .elasticX(true)
+      .transitionDuration(1500)
+      .margins({top: 5, right: 50, bottom: 60, left: 50})
+      .yAxisLabel(label)
+      .dimension(dimension)
+      .group(group)
+      .x(d3.time.scale().domain([minDate, maxDate]));
+    chart.renderlet(function(chart){
+      chart.selectAll("g.axis.x text").attr('transform', "translate(0,25) rotate(-65)");
+    });
+  }
+
+  $("#timestamp").hide();
+  $("#reset-button").hide();
+
+  $("#dc-chart-exch").hide();
+  $("#dc-chart-team").hide();
+
+  $("#dc-chart-acct-nets").hide();
+  $("#dc-chart-name-nets").hide();
+
+  $("#dc-chart-bar-done-totals").hide();
+  $("#dc-chart-bar-flow-totals").hide();
+  $("#dc-chart-bar-cost-totals").hide();
+  $("#dc-chart-bar-nets-totals").hide();
+
+  //$("#dc-chart-line-nets-cumsum").hide();
+
+  var format = d3.time.format("%Y-%m-%d");
+
+  $("#message").html('selecting data....')
+
+  d3.json("/matches.json", function (data){
+    $("#message").html('processing data....')
+    data.forEach(function (d, i){
+      //console.log('++++');
+      //console.log(d);
+      d.post = format.parse(d.post);
+      d.hour = +d.hour;
+      d.done = +d.done;
+      d.flow = +d.flow;
+      d.cost = +d.cost;
+      d.nets =  d.flow + d.cost;
+      d.team = +d.team;
+      //if (i == 0){
+      //  d.netsCumSum = d.nets;
+      //}
+      //if (i > 0){
+      //  d.netsCumSum = data[i-1].netsCumSum + d.nets;
+      //}
+    });
+
+    //print_filter(data);
+
+    var facts = crossfilter(data);
+
+    var dateDimension = facts.dimension(function (d) { return d.post; });
+    var acctDimension = facts.dimension(function (d) { return d.acct; });
+    var exchDimension = facts.dimension(function (d) { return d.exch; });
+    var codeDimension = facts.dimension(function (d) { return d.code; });
+    var teamDimension = facts.dimension(function (d) { return d.team; });
+    var nameDimension = facts.dimension(function (d) { return d.name; });
+
+    print_filter(dateDimension.top(5));
+    print_filter(dateDimension.bottom(5));
+
+    console.log("Length of data: " + data.length);
+
+    var doneTotals = dateDimension.group().reduceSum(function (d) { return d.done; });
+    var flowTotals = dateDimension.group().reduceSum(function (d) { return d.flow; });
+    var costTotals = dateDimension.group().reduceSum(function (d) { return d.cost; });
+    var netsTotals = dateDimension.group().reduceSum(function (d) { return d.nets; });
+    var nameTotals = nameDimension.group().reduceSum(function (d) { return d.done; });
+
+    var acctTotals = acctDimension.group().reduceSum(function (d) { return d.done; });
+    var codeTotals = codeDimension.group().reduceSum(function (d) { return d.done; });
+    var exchTotals = exchDimension.group().reduceSum(function (d) { return d.done; });
+    var teamTotals = teamDimension.group().reduceSum(function (d) { return d.done; });
+
+    var acctNetsTotals = acctDimension.group().reduceSum(function (d) { return d.nets; });
+    var nameNetsTotals = nameDimension.group().reduceSum(function (d) { return d.nets; });
+
+    var netsCumSum = dateDimension.group().reduceSum(function (d) { return d.netsCumSum; });
+
+    var minDate = dateDimension.bottom(1)[0].post;
+    var maxDate = dateDimension.top(1)[0].post;
+
+    console.log(minDate);
+    console.log(maxDate);
+
+    ringChart("#dc-chart-team", teamDimension, teamTotals)
+    ringChart("#dc-chart-exch", exchDimension, exchTotals)
+
+    //rowChart("#dc-chart-acct", acctDimension, acctTotals);
+    rowChart("#dc-chart-acct-nets", acctDimension, acctNetsTotals);
+    rowChart("#dc-chart-name-nets", nameDimension, nameNetsTotals);
+
+    barChart("#dc-chart-bar-done-totals", dateDimension, doneTotals, minDate, maxDate, "Done");
+    barChart("#dc-chart-bar-flow-totals", dateDimension, flowTotals, minDate, maxDate, "Flow");
+    barChart("#dc-chart-bar-cost-totals", dateDimension, costTotals, minDate, maxDate, "Cost");
+    barChart("#dc-chart-bar-nets-totals", dateDimension, netsTotals, minDate, maxDate, "Net");
+
+    //lineChart("#dc-chart-line-nets-cumsum", dateDimension, netsCumSum, minDate, maxDate, "Net");
+
+    $("#message").html('done.')
+    $("#message").fadeOut();
+    $("#timestamp").show();
+    $("#reset-button").show();
+
+    $("#dc-chart-exch").show();
+    $("#dc-chart-team").show();
+
+    $("#dc-chart-acct-nets").show();
+    $("#dc-chart-name-nets").show();
+
+    $("#dc-chart-bar-done-totals").show();
+    $("#dc-chart-bar-flow-totals").show();
+    $("#dc-chart-bar-cost-totals").show();
+    $("#dc-chart-bar-nets-totals").show();
+
+    //$("#dc-chart-line-nets-cumsum").show();
+
+    dc.renderAll();
+
+    console.log('ended at ' + Date());
+  });
+
+

@@ -1,0 +1,36 @@
+h1 Listing positions
+
+== render 'search_form'
+
+.row
+  = paginate @positions
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          - names = %W(Account Posted Traded Claim Bot Sld Boff Soff Net Decimal Traded Mark Ote Currency Status)
+          - names.each do |name|
+            th class="text-right" = name
+          th
+
+      tbody
+        - @positions.each do |position|
+          tr
+            td class="text-right" = position.account.code
+            td class="text-right" = position.posted_on
+            td class="text-right" = position.traded_on
+            td class="text-right" = position.claim.code
+            td class="text-right" = number_with_delimiter(position.bot.to_int, delimiter: ',')
+            td class="text-right" = number_with_delimiter(position.sld.to_int, delimiter: ',')
+            td class="text-right" = number_with_delimiter(position.bot_off.to_int, delimiter: ',')
+            td class="text-right" = number_with_delimiter(position.sld_off.to_int, delimiter: ',')
+            td class="text-right" = number_with_delimiter(position.net.to_int, delimiter: ',')
+            td class="text-right" = position.price
+            td class="text-right" = position.price_traded
+            td class="text-right" = position.mark
+            td class="text-right" = position.ote
+            td class="text-right" = position.currency.code
+            td class="text-right" = position.position_status.code
+            td = link_to 'Show', position

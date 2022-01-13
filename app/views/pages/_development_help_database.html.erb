@@ -1,0 +1,60 @@
+<div>
+  <p>
+    Rails assumes a <a href="https://en.wikipedia.org/wiki/Relational_database">relational database</a> to
+    contain model data. Common options are PostfreSQL, MySQL and MariaDB. Alice uses PostgreSQL 9.5.
+  </p>
+</div>
+<h3><a name="database-conneciton">Connection</a></h3>
+<div>
+  <p>
+    Postgres connection setup takes place via pg_hba.conf found under /etc/postgresql on Unbuntu.
+  </p>
+  <p>
+    The 9.5 configuration shown will suffice for development work. Connecting to the DB will take place via
+    a
+    Unix
+    domain socket, IP4 or IP6. The DB is configure to run on the same host as the Alice instance it is
+    supporting.
+    More complex connection setup is not needed. This configuration is also used for integration and
+    staging.
+  </p>
+  <p>
+    <%= render "pages/database_connection_dev" %>
+  </p>
+  <p>
+    The production 9.5 configurations differ from non-production environments to support database streming
+    replication, covered below.
+  </p>
+  <p>
+    <%= render "pages/database_connection_prd" %>
+  </p>
+</div>
+<h3><a name="database-user-and-schema">User and Schema</a></h3>
+<div>
+  <p>
+    A connecting user is better thought of as a connecting role. A role is the thing to which
+    privileges can be attacned. The following commandlines create the role "alice". The databases
+    alice_development and alice_test are created with alice given all privileges.
+  </p>
+  <p>
+    <%= render "pages/database_user_and_db_creation" %>
+  </p>
+</div>
+<h3><a name="database-initialization">Initialization</a></h3>
+<div>
+  <p>
+    With the DB and the DB user created the DB schema can be created and base data inserted.
+  </p>
+
+  <p>
+    The rake command is used to run tasks for DB creation, data modification language execution and DB
+    seeding.
+  </p>
+  <%= render "pages/database_create_migrate_seed" %>
+</div>
+<h3><a name="database-replication">Replication</a></h3>
+<div>
+  <p>
+    todo - should be covered principally under Operations Help - as should dump/restore.
+  </p>
+</div>

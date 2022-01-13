@@ -1,0 +1,11 @@
+= simple_form_for(@dealing_venue) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :entity_id
+    = f.input :dealing_venue_type_id
+    = f.input :code
+    = f.input :name
+
+  .form-actions
+    = f.button :submit

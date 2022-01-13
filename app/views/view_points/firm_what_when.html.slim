@@ -1,0 +1,36 @@
+= render 'view_points/what_when_date_range_select'
+
+.row
+  .col-md-3
+    #dc-chart-exch
+  .col-md-3
+    #dc-chart-name-nets
+  .col-lg-6
+    .row
+      #dc-chart-bar-rats-totals.large-12.columns
+    .row
+      #dc-chart-bar-nets-totals.large-12.columns
+    .row
+      #dc-chart-bar-flow-totals.large-12.columns
+    .row
+      #dc-chart-bar-cost-totals.large-12.columns
+    .row
+      #dc-chart-bar-done-totals.large-12.columns
+
+javascript:
+    function onStartup() {
+        var _qtr = moment(new Date()).subtract(1, 'Q').toDate();
+        $("#startDate").datepicker({'autoclose': true, 'format': 'yyyy-mm-dd'});
+        $("#startDate").datepicker('setDate', _qtr);
+        $("#endDate").datepicker({'autoclose': true, 'format': 'yyyy-mm-dd'});
+        $("#endDate").datepicker('setDate', new Date());
+        plotGraph();
+    }
+
+    function plotGraph() {
+        var showWho = true;
+        var url = "/view_point/firm_what_when_range.json";
+        plotWhoWhatWhen(showWho, url, {"startDate": $('#startDate').val(), "endDate": $('#endDate').val()});
+    }
+
+    $(document).ready(onStartup);

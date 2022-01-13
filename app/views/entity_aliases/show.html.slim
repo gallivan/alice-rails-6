@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong System:
+  = @entity_alias.system_id
+p
+  strong Entity:
+  = @entity_alias.entity_id
+p
+  strong Code:
+  = @entity_alias.code
+
+= link_to 'Edit', edit_entity_alias_path(@entity_alias)
+'|
+= link_to 'Back', entity_aliases_path

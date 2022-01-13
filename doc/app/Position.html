@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Position - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-bot_and_sld_flat-3F">#bot_and_sld_flat?</a>
+    
+    <li ><a href="#method-i-bot_flat-3F">#bot_flat?</a>
+    
+    <li ><a href="#method-i-close-21">#close!</a>
+    
+    <li ><a href="#method-i-closed-3F">#closed?</a>
+    
+    <li ><a href="#method-i-compute_ote">#compute_ote</a>
+    
+    <li ><a href="#method-i-flat-3F">#flat?</a>
+    
+    <li ><a href="#method-i-net-21">#net!</a>
+    
+    <li ><a href="#method-i-open-3F">#open?</a>
+    
+    <li ><a href="#method-i-reverse_deal_leg_fill">#reverse_deal_leg_fill</a>
+    
+    <li ><a href="#method-i-sld_flat-3F">#sld_flat?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Position">
+  <h1 id="class-Position" class="class">
+    class Position
+  </h1>
+
+  <section class="description">
+    
+<h2 id="class-Position-label-Schema+Information">Schema Information<span><a href="#class-Position-label-Schema+Information">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Table name: positions</p>
+
+<pre>id                 :integer          not null, primary key
+account_id         :integer          not null
+claim_id           :integer          not null
+posted_on          :date             not null
+traded_on          :date             not null
+price              :decimal(, )      not null
+price_traded       :string           not null
+bot                :decimal(, )      default(0.0), not null
+sld                :decimal(, )      default(0.0), not null
+bot_off            :decimal(, )      default(0.0), not null
+sld_off            :decimal(, )      default(0.0), not null
+net                :decimal(, )      default(0.0), not null
+mark               :decimal(, )
+ote                :decimal(, )
+currency_id        :integer          not null
+position_status_id :integer          not null
+created_at         :datetime         not null
+updated_at         :datetime         not null</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bot_and_sld_flat-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bot_and_sld_flat?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bot_and_sld_flat-3F-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bot_and_sld_flat?</span>
+  <span class="ruby-identifier">bot_flat?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">sld_flat?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bot_flat-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bot_flat?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bot_flat-3F-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bot_flat?</span>
+  <span class="ruby-identifier">bot</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="close-21-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close!</span>
+  <span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:position_status</span>, <span class="ruby-constant">PositionStatus</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;CLO&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-closed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">closed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="closed-3F-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">closed?</span>
+  <span class="ruby-identifier">position_status</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;CLO&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compute_ote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compute_ote</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compute_ote-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compute_ote</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-comment"># puts &#39;*&#39; * 20</span>
+  <span class="ruby-comment"># puts self.inspect</span>
+  <span class="ruby-comment"># puts self.claim.inspect</span>
+
+  <span class="ruby-identifier">claim_mark</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_marks</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">mark</span> = <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">mark</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">bot</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">sld</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ote</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">mul</span> = <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">point_value</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">bot</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">pay</span> = (<span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">price</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mul</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>)).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+      <span class="ruby-identifier">rec</span> = (<span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mark</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mul</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>)).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ote</span> = (<span class="ruby-identifier">bot</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">rec</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">pay</span>)).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">sld</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">pay</span> = (<span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mark</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mul</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>)).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+      <span class="ruby-identifier">rec</span> = (<span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">price</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">BigDecimal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mul</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">16</span>)).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ote</span> = (<span class="ruby-identifier">sld</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">rec</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">pay</span>)).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># self.ote = bot * (mark - price) * claim.point_value if bot &gt; 0</span>
+    <span class="ruby-comment"># self.ote = sld * (price - mark) * claim.point_value if sld &gt; 0</span>
+    <span class="ruby-comment"># self.ote = self.ote.round(2)</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># puts &quot;posted_on: #{self.posted_on}&quot;</span>
+  <span class="ruby-comment"># puts &quot;claim.code: #{self.claim.code}&quot;</span>
+  <span class="ruby-comment"># puts &quot;bot: #{self.bot}&quot;</span>
+  <span class="ruby-comment"># puts &quot;sld: #{self.sld}&quot;</span>
+  <span class="ruby-comment"># puts &quot;price: #{self.price}&quot;</span>
+  <span class="ruby-comment"># puts &quot;mark: #{mark}&quot;</span>
+  <span class="ruby-comment"># puts &quot;claim.point_value: #{self.claim.point_value}&quot;</span>
+  <span class="ruby-comment"># puts &quot;ote: #{self.ote}&quot;</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">ote</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ote</span>, <span class="ruby-identifier">currency_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">mark</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mark</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flat-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flat?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="flat-3F-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flat?</span>
+  <span class="ruby-identifier">net</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-net-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">net!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="net-21-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">net!</span>
+  <span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:net</span>, <span class="ruby-identifier">bot</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">sld</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open-3F-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open?</span>
+  <span class="ruby-identifier">position_status</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;OPN&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reverse_deal_leg_fill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_deal_leg_fill</span><span
+            class="method-args">(deal_leg_fill)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reverse_deal_leg_fill-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_deal_leg_fill</span>(<span class="ruby-identifier">deal_leg_fill</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Position closed. Cannot reverse Position impact destroy DealLegFill.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Position bot smaller than DealLegFill done for bot. Cannot reverse Position impact and destroy DealLegFill.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span> <span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bot</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Position sld smaller than DealLegFill done for sld. Cannot reverse Position impact and destroy DealLegFill.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sld</span>
+
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:bot</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bot</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:sld</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sld</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">deal_leg_fill</span>.<span class="ruby-identifier">done</span>.<span class="ruby-identifier">abs</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:net</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bot</span> <span class="ruby-operator">-</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sld</span>)
+
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sld_flat-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sld_flat?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sld_flat-3F-source">
+            <pre><span class="ruby-comment"># File app/models/position.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sld_flat?</span>
+  <span class="ruby-identifier">sld</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

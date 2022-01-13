@@ -1,0 +1,34 @@
+// Place all the styles related to the ViewPoints controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//colors
+$black: black;
+
+//fonts
+$font_0: sans-serif;
+
+//@extend-elements
+//original selectors
+//.axis path, .axis line
+%extend_1 {
+  fill: none;
+  stroke: $black;
+  shape-rendering: crispEdges;
+}
+
+.axis {
+  path {
+    @extend %extend_1;
+  }
+  line {
+    @extend %extend_1;
+  }
+  text {
+    font-family: $font_0;
+    font-size: 11px;
+  }
+}
+
+.dc-chart g.row text {
+  fill: black;
+}

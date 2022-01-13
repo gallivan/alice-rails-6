@@ -1,0 +1,16 @@
+= simple_form_for(@statement_charge) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :posted_on
+    = f.input :stated_on
+    = f.input :account_id
+    = f.input :account_code
+    = f.input :charge_code
+    = f.input :journal_code
+    = f.input :currency_code
+    = f.input :amount
+    = f.input :memo
+
+  .form-actions
+    = f.button :submit

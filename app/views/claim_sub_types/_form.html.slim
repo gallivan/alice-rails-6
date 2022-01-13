@@ -1,0 +1,9 @@
+= simple_form_for(@claim_sub_type) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :code
+    = f.input :name
+
+  .form-actions
+    = f.button :submit

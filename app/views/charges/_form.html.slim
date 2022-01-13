@@ -1,0 +1,15 @@
+= simple_form_for(@charge) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :account_id
+    = f.input :chargeable_id
+    = f.input :currency_id
+    = f.input :segregation_id
+    = f.input :amount
+    = f.input :memo
+    = f.input :posted_on
+    = f.input :as_of_on
+
+  .form-actions
+    = f.button :submit

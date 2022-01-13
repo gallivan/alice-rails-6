@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Entity:
+  = @entity_role.entity_id
+p
+  strong Role:
+  = @entity_role.role_id
+
+= link_to 'Edit', edit_entity_role_path(@entity_role)
+'|
+= link_to 'Back', entity_roles_path

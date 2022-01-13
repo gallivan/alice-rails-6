@@ -1,0 +1,37 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @statement_deal_leg_fill.account_id
+p
+  strong Account code:
+  = @statement_deal_leg_fill.account_code
+p
+  strong Claim code:
+  = @statement_deal_leg_fill.claim_code
+p
+  strong Stated on:
+  = @statement_deal_leg_fill.stated_on
+p
+  strong Posted on:
+  = @statement_deal_leg_fill.posted_on
+p
+  strong Traded on:
+  = @statement_deal_leg_fill.traded_on
+p
+  strong Bot:
+  = @statement_deal_leg_fill.bot
+p
+  strong Sld:
+  = @statement_deal_leg_fill.sld
+p
+  strong Net:
+  = @statement_deal_leg_fill.net
+p
+  strong Price:
+  = @statement_deal_leg_fill.price
+p
+  strong Price traded:
+  = @statement_deal_leg_fill.price_traded
+
+= link_to 'Back', statement_deal_leg_fills_path

@@ -1,0 +1,59 @@
+<div id="wrapper" class="row">
+
+  <nav class="col-sm-2 well">
+    <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+      <li><a href="#wrapper">Top</a></li>
+      <li><a href="#Installation" data-scroll>Installation</a></li>
+      <ul>
+        <li><a href="#ubuntu" data-scroll>Ubuntu</a></li>
+        <li><a href="#rails" data-scroll>Ruby on Rails</a></li>
+      </ul>
+      <li><a href="#postgresql" data-scroll>PostgreSQL Setup</a></li>
+      <li><a href="#nginx-and-passenger" data-scroll>Nginx & Passenger</a></li>
+      <li><a href="#membached" data-scroll>Memcached</a></li>
+      <li><a href="#rabbitmq" data-scroll>RabbitMQ</a></li>
+
+      <li><a href="#cron" data-scroll>Cron</a></li>
+      <li><a href="#god" data-scroll>God</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="col-md-10 well">
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+
+      <h1 id="top">System Administration Help</h1>
+
+      <h2><a name="installation">Installation</a></h2>
+
+      <h3><a name="ubuntu">Ubuntu 18.04 LTS</a></h3>
+      <%= render "pages/system_administration_help_ubuntu" %>
+
+      <h3><a name="rails">Ruby on Rails</a></h3>
+      <%= render "pages/system_administration_help_rails" %>
+
+      <h2><a name="postgresql">PostgreSQL</a></h2>
+      <h3><a name="postgresql-database-installation">PostgreSQL Installation</a></h3>
+      <%= render "pages/system_administration_help_postgresql_installation" %>
+      <h3><a name="postgresql-database-setup">PostgreSQL Rails Databases Setup</a></h3>
+      <%= render "pages/system_administration_help_postgresql_setup" %>
+
+      <h2><a name="nginx-and-passenger">Nginx & Passenger</a></h2>
+      <%= render "pages/system_administration_help_nginx_and_passenger" %>
+
+      <h2><a name="membached">Memcached</a></h2>
+      <%= render "pages/system_administration_help_memcached" %>
+
+      <h2><a name="erlang">Erlang</a></h2>
+      <%= render "pages/system_administration_help_erlang" %>
+
+      <h2><a name="rabbitmq">RabbitMQ</a></h2>
+      <%= render "pages/system_administration_help_rabbitmq" %>
+
+      <h2><a name="god">God</a></h2>
+      <%= render "pages/system_administration_help_god" %>
+
+    </div>
+  </div>
+</div>

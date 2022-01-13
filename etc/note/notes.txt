@@ -1,0 +1,86 @@
+
+#
+# Additional Recommended Steps for New Ubuntu 14.04 Servers
+#
+
+https://www.digitalocean.com/community/tutorials/additional-recommended-steps-for-new-ubuntu-14-04-servers
+
+#
+# How To Install Chef and Ruby with RVM on a Ubuntu VPS
+#
+
+https://www.digitalocean.com/community/tutorials/how-to-install-chef-and-ruby-with-rvm-on-a-ubuntu-vps
+
+#
+# How To Use PostgreSQL with Your Ruby on Rails Application on Ubuntu 16.04
+#
+
+https://gorails.com/setup/ubuntu/16.04
+
+# development - rails 5
+https://www.howtoforge.com/tutorial/ruby-on-rails-ror-with-postgresql-on-ubuntu-16-04/
+
+#
+# development - rvm and rails only
+https://www.ostechnix.com/install-ruby-rails-ubuntu-16-04/
+
+# production
+
+# multi-page
+https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html
+
+# single page
+http://geekhmer.github.io/blog/2016/07/13/setup-and-deploy-ruby-on-rails-on-ubuntu-16-dot-04-or-latest/
+https://gorails.com/deploy/ubuntu/16.04
+
+# script-ish
+https://gist.github.com/melopilosyan/8bfb091d74c8bfe10bd0336c19894c1c
+https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/xenial/deploy_app.html
+
+#
+# Deploying a Rails 4 App with Capistrano 3, Nginx, and Passenger
+#
+
+RAILS_ENV=production bundle exec rake assets:precompile
+
+http://bobnisco.com/blog/view/capistrano-31-rails-4-rvm-simple-single-stage-configuration
+https://github.com/maxivak/deploy-rails-capistrano3
+
+#
+# JavaScript
+#
+
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+#
+# RabbitMQ
+#
+
+http://codetunes.com/2014/event-sourcing-on-rails-with-rabbitmq/
+
+#
+# date picker
+#
+
+http://stackoverflow.com/questions/15405703/rails-simple-form-bootstrap-and-datepicker
+
+#
+# Devise
+#
+
+user = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
+user.save
+
+#
+# R
+#
+
+https://sites.google.com/a/ddahl.org/rinruby-users/Home
+https://quickleft.com/blog/running-r-script-ruby-rails-app/
+
+#
+# FX yahoo
+#
+
+curl http://finance.yahoo.com/connection/currency-converter-cache?date=20150315

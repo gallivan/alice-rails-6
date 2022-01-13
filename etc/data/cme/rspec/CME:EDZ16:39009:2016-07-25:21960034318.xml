@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21960034318" TrdTyp="0" ExecID="04743720160725065812TN0005590" TrdDt="2016-07-25"
+              BizDt="2016-07-25"
+              MLegRptTyp="1" MtchStat="0" MsgEvtSrc="REG" TrdID="100971" LastQty="20" LastPx="99.085"
+              TxnTm="2016-07-25T06:58:12-05:00" SettlCcy="USD" SettlDt="2016-12-19" OrigTrdID="1561EEC09D4LTP0302DBE8C2"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="ED" Desc="EURODOLLAR FUTURES" CFI="FFDCSO" SecTyp="FUT" MMY="201612" MatDt="2016-12-19" Mult="2500"
+             Exch="CME" UOM="Ccy" UOMCcy="USD" UOMQty="1000000" PxUOM="IPNT" PxUOMQty="1" ValMeth="FUT" Fctr="1"
+             PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="500" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="70W6" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="N">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CME" R="22"></Pty>
+      <Pty ID="353" R="1"></Pty>
+      <Pty ID="39009" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="353" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="353" R="7"></Pty>
+      <RegTrdID ID="FECF1561EEC09D4LTP0302DBE8C4" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

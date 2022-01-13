@@ -1,0 +1,47 @@
+p#notice = notice
+
+p
+  strong Deal leg:
+  = @deal_leg_fill.deal_leg_id
+p
+  strong System:
+  = @deal_leg_fill.system.name
+p
+  strong Dealing venue:
+  = @deal_leg_fill.dealing_venue.name
+p
+  strong Dealing venue ID:
+  = @deal_leg_fill.dealing_venue_done_id
+p
+  strong Account:
+  = @deal_leg_fill.account.code
+p
+  strong Claim:
+  = @deal_leg_fill.claim.name
+p
+  strong Done:
+  = @deal_leg_fill.done
+p
+  strong Price:
+  = @deal_leg_fill.price
+p
+  strong Price traded:
+  = @deal_leg_fill.price_traded
+p
+  strong Posted on:
+  = @deal_leg_fill.posted_on
+p
+  strong Traded on:
+  = @deal_leg_fill.traded_on
+p
+  strong Traded at:
+  = @deal_leg_fill.traded_at
+p
+  strong Position:
+  = @deal_leg_fill.position_id
+p
+  strong Booker report:
+  = @deal_leg_fill.booker_report_id
+p
+
+= link_to 'Back', deal_leg_fills_path

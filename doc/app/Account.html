@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Account - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-select_options">::select_options</a>
+    
+    <li ><a href="#method-i-break_charge_journal_entries">#break_charge_journal_entries</a>
+    
+    <li ><a href="#method-i-build_adjustment_ledger_entry">#build_adjustment_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_base_balances">#build_base_balances</a>
+    
+    <li ><a href="#method-i-build_beginning_balance_ledger_entry">#build_beginning_balance_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_cash_ledger_entry">#build_cash_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_charge_journal_entries">#build_charge_journal_entries</a>
+    
+    <li ><a href="#method-i-build_charge_ledger_entry">#build_charge_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_filename">#build_filename</a>
+    
+    <li ><a href="#method-i-build_led_balance_ledger_entry">#build_led_balance_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_liq_balance_ledger_entry">#build_liq_balance_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_ote_ledger_entry">#build_ote_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_pnlfut_ledger_entry">#build_pnlfut_ledger_entry</a>
+    
+    <li ><a href="#method-i-build_position_nettings">#build_position_nettings</a>
+    
+    <li ><a href="#method-i-build_statement">#build_statement</a>
+    
+    <li ><a href="#method-i-build_statement_adjustments">#build_statement_adjustments</a>
+    
+    <li ><a href="#method-i-build_statement_charges">#build_statement_charges</a>
+    
+    <li ><a href="#method-i-build_statement_deal_leg_fills">#build_statement_deal_leg_fills</a>
+    
+    <li ><a href="#method-i-build_statement_money_lines">#build_statement_money_lines</a>
+    
+    <li ><a href="#method-i-build_statement_pdf">#build_statement_pdf</a>
+    
+    <li ><a href="#method-i-build_statement_position_nettings">#build_statement_position_nettings</a>
+    
+    <li ><a href="#method-i-build_statement_positions">#build_statement_positions</a>
+    
+    <li ><a href="#method-i-build_statement_report_pdf">#build_statement_report_pdf</a>
+    
+    <li ><a href="#method-i-build_statement_report_txt">#build_statement_report_txt</a>
+    
+    <li ><a href="#method-i-build_statement_txt">#build_statement_txt</a>
+    
+    <li ><a href="#method-i-check_env">#check_env</a>
+    
+    <li ><a href="#method-i-compute_ote_futures">#compute_ote_futures</a>
+    
+    <li ><a href="#method-i-display_name">#display_name</a>
+    
+    <li ><a href="#method-i-eod_for">#eod_for</a>
+    
+    <li ><a href="#method-i-get_claim_mark_for">#get_claim_mark_for</a>
+    
+    <li ><a href="#method-i-handle_fill">#handle_fill</a>
+    
+    <li ><a href="#method-i-post_marks">#post_marks</a>
+    
+    <li ><a href="#method-i-prior_ledger">#prior_ledger</a>
+    
+    <li ><a href="#method-i-reverse_eod_for">#reverse_eod_for</a>
+    
+    <li ><a href="#method-i-reverse_ote_futures">#reverse_ote_futures</a>
+    
+    <li ><a href="#method-i-section_header">#section_header</a>
+    
+    <li ><a href="#method-i-statement_adjustments_query">#statement_adjustments_query</a>
+    
+    <li ><a href="#method-i-statement_charges_query">#statement_charges_query</a>
+    
+    <li ><a href="#method-i-statement_deal_leg_fills_query">#statement_deal_leg_fills_query</a>
+    
+    <li ><a href="#method-i-statement_money_lines_query">#statement_money_lines_query</a>
+    
+    <li ><a href="#method-i-statement_position_nettings_query">#statement_position_nettings_query</a>
+    
+    <li ><a href="#method-i-statement_positions_query">#statement_positions_query</a>
+    
+    <li ><a href="#method-i-uncompute_ote_futures">#uncompute_ote_futures</a>
+    
+    <li ><a href="#method-i-wipe_statement">#wipe_statement</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Account">
+  <h1 id="class-Account" class="class">
+    class Account
+  </h1>
+
+  <section class="description">
+    
+<h2 id="class-Account-label-Schema+Information">Schema Information<span><a href="#class-Account-label-Schema+Information">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Table name: accounts</p>
+
+<pre>id              :integer          not null, primary key
+entity_id       :integer          not null
+account_type_id :integer          not null
+code            :string           not null
+name            :string           not null
+active          :boolean          default(TRUE), not null
+created_at      :datetime         not null
+updated_at      :datetime         not null</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-select_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select_options-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">select_options</span>
+  <span class="ruby-identifier">active</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;id, code&quot;</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:code</span>).<span class="ruby-identifier">all</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">a</span>.<span class="ruby-identifier">code</span>, <span class="ruby-identifier">a</span>.<span class="ruby-identifier">id</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-break_charge_journal_entries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">break_charge_journal_entries</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="break_charge_journal_entries-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">break_charge_journal_entries</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">charges</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_adjustment_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_adjustment_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_adjustment_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_adjustment_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">JournalEntry</span>.<span class="ruby-identifier">adjustments</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;ADJ&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_base_balances" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_base_balances</span><span
+            class="method-args">(posted_on)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_base_balances-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 419</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_base_balances</span>(<span class="ruby-identifier">posted_on</span>)
+  <span class="ruby-identifier">base</span> = <span class="ruby-identifier">money_lines</span>.<span class="ruby-identifier">base</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posted_on</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">delete</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">base</span> = <span class="ruby-constant">MoneyLine</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">account_id</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">currency_id</span> = <span class="ruby-constant">Currency</span>.<span class="ruby-identifier">usd</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">kind</span> = <span class="ruby-string">&#39;BASE&#39;</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">posted_on</span> = <span class="ruby-identifier">posted_on</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">beginning_balance</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">cash</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">fees</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">commissions</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">pnl_futures</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">pnl_options</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">adjustments</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">rebates</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">charges</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">ledger_balance</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">open_trade_equity</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">cash_account_balance</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">margin</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">long_option_value</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">short_option_value</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">net_option_value</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">net_liquidating_balance</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">b</span>.<span class="ruby-identifier">segregation</span> = <span class="ruby-constant">Segregation</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;SEGB&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">money_lines</span>.<span class="ruby-identifier">held</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posted_on</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">held</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mark</span> = <span class="ruby-identifier">held</span>.<span class="ruby-identifier">currency</span>.<span class="ruby-identifier">currency_marks</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posted_on</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">mark</span>
+    <span class="ruby-identifier">held</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">held</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">BigDecimal</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&#39;currency_mark&#39;</span>)
+      <span class="ruby-comment"># accumulate by currency held for each key</span>
+      <span class="ruby-identifier">base</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">base</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">+</span> (<span class="ruby-identifier">held</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">*</span> <span class="ruby-identifier">mark</span>).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+      <span class="ruby-identifier">held</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:currency_mark</span>, <span class="ruby-identifier">mark</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">base</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_beginning_balance_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_beginning_balance_ledger_entry</span><span
+            class="method-args">(posted_on, currency_id, segregation_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_beginning_balance_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 339</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_beginning_balance_ledger_entry</span>(<span class="ruby-identifier">posted_on</span>, <span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">segregation_id</span>)
+  <span class="ruby-identifier">prior</span> = <span class="ruby-identifier">prior_ledger</span>(<span class="ruby-identifier">posted_on</span>, <span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">segregation_id</span>)
+  <span class="ruby-identifier">amount</span> = <span class="ruby-identifier">prior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">prior</span>.<span class="ruby-identifier">amount</span>
+  <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;BEG&#39;</span>)
+  <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+  <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posted_on</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">amount</span>, <span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">segregation_id</span>)
+  <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_cash_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_cash_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_cash_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_cash_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">LedgerEntry</span>.<span class="ruby-identifier">cash_components</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;CSHACT&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_charge_journal_entries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_charge_journal_entries</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_charge_journal_entries-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_charge_journal_entries</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">totals</span> = <span class="ruby-identifier">deal_leg_fills</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:claim_id</span>).<span class="ruby-identifier">sum</span>(<span class="ruby-string">&quot;abs(done)&quot;</span>)
+  <span class="ruby-identifier">totals</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">total</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">params</span> = {
+        <span class="ruby-identifier">account_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>,
+        <span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date</span>,
+        <span class="ruby-identifier">claim_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">total</span>.<span class="ruby-identifier">first</span>,
+        <span class="ruby-identifier">done</span><span class="ruby-operator">:</span> <span class="ruby-identifier">total</span>.<span class="ruby-identifier">last</span>
+    }
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">ChargeBuilder</span>.<span class="ruby-identifier">account_claim_date</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_charge_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_charge_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_charge_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 348</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_charge_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">JournalEntry</span>.<span class="ruby-identifier">charges</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;CHG&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_filename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_filename</span><span
+            class="method-args">(date, format)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_filename-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 884</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_filename</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">format</span>)
+  <span class="ruby-identifier">root</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;TXT_DIR&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;txt&#39;</span>
+  <span class="ruby-identifier">root</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;PDF_DIR&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;pdf&#39;</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{root}/#{date.strftime(&#39;%Y%m%d&#39;)}&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-node">&quot;daily_account_statement_#{code}_#{date.strftime(&#39;%Y%m%d&#39;)}&quot;</span>
+  <span class="ruby-node">&quot;#{path}/#{filename}.#{format}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_led_balance_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_led_balance_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_led_balance_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 378</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_led_balance_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">LedgerEntry</span>.<span class="ruby-identifier">ledger_components</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;LEG&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_liq_balance_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_liq_balance_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_liq_balance_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_liq_balance_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">LedgerEntry</span>.<span class="ruby-identifier">liquidating_components</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;LIQ&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_ote_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_ote_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_ote_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 388</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_ote_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">JournalEntry</span>.<span class="ruby-identifier">ote</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;OTE&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_pnlfut_ledger_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_pnlfut_ledger_entry</span><span
+            class="method-args">(posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_pnlfut_ledger_entry-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_pnlfut_ledger_entry</span>(<span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-constant">JournalEntry</span>.<span class="ruby-identifier">pnl_futures</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posting_date</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;currency_id, segregation_id, sum(amount) as amount&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;account_id = ?&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">group</span>(<span class="ruby-value">:currency_id</span>, <span class="ruby-value">:segregation_id</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> = <span class="ruby-string">&#39;automatically generated&#39;</span>
+    <span class="ruby-identifier">ledger_entry_type</span> = <span class="ruby-constant">LedgerEntryType</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;PNLFUT&#39;</span>)
+    <span class="ruby-identifier">ledger_entry</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">LedgerEntryBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">posting_date</span>, <span class="ruby-identifier">ledger_entry_type</span>, <span class="ruby-identifier">memo</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">amount</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+    <span class="ruby-identifier">money_line</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">MoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">ledger_entry</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_position_nettings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_position_nettings</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_position_nettings-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_position_nettings</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_position_nettings</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">claim_ids</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">positions</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:claim_id</span>).<span class="ruby-identifier">uniq</span>
+  <span class="ruby-identifier">claim_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim_id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">claim</span> = <span class="ruby-constant">Claim</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">claim_id</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_type</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;COMBO&#39;</span>
+    <span class="ruby-comment"># positions = self.positions.open.posted_on_or_before(date).with_claim_id(claim_id).order(:id)</span>
+    <span class="ruby-identifier">bots</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">positions</span>.<span class="ruby-identifier">bots</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">posted_on_or_before</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">with_claim_id</span>(<span class="ruby-identifier">claim_id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:id</span>)
+    <span class="ruby-identifier">slds</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">positions</span>.<span class="ruby-identifier">slds</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">posted_on_or_before</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">with_claim_id</span>(<span class="ruby-identifier">claim_id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:id</span>)
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">PositionNettingBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">bots</span>, <span class="ruby-identifier">slds</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 718</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-comment"># order matters</span>
+  <span class="ruby-identifier">txt_filename</span> = <span class="ruby-identifier">build_statement_txt</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">pdf_filename</span> = <span class="ruby-identifier">build_statement_pdf</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">build_statement_report_txt</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">txt_filename</span>)
+  <span class="ruby-identifier">build_statement_report_pdf</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">pdf_filename</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_adjustments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_adjustments</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_adjustments-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_adjustments</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_adjustments</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">adjs</span> = <span class="ruby-identifier">statement_adjustments_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">adjs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">adj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">adj</span>[<span class="ruby-value">:stated_on</span>] = <span class="ruby-identifier">date</span>
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementAdjustmentBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">adj</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_charges" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_charges</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_charges-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_charges</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_charges</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">charges</span> = <span class="ruby-identifier">statement_charges_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">charges</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">charge</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">charge</span>[<span class="ruby-value">:stated_on</span>] = <span class="ruby-identifier">date</span>
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementChargeBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">charge</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_deal_leg_fills" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_deal_leg_fills</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_deal_leg_fills-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_deal_leg_fills</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_deal_leg_fills</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">fills</span> = <span class="ruby-identifier">statement_deal_leg_fills_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">fills</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fill</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">fill</span>[<span class="ruby-value">:stated_on</span>] = <span class="ruby-identifier">date</span>
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementDealLegFillBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">fill</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_money_lines" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_money_lines</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_money_lines-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_money_lines</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_money_lines</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">statement_money_lines_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">line</span>[<span class="ruby-value">:stated_on</span>] = <span class="ruby-identifier">date</span>
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementMoneyLineBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_pdf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_pdf</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_pdf-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 749</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_pdf</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">txt_filename</span> = <span class="ruby-identifier">build_filename</span>(<span class="ruby-identifier">date</span>, <span class="ruby-string">&#39;txt&#39;</span>)
+  <span class="ruby-identifier">pdf_filename</span> = <span class="ruby-identifier">build_filename</span>(<span class="ruby-identifier">date</span>, <span class="ruby-string">&#39;pdf&#39;</span>)
+
+  <span class="ruby-identifier">header</span> = <span class="ruby-node">&quot;EMM #{self.code} #{date} &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;|%D %C|Page $% of $=&#39;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;enscript #{txt_filename} --font=Courier8 --header=\&#39;#{header}\&#39; --landscape -o - | ps2pdf - #{pdf_filename}&quot;</span>
+
+  <span class="ruby-identifier">pdf_filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_position_nettings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_position_nettings</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_position_nettings-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_position_nettings</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_position_nettings</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">nettings</span> = <span class="ruby-identifier">statement_position_nettings_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">nettings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">netting</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">netting</span>[<span class="ruby-value">:stated_on</span>] = <span class="ruby-identifier">date</span>
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementPositionNettingBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">netting</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_positions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_positions</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_positions-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_positions</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">statement_positions</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">positions</span> = <span class="ruby-identifier">statement_positions_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">position</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">position</span>[<span class="ruby-value">:stated_on</span>] = <span class="ruby-identifier">date</span>
+    <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">StatementPositionBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">position</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_report_pdf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_report_pdf</span><span
+            class="method-args">(date, location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_report_pdf-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 738</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_report_pdf</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">location</span>)
+  <span class="ruby-identifier">params</span> = {
+      <span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date</span>,
+      <span class="ruby-identifier">format_type_code</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;PDF&#39;</span>,
+      <span class="ruby-identifier">report_type_code</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;daily_account_statement&#39;</span>,
+      <span class="ruby-identifier">memo</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Daily Account Statement #{code} #{date}&quot;</span>,
+      <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">location</span>
+  }
+  <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_report_txt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_report_txt</span><span
+            class="method-args">(date, location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_report_txt-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 727</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_report_txt</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">location</span>)
+  <span class="ruby-identifier">params</span> = {
+      <span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date</span>,
+      <span class="ruby-identifier">format_type_code</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;TXT&#39;</span>,
+      <span class="ruby-identifier">report_type_code</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;daily_account_statement&#39;</span>,
+      <span class="ruby-identifier">memo</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;Daily Account Statement #{code} #{date}&quot;</span>,
+      <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">location</span>
+  }
+  <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_statement_txt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_statement_txt</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_statement_txt-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 759</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_statement_txt</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_statement_deal_leg_fills</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_statement_position_nettings</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_statement_positions</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_statement_charges</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_statement_adjustments</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_statement_money_lines</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">txt_filename</span> = <span class="ruby-identifier">build_filename</span>(<span class="ruby-identifier">date</span>, <span class="ruby-string">&#39;txt&#39;</span>)
+  <span class="ruby-identifier">txt_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">txt_filename</span>, <span class="ruby-string">&#39;w&#39;</span>)
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">section_header</span>(<span class="ruby-string">&#39;Activity&#39;</span>))
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">sums</span> = {<span class="ruby-identifier">bot</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">sld</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">net</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>}
+  <span class="ruby-identifier">last_fill</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">last_claim_code</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">statement_deal_leg_fills</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:claim_code</span>, <span class="ruby-value">:price_traded</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fill</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">fill</span>.<span class="ruby-identifier">to_statement_line_header</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_claim_code</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">claim_code</span>
+      <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">fill</span>.<span class="ruby-identifier">to_statement_line_summary</span>(<span class="ruby-identifier">sums</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">sums</span> = {<span class="ruby-identifier">bot</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">sld</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">net</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>}
+      <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">fill</span>.<span class="ruby-identifier">to_statement_line</span>)
+    <span class="ruby-identifier">last_claim_code</span> = <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">claim_code</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:bot</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">bot</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:sld</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">sld</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:net</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">net</span>
+    <span class="ruby-identifier">last_fill</span> = <span class="ruby-identifier">fill</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">last_fill</span>.<span class="ruby-identifier">to_statement_line_summary</span>(<span class="ruby-identifier">sums</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">last_fill</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\f&quot;</span>)
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">section_header</span>(<span class="ruby-string">&#39;Netting&#39;</span>))
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">sums</span> = {<span class="ruby-identifier">done</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">pnl</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>}
+  <span class="ruby-identifier">last_netting</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">last_claim_code</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">statement_position_nettings</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:claim_code</span>, <span class="ruby-value">:bot_price_traded</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">netting</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">netting</span>.<span class="ruby-identifier">to_statement_line_header</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_claim_code</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">netting</span>.<span class="ruby-identifier">claim_code</span>
+      <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">netting</span>.<span class="ruby-identifier">to_statement_line_summary</span>(<span class="ruby-identifier">sums</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">sums</span> = {<span class="ruby-identifier">done</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">pnl</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>}
+      <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">netting</span>.<span class="ruby-identifier">to_statement_line</span>)
+    <span class="ruby-identifier">last_claim_code</span> = <span class="ruby-identifier">netting</span>.<span class="ruby-identifier">claim_code</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:done</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">netting</span>.<span class="ruby-identifier">done</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:pnl</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">netting</span>.<span class="ruby-identifier">pnl</span>
+    <span class="ruby-identifier">last_netting</span> = <span class="ruby-identifier">netting</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">last_netting</span>.<span class="ruby-identifier">to_statement_line_summary</span>(<span class="ruby-identifier">sums</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">last_netting</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\f&quot;</span>)
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">section_header</span>(<span class="ruby-string">&#39;Positions&#39;</span>))
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">sums</span> = {<span class="ruby-identifier">bot</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">sld</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">ote</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>}
+  <span class="ruby-identifier">last_position</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">last_claim_code</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">statement_positions</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:claim_code</span>, <span class="ruby-value">:price</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">position</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">position</span>.<span class="ruby-identifier">to_statement_line_header</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_claim_code</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">claim_code</span>
+      <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">position</span>.<span class="ruby-identifier">to_statement_line_summary</span>(<span class="ruby-identifier">sums</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">sums</span> = {<span class="ruby-identifier">bot</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">sld</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">ote</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>}
+      <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">position</span>.<span class="ruby-identifier">to_statement_line</span>)
+    <span class="ruby-identifier">last_claim_code</span> = <span class="ruby-identifier">position</span>.<span class="ruby-identifier">claim_code</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:bot</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">bot</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:sld</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">sld</span>
+    <span class="ruby-identifier">sums</span>[<span class="ruby-value">:ote</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">ote</span>
+    <span class="ruby-identifier">last_position</span> = <span class="ruby-identifier">position</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">last_position</span>.<span class="ruby-identifier">to_statement_line_summary</span>(<span class="ruby-identifier">sums</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">last_position</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\f&quot;</span>)
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">section_header</span>(<span class="ruby-string">&#39;Charges&#39;</span>))
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">statement_charges</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">charge</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">charge</span>.<span class="ruby-identifier">to_statement_line_header</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">charge</span>.<span class="ruby-identifier">to_statement_line</span>)
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\f&quot;</span>)
+
+  <span class="ruby-comment"># txt_file.write(&quot;\f&quot;)</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">section_header</span>(<span class="ruby-string">&#39;Adjustments&#39;</span>))
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">statement_adjustments</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">adjustment</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">adjustment</span>.<span class="ruby-identifier">to_statement_line_header</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">adjustment</span>.<span class="ruby-identifier">to_statement_line</span>)
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;\f&quot;</span>)
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">section_header</span>(<span class="ruby-string">&#39;Monies&#39;</span>))
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">statement_money_lines</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;kind DESC, currency_code&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">line</span>.<span class="ruby-identifier">to_statement_line_header</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">line</span>.<span class="ruby-identifier">to_statement_line</span>)
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">txt_file</span>.<span class="ruby-identifier">close</span>
+
+  <span class="ruby-identifier">txt_filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_env-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 708</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_env</span>
+  <span class="ruby-identifier">vars</span> = <span class="ruby-node">%W(TXT_DIR PDF_DIR)</span>
+  <span class="ruby-identifier">vars</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">var</span>].<span class="ruby-identifier">blank?</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Environment is missing #{var}. Exiting.&quot;</span>
+      <span class="ruby-identifier">exit</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compute_ote_futures" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compute_ote_futures</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compute_ote_futures-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compute_ote_futures</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">claim_ids</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">positions</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:claim_id</span>).<span class="ruby-identifier">uniq</span>
+  <span class="ruby-identifier">claim_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim_id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">claim</span> = <span class="ruby-constant">Claim</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">claim_id</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_type</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;COMBO&#39;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Computing OTE: #{claim.code}&quot;</span>
+    <span class="ruby-comment"># positions = self.positions.open.with_claim_id(claim_id)</span>
+    <span class="ruby-identifier">positions</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">positions</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">posted_on_or_before</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">with_claim_id</span>(<span class="ruby-identifier">claim_id</span>)
+    <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">position</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">position</span>.<span class="ruby-identifier">compute_ote</span>(<span class="ruby-identifier">date</span>)
+      <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">JournalEntryBuilder</span>.<span class="ruby-identifier">build_for_ote</span>(<span class="ruby-identifier">position</span>, <span class="ruby-identifier">date</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="display_name-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_name</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">code</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eod_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eod_for</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ordering should not be important above the ledger balance total line</p>
+
+<p>example.……</p>
+
+<p>Beginning account balance (carry forward of prior years balances) “</p>
+
+<p>Cash (deposits / withdrawals) Commissions Exchange Fees Clearing Fees
+P&amp;S futures P&amp;S options Misc.Adjustments Rebates Interest Dividends
+Service charges Taxes <em>__</em> <a href="Ledger.html">Ledger</a> balance
+(sum of above)</p>
+
+<p>OTE (open trade equity) <em>_</em> Cash <a href="Account.html">Account</a>
+balance (sum of ledger balance plus OTE)</p>
+
+<p>Margin Long Option Value (credit) Short Option Value (debit) Net Option
+Value (credit + debit) <em>__</em> Net liquidating Balance (sum of Cash
+Acct Bal, margin and Options MTM</p>
+
+<p>Last 5 net liq with changes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eod_for-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eod_for</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Begun eod for account #{self.code}&quot;</span>
+
+  <span class="ruby-identifier">check_env</span>
+
+  <span class="ruby-identifier">build_position_nettings</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">post_marks</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">compute_ote_futures</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-comment"># boundary_date = date - 7.days</span>
+  <span class="ruby-comment"># entries = ledger_entries.ledger.posted_after(boundary_date)</span>
+  <span class="ruby-identifier">posted_on_max</span> = <span class="ruby-identifier">ledger_entries</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;max(posted_on)&quot;</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:posted_on</span>).<span class="ruby-identifier">first</span>
+
+  <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">ledger_entries</span>.<span class="ruby-identifier">ledger</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">posted_on_max</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># puts entry.inspect</span>
+    <span class="ruby-identifier">build_beginning_balance_ledger_entry</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">segregation_id</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># cash_movements(currency, seg_code)</span>
+  <span class="ruby-comment"># option_premiums(currency, seg_code)</span>
+
+  <span class="ruby-identifier">build_charge_journal_entries</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">build_adjustment_ledger_entry</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_charge_ledger_entry</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">build_pnlfut_ledger_entry</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-comment"># pnl_options(currency, seg_code)</span>
+  <span class="ruby-comment"># #adjustments( currency, seg_code)</span>
+  <span class="ruby-comment"># #rebates( currency, seg_code)</span>
+  <span class="ruby-comment"># #interest( currency, seg_code)</span>
+  <span class="ruby-comment"># #dividends( currency, seg_code)</span>
+  <span class="ruby-comment"># service_fees(currency, seg_code)</span>
+  <span class="ruby-comment"># #taxes( currency, seg_code)</span>
+
+  <span class="ruby-identifier">build_led_balance_ledger_entry</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">build_ote_ledger_entry</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">build_cash_ledger_entry</span>(<span class="ruby-identifier">date</span>) <span class="ruby-comment"># cash account balance</span>
+
+  <span class="ruby-comment"># margin_balance(currency, seg_code)</span>
+  <span class="ruby-comment"># options_mtm(currency, seg_code)</span>
+
+  <span class="ruby-identifier">build_liq_balance_ledger_entry</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">build_base_balances</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">build_statement</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-comment"># http://www.cmegroup.com/confluence/display/pubspan/Risk+Parameter+File+Layouts+for+the+Positional+Formats</span>
+  <span class="ruby-comment"># ftp://ftp.cmegroup.com/pub/span/data/cme/</span>
+
+  <span class="ruby-constant">StatementMailer</span>.<span class="ruby-identifier">send_statement</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">date</span>).<span class="ruby-identifier">deliver</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&#39;00022|00333|00877&#39;</span>)
+
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Ended eod for account #{self.code}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_claim_mark_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_claim_mark_for</span><span
+            class="method-args">(claim, date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_claim_mark_for-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_claim_mark_for</span>(<span class="ruby-identifier">claim</span>, <span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">claim_mark</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">frag</span> = <span class="ruby-node">&quot;Position ClaimMark for Claim #{claim.code} posted on #{date} for account #{self.code}&quot;</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Seeking #{frag}.&quot;</span>
+    <span class="ruby-identifier">claim_mark</span> = <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_marks</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Sleeping seek of #{frag} until #{5.minutes.from_now}.&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>.<span class="ruby-identifier">minutes</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">mark</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_fill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_fill</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_fill-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_fill</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">fill</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">DealLegFillBuilder</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-identifier">position</span> = <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">PositionBuilder</span>.<span class="ruby-identifier">build_or_update</span>(<span class="ruby-identifier">fill</span>)
+    <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">position_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">id</span>)
+
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># want to make these periodic - or handle via queues.</span>
+    <span class="ruby-comment">#</span>
+
+    <span class="ruby-comment"># Builders::FeeBuilder.build_for_fill(fill)</span>
+    <span class="ruby-comment"># Builders::CommissionBuilder.build_for_fill(fill)</span>
+
+    <span class="ruby-identifier">fill</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_marks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_marks</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_marks-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_marks</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">positions</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">posted_on_or_before</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">position</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">claim</span> = <span class="ruby-identifier">position</span>.<span class="ruby-identifier">claim</span>
+    <span class="ruby-identifier">frag</span> = <span class="ruby-node">&quot;Position ClaimMark for Claim #{claim.code} posted on #{date} for account #{self.code}.&quot;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Seeking #{frag}&quot;</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_type</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;COMBO&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claimable</span>.<span class="ruby-identifier">expired?</span>(<span class="ruby-identifier">date</span>)
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Skipping #{frag}. Claim expired.&quot;</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">mark</span> = <span class="ruby-identifier">get_claim_mark_for</span>(<span class="ruby-identifier">claim</span>, <span class="ruby-identifier">date</span>)
+    <span class="ruby-identifier">position</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:mark</span>, <span class="ruby-identifier">mark</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prior_ledger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prior_ledger</span><span
+            class="method-args">(posted_on, currency_id, segregation_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prior_ledger-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prior_ledger</span>(<span class="ruby-identifier">posted_on</span>, <span class="ruby-identifier">currency_id</span>, <span class="ruby-identifier">segregation_id</span>)
+  <span class="ruby-identifier">ledger_entries</span>.<span class="ruby-identifier">ledger</span>.<span class="ruby-identifier">posted_before</span>(<span class="ruby-identifier">posted_on</span>).<span class="ruby-identifier">for_currency</span>(<span class="ruby-identifier">currency_id</span>).<span class="ruby-identifier">for_segregation</span>(<span class="ruby-identifier">segregation_id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-value">:desc</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reverse_eod_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_eod_for</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reverse_eod_for-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_eod_for</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">wipe_statement</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">statement_money_lines</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">statement_charges</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">statement_positions</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">statement_position_nettings</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">statement_deal_leg_fills</span>.<span class="ruby-identifier">stated_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+
+  <span class="ruby-identifier">money_lines</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+
+  <span class="ruby-identifier">charges</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">adjustments</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+
+  <span class="ruby-identifier">journal_entries</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">ledger_entries</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">delete_all</span>
+
+  <span class="ruby-identifier">uncompute_ote_futures</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">PositionNettingBuilder</span>.<span class="ruby-identifier">break_nettings</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">date</span>)
+
+  <span class="ruby-comment"># wipe_marks(date)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reverse_ote_futures" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_ote_futures</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reverse_ote_futures-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_ote_futures</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">prior_date</span> = <span class="ruby-identifier">journal_entries</span>.<span class="ruby-identifier">ote</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-value">:posted_on</span>)
+  <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">journal_entries</span>.<span class="ruby-identifier">ote</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">prior_date</span>)
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">JournalEntryBuilder</span>.<span class="ruby-identifier">reverse</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">date</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-section_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">section_header</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="section_header-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 876</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">section_header</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">line_len</span> = <span class="ruby-value">147</span>
+  <span class="ruby-identifier">work_len</span> = <span class="ruby-identifier">line_len</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">head_len</span> = <span class="ruby-identifier">work_len</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>
+  <span class="ruby-identifier">tail_len</span> = <span class="ruby-identifier">head_len</span>
+  <span class="ruby-string">&#39;#&#39;</span><span class="ruby-operator">*</span><span class="ruby-identifier">head_len</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot; #{name} &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;#&#39;</span><span class="ruby-operator">*</span><span class="ruby-identifier">tail_len</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-statement_adjustments_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statement_adjustments_query</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="statement_adjustments_query-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 674</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statement_adjustments_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">sql</span> = <span class="ruby-node">&quot;
+    SELECT
+        c.posted_on,
+        c.account_id,
+        a.code AS account_code,
+        t.code AS adjustment_code,
+        j.code AS journal_code,
+        x.code AS currency_code,
+        c.amount,
+        c.memo
+    FROM
+        adjustments c,
+        accounts a,
+        journals j,
+        currencies x,
+        journal_entries e,
+        journal_entry_types t
+    WHERE
+        a.id = #{self.id} AND
+        t.id = e.journal_entry_type_id AND
+        a.id = c.account_id AND
+        j.id = e.journal_id AND
+        e.id = c.journal_entry_id AND
+        x.id = c.currency_id AND
+        c.posted_on = \&#39;#{date}\&#39;
+    ORDER BY
+        posted_on,
+        account_code,
+        currency_code
+  &quot;</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-statement_charges_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statement_charges_query</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="statement_charges_query-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 636</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statement_charges_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">sql</span> = <span class="ruby-node">&quot;
+    SELECT
+        f.posted_on,
+        f.account_id,
+        a.code AS account_code,
+        z.code AS charge_code,
+        j.code AS journal_code,
+        c.code AS currency_code,
+        f.amount,
+        f.memo
+    FROM
+        charges f,
+        chargeables y,
+        chargeable_types z,
+        accounts a,
+        journals j,
+        currencies c,
+        journal_entries e,
+        journal_entry_types t
+    WHERE
+        a.id = #{self.id} AND
+        t.id = e.journal_entry_type_id AND
+        a.id = f.account_id AND
+        j.id = e.journal_id AND
+        e.id = f.journal_entry_id AND
+        c.id = f.currency_id AND
+        y.id = f.chargeable_id AND
+        z.id = y.chargeable_type_id AND
+        f.posted_on = \&#39;#{date}\&#39;
+    ORDER BY
+        posted_on,
+        account_code,
+        currency_code
+  &quot;</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-statement_deal_leg_fills_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statement_deal_leg_fills_query</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="statement_deal_leg_fills_query-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 464</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statement_deal_leg_fills_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">sql</span> = <span class="ruby-node">&quot;
+      SELECT
+          account_id,
+          account_code,
+          claim_code,
+          claim_name,
+          traded_on,
+          posted_on,
+          SUM(bot)       AS bot,
+          SUM(sld)       AS sld,
+          SUM(bot + sld) AS net,
+          price,
+          price_traded
+      FROM
+          (
+           SELECT
+                  a.id   AS account_id,
+                  a.code AS account_code,
+                  c.code AS claim_code,
+                  c.name AS claim_name,
+                  f.posted_on,
+                  f.traded_on,
+                  f.price,
+                  f.price_traded,
+                  CASE
+                      WHEN done &gt; 0
+                      THEN done
+                      ELSE 0
+                  END AS bot,
+                  CASE
+                      WHEN done &lt; 0
+                      THEN done
+                      ELSE 0
+                  END AS sld
+             FROM
+                  claims c,
+                  accounts a,
+                  deal_leg_fills f
+            WHERE
+                  a.id = f.account_id AND
+                  c.id = f.claim_id AND
+                  account_id = #{self.id} AND
+                  posted_on = \&#39;#{date}\&#39;)x
+      GROUP BY
+          account_id,
+          account_code,
+          claim_code,
+          claim_name,
+          traded_on,
+          posted_on,
+          price,
+          price_traded
+  &quot;</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-statement_money_lines_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statement_money_lines_query</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="statement_money_lines_query-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 600</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statement_money_lines_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">sql</span> = <span class="ruby-node">&quot;
+    SELECT
+        m.posted_on,
+        a.id   AS account_id,
+        a.code AS account_code,
+        c.code AS currency_code,
+        s.code AS segregation_code,
+        m.kind,
+        m.beginning_balance,
+        m.charges,
+        m.adjustments,
+        m.pnl_futures,
+        m.ledger_balance,
+        m.open_trade_equity,
+        m.cash_account_balance,
+        m.net_liquidating_balance,
+        m.currency_mark
+    FROM
+        accounts a,
+        currencies c,
+        money_lines m,
+        segregations s
+    WHERE
+        a.id = #{self.id} AND
+        m.posted_on = \&#39;#{date}\&#39; AND
+        a.id = m.account_id AND
+        c.id = m.currency_id AND
+        s.id = m.segregation_id
+    ORDER BY
+        account_code,
+        m.id
+  &quot;</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-statement_position_nettings_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statement_position_nettings_query</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="statement_position_nettings_query-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 521</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statement_position_nettings_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">sql</span> = <span class="ruby-node">&quot;
+    SELECT
+        a.id as account_id,
+        a.code as account_code,
+        c.code as claim_code,
+        c.name as claim_name,
+        t.code as netting_code,
+        posted_on,
+        bot_price_traded,
+        sld_price_traded,
+        done,
+        pnl,
+        x.code as currency_code
+    FROM
+        claims c,
+        currencies x,
+        accounts a,
+        position_nettings n,
+        position_netting_types t
+    WHERE
+        a.id = #{self.id} AND
+        n.posted_on = \&#39;#{date}\&#39; AND
+        c.id = n.claim_id AND
+        a.id = n.account_id AND
+        x.id = n.currency_id AND
+        t.id = n.position_netting_type_id
+    ORDER BY
+        account_id,
+        posted_on,
+        claim_id,
+        netting_code,
+        bot_price_traded,
+        sld_price_traded
+  &quot;</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-statement_positions_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statement_positions_query</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="statement_positions_query-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 559</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statement_positions_query</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">sql</span> = <span class="ruby-node">&quot;
+    SELECT
+        a.id   AS account_id,
+        a.code AS account_code,
+        c.code AS claim_code,
+        c.name AS claim_name,
+        p.traded_on,
+        p.posted_on,
+        p.bot,
+        p.sld,
+        p.net,
+        p.price,
+        p.price_traded,
+        p.mark,
+        p.ote,
+        x.code AS currency_code,
+        s.code AS position_status_code
+    FROM
+        claims c,
+        accounts a,
+        currencies x,
+        positions p,
+        position_statuses s
+    WHERE
+        a.id = #{self.id} AND
+        p.posted_on &lt;= \&#39;#{date}\&#39; AND
+        s.code = &#39;OPN&#39; AND
+        c.id = p.claim_id AND
+        a.id = p.account_id AND
+        x.id = c.point_currency_id AND
+        s.id = p.position_status_id
+    ORDER BY
+        posted_on,
+        account_code,
+        claim_code,
+        mark
+  &quot;</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uncompute_ote_futures" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uncompute_ote_futures</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uncompute_ote_futures-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uncompute_ote_futures</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">open</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">position</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">position</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:ote</span>, <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wipe_statement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wipe_statement</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wipe_statement-source">
+            <pre><span class="ruby-comment"># File app/models/account.rb, line 893</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wipe_statement</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-node">%W(txt pdf)</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">extension</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">filename</span> = <span class="ruby-identifier">build_filename</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">extension</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">filename</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

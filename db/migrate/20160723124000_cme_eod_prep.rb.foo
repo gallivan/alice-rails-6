@@ -1,0 +1,54 @@
+class CmeEodPrep < ActiveRecord::Migration[5.2]
+  def up
+    clr_sys = SystemType.create(code: 'CLR', name: 'Clearing System')
+
+    crp = EntityType.find_by_code('CRP')
+
+    cbt = Entity.create!(code: 'CBT', name: 'Chicago Board of Trade', entity_type: crp)
+
+    cme = Entity.find_by_code('CME')
+    cme_sys = System.create!(code: 'CMEsys', name: 'CME System', entity: cme, system_type: clr_sys)
+
+    dv_system = DealingVenueType.find_by_code('SYS')
+
+    cme_dv = DealingVenue.create!(code: 'CME', name: 'Chicago Mercantile Exchange', entity: cme, dealing_venue_type: dv_system)
+    cbt_dv = DealingVenue.find_by_code('CBT')
+
+    DealingVenueAlias.create!(dealing_venue: cme_dv, code: 'CME', system: cme_sys)
+    DealingVenueAlias.create!(dealing_venue: cbt_dv, code: 'CBT', system: cme_sys)
+
+    EntityAlias.create!(system_id: cme_sys.id, entity_id: cbt.id, code: 'CBT')
+  end
+
+  def down
+    clr_sys_type = SystemType.find_by_code('CLR')
+
+    cme_sys = System.find_by_code('CMEsys')
+
+    AccountAlias.where(system_id: cme_sys.id).delete_all
+
+    ClaimAlias.where(system_id: cme_sys.id).delete_all
+    ClaimSetAlias.where(system_id: cme_sys.id).delete_all
+
+    cme_dv = DealingVenue.find_by_code('CME')
+    cme_dv_alias = DealingVenueAlias.find_by_system_id_and_dealing_venue_id(cme_sys.id, cme_dv.id)
+
+    cbt = Entity.find_by_code('CBT')
+    cbt_dv = DealingVenue.find_by_code('CBT')
+    cbt_dv_alias = DealingVenueAlias.find_by_system_id_and_dealing_venue_id(cme_sys.id, cbt_dv.id)
+
+    EntityAlias.where(system_id: cme_sys.id, entity_id: cbt.id).delete_all
+
+    claims
+    claim_sets
+
+    cbt_dv_alias.delete
+    cbt.delete
+
+    cme_dv_alias.delete
+    cme_dv.delete
+    cme_sys.delete
+
+    clr_sys_type.delete
+  end
+end

@@ -1,0 +1,79 @@
+<div>
+  <p>
+    Settlement prices are pulled from <a href="http://quandl.com">Quandl</a>. Settlements for Globex traded claims are
+    typically available by 00:00 UTC. Settlements for other claims may not be available until 02:00. Settlement prices
+    area kind of ClaimMark from the perspective of the system.
+  </p>
+  <p>
+    Settlement prices are needed to mark all open positions and compute open trade equity. The EOD process will block
+    pending provisioning of any settlement prices it finds missing. Notification of missing settlement prices is made to
+    the operator via SMS. The EOD process will continue to try accessing settlement prices - or continue after missing
+    settlements have been manually provided.
+  </p>
+  <p>
+    Settlement prices can be provided manually through the Admin UI: Reference > Claim Marks > New Claim Mark. The
+    following snap shows the form through which a new ClaimMark can be created. The following properties are set:
+  </p>
+  <ul>
+    <li>System: Backoffice</li>
+    <li>Claim: Milling Wheat, September 2017</li>
+    <li>Mark: 167.25</li>
+    <li>Mark Traded: 167.25</li>
+    <li>Posted on: 2017-06-09</li>
+    <li>Approved: Check</li>
+  </ul>
+  <p>
+    Of the above, only "Mark Traded" is optional. All other properties shown are optional.
+  </p>
+
+  <%= image_tag("claim-mark-new.png", :alt => "New ClaimMark") %>
+
+  <h3>Additional Settlement Sources</h3>
+
+  <p>
+    Some Claim settelements seem to be tardy in their availability on Quandl. Manual update of settlements is needed
+    using data from sources identified in this section.
+  </p>
+
+  <h4>Euronext - MATIF Milling Wheat Futures</h4>
+
+  <a href="https://derivatives.euronext.com/en/products/commodities-futures/EBM-DPAR/settlement-prices">This</a> URL
+  will lead to a page similar to the following. Select the date from the dropdown for which settlement prices are sought
+  and click the "Aplly" button. Contract settlements will appear in the column called "SETTLE" for each contract.
+
+  <%= image_tag("settlements-milling-wheat.png", :alt => "matif milling wheat settlements source") %>
+
+  <h4>Euronext - AEX Index Futures</h4>
+
+  <a href="  https://derivatives.euronext.com/en/products/index-futures/FTI-DAMS/settlement-prices">This</a> URL will
+  lead to a page similar to the following. Select the date from the dropdown for which settlement prices are sought and
+  click the "Aplly" button. Contract settlements will appear in the column called "SETTLE" for each contract.
+
+  <%= image_tag("settlements-aex-index.png", :alt => "aex index futures settlements source") %>
+
+  <h4>Eurex - Euro Stoxx 50 Index Futures</h4>
+
+  <a href="http://www.eurexchange.com/exchange-en/products/idx/stx/blc/EURO-STOXX-50--Index-Futures/18954">This</a> URL
+  will lead to a page similar to the following. Select the "Statistics" link. Select the trading date if the date for
+  which settlements are sought is not the default. Settlement prices will be in the "Settlem. price" Column.
+
+  <%= image_tag("settlements-eurex-euro-stoxx-50-index.png", :alt => "euro stox 50 index futures source") %>
+
+  <h4>Eurex - Euro Stoxx 50 Index Futures</h4>
+
+  <a href="http://www.mgex.com/settlement.html">This</a> URL will lead to a page similar to the following. Select the
+  PDF file link named after the date for which settlements are needed.
+
+  <%= image_tag("settlements-mgex-spring-wheat.png", :alt => "mgex spring wheat futures settlements") %>
+
+  As of this writing, the first page shows settlement prices with Hard Red Spring Wheat (HRSW) shown top.
+
+  <%= image_tag("settlements-mgex-spring-wheat-pdf.png", :alt => "mgex spring wheat futures settlements pdf") %>
+
+  <h3>Holiday Settlements</h3>
+
+  <p>
+    rake task TODO
+  </p>
+
+</div>

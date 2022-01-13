@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21965111899" TrdTyp="0" ExecID="29115120160725125928TN0002147" TrdDt="2016-07-25"
+              BizDt="2016-07-25"
+              MLegRptTyp="2" MtchStat="0" MsgEvtSrc="REG" TrdID="107429" LastQty="1" LastPx="140.325"
+              TxnTm="2016-07-25T12:59:28-05:00" SettlCcy="USD" SettlDt="2016-09-30"
+              OrigTrdID="1561EEC09D4LTP0302D2A3136"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="62" Desc="FEEDER CATTLE FUTURES" CFI="FCACSO" SecTyp="FUT" MMY="201609" MatDt="2016-09-30" Mult="500"
+             Exch="CME" UOM="lbs" UOMQty="50000" PxUOM="LBS" PxUOMQty="100" ValMeth="FUT" Fctr="1"
+             PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="0" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="F6GX" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="Y">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CME" R="22"></Pty>
+      <Pty ID="353" R="1"></Pty>
+      <Pty ID="03000" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="353" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="353" R="7"></Pty>
+      <RegTrdID ID="FECF1561EEC09D4LTP0302D2A3138" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

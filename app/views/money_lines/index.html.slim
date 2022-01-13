@@ -1,0 +1,71 @@
+h1 Listing money_lines
+
+== render 'shared/search_form'
+
+.row
+  = paginate @money_lines
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Account
+          th CCY
+          th Seg
+          th Kind
+          /th CCY Mark
+          th Posted
+          th Beginning
+          th Cash
+          th Fees
+          th Coms
+          th Pnl
+          /th Pnl options
+          /th Adjustments
+          /th Rebates
+          /th Charges
+          th Ledger Bal
+          th OTE
+          th Cash AB
+          /th Margin
+          /th Long option value
+          /th Short option value
+          /th Net option value
+          th Net Liq
+          th FX Rate
+          th
+          /th
+          /th
+
+      tbody
+        - @money_lines.each do |money_line|
+          tr
+            td = money_line.account.code
+            td = money_line.currency.code
+            td = money_line.segregation.code
+            td = money_line.kind
+            /td = money_line.currency_mark_id
+            td = money_line.posted_on
+            td = money_line.beginning_balance
+            td = money_line.cash
+            td = money_line.pnl_futures
+            /td = money_line.pnl_options
+            /td = money_line.adjustments
+            /td = money_line.rebates
+            /td = money_line.charges
+            td = money_line.ledger_balance
+            td = money_line.open_trade_equity
+            td = money_line.cash_account_balance
+            /td = money_line.margin
+            /td = money_line.long_option_value
+            /td = money_line.short_option_value
+            /td = money_line.net_option_value
+            td = money_line.net_liquidating_balance
+            td = money_line.currency.currency_marks.posted_on(money_line.posted_on).first.mark
+            td = link_to 'Show', money_line
+            /td = link_to 'Edit', edit_money_line_path(money_line)
+            /td = link_to 'Destroy', money_line, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+

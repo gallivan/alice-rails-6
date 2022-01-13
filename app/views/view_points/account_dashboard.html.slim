@@ -1,0 +1,13 @@
+- unless current_user.can_see_all_accounts? or current_user.has_accounts?
+  'You have no accounts.
+- else
+  .row
+    == render 'view_points/search_form'
+  .row
+    .col-lg-6
+      = render 'view_points/plot_statement_money_lines'
+    .col-lg-6
+      = render 'view_points/plot_statement_positions_by_claim'
+  .row
+    .col-lg-12
+      = render 'view_points/plot_income_to_expense_ratio_by_claim_set'

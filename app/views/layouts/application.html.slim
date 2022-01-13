@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta content="width=device-width, name=viewport, initial-scale=1"
+    title = content_for?(:title) ? yield(:title) : "Alice"
+    meta content=(content_for?(:description) ? yield(:description) : "Alice") name="description" 
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = favicon_link_tag asset_path('jackijack.png'), :rel => 'icon', :type =>  'image/png'
+body class="#{controller_name} #{action_name}"
+  = render 'shared/navbar'
+  .container
+    = render 'shared/messages'
+    div
+      = yield

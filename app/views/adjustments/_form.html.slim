@@ -1,0 +1,13 @@
+= simple_form_for(@adjustment) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :posted_on, as: :date_picker
+    = f.association :account, collection: Account.select_options, include_blank: false
+    = f.association :adjustment_type, collection: AdjustmentType.select_options, include_blank: false
+    = f.association :currency, collection: Currency.select_options, include_blank: false
+    = f.input :amount
+    = f.input :memo
+
+  .form-actions
+    = f.button :submit

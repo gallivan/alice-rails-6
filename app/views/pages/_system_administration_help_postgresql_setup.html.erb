@@ -1,0 +1,71 @@
+<div>
+  <p>
+    PostgreSQL starts on reboot. A database backup is automatically made before each EOD run.
+  </p>
+
+  <p>
+    Excution of the following commands will create the alice_developmet database.
+  </p>
+
+  <pre>
+    #
+    # on a development host
+    #
+    sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+    sudo -u postgres createdb -O alice alice_development
+    sudo -u postgres createdb -O alice alice_test
+    sudo -u postgres psql &lt;&lt;HERE
+    grant all privileges on database alice_development to alice;
+    grant all privileges on database alice_test to alice;
+    \q
+    HERE
+  </pre>
+
+  <p>
+    Excution of the following commands will create the alice_integration database.
+  </p>
+
+  <pre>
+    #
+    # on a integration host
+    #
+    sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+    sudo -u postgres createdb -O alice alice_integration
+    sudo -u postgres psql &lt;&lt;HERE
+    grant all privileges on database alice_integration to alice;
+    \q
+    HERE
+  </pre>
+
+  <p>
+    Excution of the following commands will create the alice_staging database.
+  </p>
+
+  <pre>
+    #
+    # on a staging host
+    #
+    sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+    sudo -u postgres createdb -O alice alice_staging
+    sudo -u postgres psql &lt;&lt;HERE
+    grant all privileges on database alice_staging to alice;
+    \q
+    HERE
+  </pre>
+
+  <p>
+    Excution of the following commands will create the alice_production database.
+  </p>
+
+  <pre>
+    #
+    # on a production hosts
+    #
+    sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+    sudo -u postgres psql &lt;&lt;HERE
+    create database alice_production owner alice;
+    grant all privileges on database alice_production to alice;
+    \q
+    HERE
+  </pre>
+</div>

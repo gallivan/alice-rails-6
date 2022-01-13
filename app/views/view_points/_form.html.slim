@@ -1,0 +1,10 @@
+= simple_form_for(@view_point) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :note
+    = f.input :code
+
+  .form-actions
+    = f.button :submit

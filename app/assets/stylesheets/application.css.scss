@@ -1,0 +1,78 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ //*= require_tree .
+ *= require_self
+ //http://mrdanadams.com/2011/exclude-active-admin-js-css-rails/#.WCRfmcwrKkA
+ *= require_directory .
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-datepicker3";
+//@import 'bootstrap-datetimepicker';
+//@import "font-awesome";
+
+body {
+  margin:0px;
+  padding:0px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #eeeaa0;
+}
+
+.number {
+  text-align: right;
+}
+
+.price {
+  text-align: right;
+}
+
+.date {
+  text-align: right;
+}
+
+.body {
+  padding-top: 70px;
+}
+
+a:link {
+  text-decoration: none;
+  color: mediumblue;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+  color: hotpink;
+  background-color: white;
+
+}
+
+.container {
+  margin-top:70px ! important
+}
+
+/* Cross Filter range clip override */
+.extent {
+  fill:steelblue;
+  fill-opacity: 0.125;
+}
+
+.resize {
+  fill:steelblue;
+  fill-opacity: 0.125;
+}
+//https://github.com/twbs/bootstrap/blob/master/dist/css/bootstrap.css

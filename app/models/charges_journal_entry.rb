@@ -1,0 +1,2 @@
+class ChargesJournalEntry < ApplicationRecord
+end

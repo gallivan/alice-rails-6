@@ -1,0 +1,8 @@
+div class="panel panel-info"
+  div class="panel-heading" Account Positions by Claim
+  div class="panel-body"
+    div id='positions_by_claim_plot_container'
+      javascript:
+        var url = "/view_point/positions_by_claim.json?account_id=#{@account.id}";
+        var div = "#positions_by_claim_plot_container";
+        plotPositionsByClaim(url, div);

@@ -1,0 +1,43 @@
+.row
+  .col-md-12
+    div class="panel panel-info"
+      .panel-heading Search
+      .panel-body
+        .form-inline
+          .row
+            .col-md-3
+              'Starting Time
+            .col-md-3
+              'Ending Time
+            .col-md-3
+              'Data
+            .col-md-2
+              'Fate
+            .col-md-1
+          .row
+            = search_form_for @q do |f|
+              .col-md-3
+                .form-group
+                  #datetimepicker1.input-group.date
+                    = f.search_field :created_at_gteq
+                    span.input-group-addon
+                      span.glyphicon.glyphicon-calendar
+              .col-md-3
+                .form-group
+                  #datetimepicker2.input-group.date
+                    = f.search_field :created_at_lteq
+                    span.input-group-addon
+                      span.glyphicon.glyphicon-calendar
+              .col-md-3
+                .form-group
+                  = f.search_field :data_cont
+              .col-md-2
+                .form-group
+                  = f.select :fate_eq, options_for_select({todo: 'TODO', done: 'DONE', fail: 'FAIL'}, :selected => @q.fate_eq), {include_blank: true}, {class: 'form-control'}
+              .col-md-1
+                .form-group
+                  = f.submit "Search", class: "radius-right button"
+              script[type="text/javascript"]
+                |  $(function () { $('#datetimepicker1').datetimepicker({ format:'YYYY-MM-DD HH:mm' }); });
+              script[type="text/javascript"]
+                |  $(function () { $('#datetimepicker2').datetimepicker({ format:'YYYY-MM-DD HH:mm' }); });

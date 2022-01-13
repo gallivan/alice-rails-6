@@ -1,0 +1,7 @@
+#Extended file properties defined by DbVisualizer
+#Sun Jun 12 23:59:43 UTC 2016
+file.comment=
+exec.schema=public
+file.encoding=UTF-8
+exec.connection=3
+exec.catalog=alice_development

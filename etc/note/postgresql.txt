@@ -1,0 +1,38 @@
+# PostgreSQL
+sudo apt-get install postgresql postgresql-client postgresql-contrib libpq-dev
+
+# in development
+sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+sudo -u postgres createdb -O alice alice_development
+sudo -u postgres createdb -O alice alice_test
+sudo -u postgres psql <<HERE
+grant all privileges on database alice_development to alice;
+grant all privileges on database alice_test to alice;
+\q
+HERE
+
+# in staging
+sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+sudo -u postgres createdb -O alice alice_staging
+sudo -u postgres psql <<HERE
+grant all privileges on database alice_staging to alice;
+\q
+HERE
+
+# in integration
+sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+sudo -u postgres createdb -O alice alice_integration
+sudo -u postgres psql <<HERE
+grant all privileges on database alice_integration to alice;
+\q
+HERE
+
+#
+# in production
+#
+sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+sudo -u postgres psql <<HERE
+create database alice_production owner alice;
+grant all privileges on database alice_production to alice;
+\q
+HERE

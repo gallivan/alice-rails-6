@@ -1,0 +1,41 @@
+<p>
+  Accounting for claim exchange (trade) outside the pits or matching systems requires DealLegFill (trade card) creation
+  via the URL. <a href="/admin/deal_leg_fills/new"></a>. The following snap shows an example populated with the
+  following values.
+</p>
+
+<ul>
+  <li>System: Backoffice Entry (from dropdown)</li>
+  <li>Dealing venue: Chicago Board of Trde (from dropdown)</li>
+  <li>Account: 00022 (from dropdown)</li>
+  <li>Claim: Corn futures Sep 2017 (from dropdown)</li>
+  <li>Done: -111 (singed quantity)</li>
+  <li>Price: 3.2575 (decimal price)</li>
+  <li>Price traded: 3.25-3/4 (fractional price)</li>
+  <li>Posted on: 2017-07-03 (datepicker)</li>
+  <li>Traded on: 2017-07-03 (datepicker)</li>
+</ul>
+
+<p>
+  Above the form are exmaples for decimal and fractional prices for claims that have such conventions. Note that coupon
+  prices have three digits for the tail.
+</p>
+
+<ul>
+  <li>
+    CBT Soybeans, Corn, Wheat and KC Wheat with a decimal price of 3.6025 will have a traded price of 3.602, for
+    3.60-1/4.
+  </li>
+  <li>
+    CBT Coupon Treasury Notes and Bonds will have traded prices like 108-047 witha decimal representation of
+    108.1484375.
+  </li>
+</ul>
+
+<%= image_tag("new-deal-leg-fill.png", :alt => "new deal leg fill") %>
+
+<p>
+  The snap below shows the results of successful creation of the DealLegFill.
+</p>
+
+<%= image_tag("created-deal-leg-fill.png", :alt => "create deal leg fill") %>

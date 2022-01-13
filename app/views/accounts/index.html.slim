@@ -1,0 +1,32 @@
+h1 Listing accounts
+
+.row
+  .large-6.columns
+    .btn.btn-default = link_to 'New Account next', new_account_path
+  .large-6.columns
+    = paginate @accounts
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Account type
+          th Entity
+          th Code
+          th Name
+          th Active
+          th
+          th
+          th
+      tbody
+        - @accounts.each do |account|
+          tr
+            td = account.account_type.code
+            td = account.entity.code
+            td = account.code
+            td = account.name
+            td = account.active
+            td = link_to 'Show', account
+            td = link_to 'Edit', edit_account_path(account)
+            td = link_to 'Destroy', account, data: {:confirm => 'Are you sure?'}, :method => :delete

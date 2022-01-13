@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Posted:
+  = @packer_report.posted_on
+p
+  strong Kind:
+  = @packer_report.kind
+p
+  strong Fate:
+  = @packer_report.fate
+p
+  strong Data:
+  = @packer_report.data
+p
+  strong Error:
+  = @packer_report.goof_error
+p
+  strong Trace:
+  = @packer_report.goof_trace
+p
+  strong Created:
+  = @packer_report.created_at
+p
+  strong Updated:
+  = @packer_report.updated_at
+
+= link_to 'Edit', edit_packer_report_path(@packer_report)
+'|
+= link_to 'Back', packer_reports_path

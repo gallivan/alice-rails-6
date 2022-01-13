@@ -1,0 +1,51 @@
+= form_for @statement_position do |f|
+  - if @statement_position.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@statement_position.errors.count, "error")} prohibited this statement_position from being saved:"
+      ul
+        - @statement_position.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :account_id
+    = f.number_field :account_id
+  .field
+    = f.label :account_code
+    = f.text_field :account_code
+  .field
+    = f.label :claim_code
+    = f.text_field :claim_code
+  .field
+    = f.label :stated_on
+    = f.date_select :stated_on
+  .field
+    = f.label :posted_on
+    = f.date_select :posted_on
+  .field
+    = f.label :traded_on
+    = f.date_select :traded_on
+  .field
+    = f.label :bot
+    = f.text_field :bot
+  .field
+    = f.label :sld
+    = f.text_field :sld
+  .field
+    = f.label :net
+    = f.text_field :net
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :mark
+    = f.text_field :mark
+  .field
+    = f.label :ote
+    = f.text_field :ote
+  .field
+    = f.label :currency_code
+    = f.text_field :currency_code
+  .field
+    = f.label :position_status_code
+    = f.text_field :position_status_code
+  .actions = f.submit

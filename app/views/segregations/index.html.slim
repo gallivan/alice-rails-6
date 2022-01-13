@@ -1,0 +1,25 @@
+h1 Listing segregations
+
+table
+  thead
+    tr
+      th Code
+      th Name
+      th Note
+      th
+      th
+      th
+
+  tbody
+    - @segregations.each do |segregation|
+      tr
+        td = segregation.code
+        td = segregation.name
+        td = segregation.note
+        td = link_to 'Show', segregation
+        td = link_to 'Edit', edit_segregation_path(segregation)
+        td = link_to 'Destroy', segregation, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Segregation', new_segregation_path

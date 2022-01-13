@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @view_point.name
+p
+  strong Note:
+  = @view_point.note
+p
+  strong Code:
+  = @view_point.code
+
+= link_to 'Edit', edit_view_point_path(@view_point)
+'|
+= link_to 'Back', view_points_path

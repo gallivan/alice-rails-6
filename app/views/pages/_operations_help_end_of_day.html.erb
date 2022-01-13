@@ -1,0 +1,44 @@
+<div>
+  <p>
+    EOD processing generates statements and reports. Statements are generated for each account. Reports are generated
+    for the Back Office, CME/CBT and CFTC.
+  </p>
+
+  <p>
+    The overall process is handled by a shell script called eod.sh. The script:
+
+  <ul>
+    <li>backups up the database</li>
+    <li>starts packers and bookers</li>
+    <li>clears the log file</li>
+    <li>calls rake eod:run</li>
+    <li>updates CME/CBT claim dates</li>
+    <li>updates claim names</li>
+  </ul>
+  </p>
+
+  <p>
+    A more tightly defined processing is handled by a rake script called eod.rake. The the rake task eod:run will
+  <ul>
+    <li>check for report errors</li>
+    <li>picks execution reports for topday</li>
+    <li>expired claim position check</li>
+    <li>checks claim definitions</li>
+    <li>pulls settlement prices</li>
+    <li>checks settlement for errors</li>
+    <li>checks for charges setup</li>
+    <li>runs EOD for each account</li>
+    <li>generates/distributes reports</li>
+  </ul>
+  </p>
+
+  <p>
+    Execution of eod.sh (and eod.rake) occurs under the control of cron with the following setup. The command line
+    cd's to the "current" release location and excecutes the eod.sh script. The job runs at 2am, UTC, Tuesday through
+    Saturday. UTC is used because the host clock is on UTC. The command runtime maps into evening, CST/CDT.
+  </p>
+  <pre>
+
+00 02 * * 2-6 cd /home/alice/www/alice-rails-5/current && /bin/bash -l -c '/home/alice/www/alice-rails-5/current/script/eod.sh'
+  </pre>
+</div>

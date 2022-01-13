@@ -1,0 +1,40 @@
+
+.pre
+  'CBT:S|C|W|KW 3.25
+  .br
+  'CBT:S|C|W|KW 3.60-1/4
+  .br
+br
+
+= simple_form_for @deal_leg_fill do |f|
+  - if @deal_leg_fill.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@deal_leg_fill.errors.count, "error")} prohibited this deal_leg_fill from being saved:"
+      ul
+        - @deal_leg_fill.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.association :system, collection: System.select_options, include_blank: false
+  .field
+    = f.association :dealing_venue, collection: DealingVenue.select_options, include_blank: false
+  .field
+    = f.association :account, collection: Account.select_options, include_blank: false
+  .field
+    = f.association :claim, collection: Claim.select_options, include_blank: false
+  .field
+    = f.label :done
+    = f.text_field :done
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :price_traded
+    = f.text_field :price_traded
+  .field
+    = f.input :posted_on, as: :date, html5: true, :input_html => { :value => @deal_leg_fill.posted_on || Date.today}
+  .field
+    = f.input :traded_on, as: :date, html5: true, :input_html => { :value => @deal_leg_fill.traded_on || Date.today}
+  /.field
+  /  = f.input :traded_at, as: :date, html5: true, :input_html => { :value => @deal_leg_fill.traded_at || Date.today}
+  .actions = f.submit

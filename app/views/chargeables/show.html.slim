@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Chargeable type:
+  = @chargeable.chargeable_type_id
+p
+  strong Claim set:
+  = @chargeable.claim_set_id
+p
+  strong Currency:
+  = @chargeable.currency_id
+p
+  strong Amount:
+  = @chargeable.amount
+p
+  strong Begun on:
+  = @chargeable.begun_on
+p
+  strong Ended on:
+  = @chargeable.ended_on
+
+= link_to 'Edit', edit_chargeable_path(@chargeable)
+'|
+= link_to 'Back', chargeables_path

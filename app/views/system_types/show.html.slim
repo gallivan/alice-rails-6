@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @system_type.code
+p
+  strong Name:
+  = @system_type.name
+
+= link_to 'Edit', edit_system_type_path(@system_type)
+'|
+= link_to 'Back', system_types_path

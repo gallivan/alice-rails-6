@@ -1,0 +1,7 @@
+.number {
+    text-align: right;
+}
+
+.pagination li {
+  float: left;
+}

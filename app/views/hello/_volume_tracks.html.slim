@@ -1,0 +1,15 @@
+.row
+  .col-md-12
+    .panel.panel-info
+      .panel-heading Volume Tracks
+      .panel-body
+        table class="table table-striped table-condensed table-hover"
+          thead
+            tr
+              - ['Claim', '5m', '15m', '60m', '24h'].each do |key|
+                th class="text-right" = key
+          tbody
+            - @data[:volumes].each do |volume|
+              tr
+                - [:claim_set_code, :m05, :m15, :h01, :d01].each do |key|
+                  td align="right" = number_with_delimiter(volume[key], delimiter: ',')

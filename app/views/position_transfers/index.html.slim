@@ -1,0 +1,29 @@
+h1 Listing position_transfers
+
+table
+  thead
+    tr
+      th Fm position
+      th To position
+      th Bot transfered
+      th Sld transfered
+      th User
+      th
+      th
+      th
+
+  tbody
+    - @position_transfers.each do |position_transfer|
+      tr
+        td = position_transfer.fm_position
+        td = position_transfer.to_position
+        td = position_transfer.bot_transfered
+        td = position_transfer.sld_transfered
+        td = position_transfer.user
+        td = link_to 'Show', position_transfer
+        td = link_to 'Edit', edit_position_transfer_path(position_transfer)
+        td = link_to 'Destroy', position_transfer, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Position transfer', new_position_transfer_path

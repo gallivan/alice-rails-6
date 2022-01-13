@@ -1,0 +1,24 @@
+h1 Listing ledger_entry_types
+
+.row
+  .btn.btn-default = link_to 'New Ledger entry type', new_ledger_entry_type_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @ledger_entry_types.each do |ledger_entry_type|
+          tr
+            td = ledger_entry_type.code
+            td = ledger_entry_type.name
+            td = link_to 'Show', ledger_entry_type
+            td = link_to 'Edit', edit_ledger_entry_type_path(ledger_entry_type)
+            td = link_to 'Destroy', ledger_entry_type, data: {:confirm => 'Are you sure?'}, :method => :delete

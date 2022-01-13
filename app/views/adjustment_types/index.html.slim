@@ -1,0 +1,28 @@
+h1 Listing adjustment_types
+
+/== render 'shared/search_form'
+
+.btn.btn-default = link_to 'New Adjustment type', new_adjustment_type_path
+
+.row
+  = paginate @adjustment_types
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @adjustment_types.each do |adjustment_type|
+          tr
+            td = adjustment_type.code
+            td = adjustment_type.name
+            td = link_to 'Show', adjustment_type
+            td = link_to 'Edit', edit_adjustment_type_path(adjustment_type)
+            td = link_to 'Destroy', adjustment_type, data: {:confirm => 'Are you sure?'}, :method => :delete

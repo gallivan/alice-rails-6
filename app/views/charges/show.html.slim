@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @charge.account_id
+p
+  strong Chargeable:
+  = @charge.chargeable_id
+p
+  strong Currency:
+  = @charge.currency_id
+p
+  strong Segregation:
+  = @charge.segregation_id
+p
+  strong Amount:
+  = @charge.amount
+p
+  strong Memo:
+  = @charge.memo
+p
+  strong Posted on:
+  = @charge.posted_on
+p
+  strong As of on:
+  = @charge.as_of_on
+
+= link_to 'Edit', edit_charge_path(@charge)
+'|
+= link_to 'Back', charges_path

@@ -1,0 +1,260 @@
+<h3>Users</h3>
+
+<p>
+  The set of currently defined users may be found <a href="/admin/users">here</a>. Each user has a Duty and manage a set
+  of Accounts - described below. From this page, Users may be created, viewed (button), updated and deleted (links).
+</p>
+
+<%= image_tag("index-users.png", :alt => "users listing") %>
+
+<p>
+  A new User can be created by clicking the <a href="/admin/users/new">New User</a> button. The following form will
+  appear. The following simple form will be presented. Enter the User name and email address. The password and password
+  confirmation fields are quite demanding. Passwords typically selected by people are shockingly poor. The problem
+  troubles site <a href="https://www.troyhunt.com/whos-who-of-bad-password-practices/">providers</a> also. Password
+  requirements will be discussed in person.
+</p>
+
+<%= image_tag("new-user.png", :alt => "new user") %>
+
+<p>
+  With the form filed out and the Create User button clicked, the responses similar to that shown below will be
+  generated. Most fields are blank. They track User access and are automatically updated.
+</p>
+
+<%= image_tag("created-user.png", :alt => "created user") %>
+
+<h3>Duties & Users Duties</h3>
+
+<p>
+  The set of Duties can be found <a href="http://localhost:3000/admin/duties">here</a>. A Duty can be through of as a
+  name set of responsibilities related to working with the system. The snap below shows six Duties defined. The Root
+  Duty is a kind of superuser. The capabilities of other Duties are scoped by responsibility. Duties should be treated
+  as "constants". The association of Users with Duties is the perogative of Users responsible for such maintenance.
+</p>
+
+<%= image_tag("index-duties.png", :alt => "duties listing") %>
+
+<p>
+  A User can be associated with Duties. Those defined can be found <a href="/admin/user_duties">here</a>.
+</p>
+
+<%= image_tag("index-user-duties.png", :alt => "user duties listing") %>
+
+<p>
+  A new UserDuty can be created by filling out the <a href="/admin/user_duties/new">form</a>. The form is very simple.
+  Select the User and the Duty and click the Create button.
+</p>
+
+<%= image_tag("new-user-duty.png", :alt => "new user duty") %>
+
+<p>
+  The following snap shows the UserDuty created.
+</p>
+
+<%= image_tag("created-user-duty.png", :alt => "created user duty") %>
+
+<h3>Managed Accounts</h3>
+
+<p>
+  The list of Accounts managed by Users can be found <a href="/admin/managed_accounts">here</a>. The following snap
+  shows Trader is responsible for managing 00002 and 00004 While Head Trade is responsible for 00001.
+</p>
+
+<%= image_tag("index-managed-accounts.png", :alt => "managed accounts listing") %>
+
+<p>
+  A new ManagedAccount association can be created <a href="/admin/managed_accounts/new" j>here</a>. The form offers User
+  and Account dropdowns.
+</p>
+
+<%= image_tag("new-managed-account.png", :alt => "new managed account") %>
+
+<p>
+  Clicking the Create button will generate a response simiilar to that shown in the following snap.
+</p>
+
+<%= image_tag("created-managed-account.png", :alt => "created managed account listing") %>
+
+<p>
+  Users are responsible for managing accounts. Those defined can be found <a href="/admin/managed_accounts">here></a>.
+</p>
+
+<h3>Accounts & Account Aliases</h3>
+
+<p>
+  <a href="/admin/accounts">Account</a> maintenance involves creating and updatig accounts. Accounts cannot be deleted
+  because references to associated information must be kept. Accounts may be marked as inactive rather than deleted. A
+  listing of accounts can be seen in the following snap.
+</p>
+
+<%= image_tag("index-accounts.png", :alt => "account listing") %>
+
+<p>
+  A new account may be created via the following URL <a href="/admin/accounts/new">link</a>. The snap below shows the
+  form filled with representative values. Note the "active" checkbox is selected.
+</p>
+
+<ul>
+  <li>Entity: Eagle Market Makers (account owner)</li>
+  <li>Account type: Regular (only type now defined)</li>
+  <li>Code: 09876 (string)</li>
+  <li>Name: Eagle Market Makers 09876 (string)</li>
+  <li>Active: checked</li>
+</ul>
+
+<%= image_tag("new-account.png", :alt => "new account") %>
+
+<p>
+  A successfully created Account will return a result that looks like the following snap.
+</p>
+
+<%= image_tag("created-account.png", :alt => "created account") %>
+
+<h3 id="chargeable-maintenance">Charges, Chargeables & Chargeable Types</h3>
+
+<p>
+  A Charge is an expense incurred through trading. The following snap shows a list of Charges. The first Charge was
+  incurred by Account 88888 as a consequence of trading 30 March CBT Corn futures and incuring an exchange fee expense
+  of 6.00 USD. This is evident in the memo of the Charge: Corn Futures Mar 2018 30 at 0.2 USD EXG.
+</p>
+
+<%= image_tag("index-charges.png", :alt => "charges listing") %>
+
+<p>
+  A Chargeable reflects the opportunity to apply an expense (Charge) to a fill (DealLegFill). The following snap shows a
+  list of Chargeables. A Chargeable has the following effective properties.
+</p>
+
+<ul>
+  <li>Chargeable Type</li>
+  <li>Claim Set</li>
+  <li>Amount</li>
+  <li>Currency</li>
+  <li>Begun On</li>
+  <li>Ended On</li>
+</ul>
+
+<p>
+  Each Chargeable is associated with a ChargeableType, e.g., and exchange fee, and applies to a ClaimSet. The
+  Chargeable will have an Amount, Currency and a duration over which it applies. In the following snap, and exchange fee
+  of 1.80 USD per contract applies to all Minneapolis Hard Red Spring Wheat Futures for the period 2017-01-01 through
+  2018-12-31.
+</p>
+
+<%= image_tag("index-chargeables.png", :alt => "index chargeables") %>
+
+<p>
+  The following snap lists ChargeableTypes. Each ChargeableType reflects a purpose. In the snap, three ChargeableTypes
+  are shown: Exchange, Brokerage and Service. ChargeableType identifes related Chargeables by purpose. A new
+  ChargeableType can be created at this <a href="/admin/chargeable_types/new">location</a>. Editing a ChargeableType can
+  be done via the Edit link on listing or view pages.
+</p>
+
+<%= image_tag("index-chargeable-types.png", :alt => "index chargeable types") %>
+
+<p>
+  A ClaimSet may have a collection of related Chargeables, as seen in the following snap for Spring Wheat which shows
+  associated ChargeableTypes of Exchange, Brokerage and Service.
+</p>
+
+<%= image_tag("filtered-chargeables.png", :alt => "filtered chargeables") %>
+
+<p>
+  A new Chargeable can be created via the following <a href="/admin/chargeables/new">URL</a>. A Chargeable can also be
+  edited by selecting the associated Edit link from listing or view pages. An example edit form is shown in the
+  following snap.
+</p>
+
+<%= image_tag("edit-chargeable.png", :alt => "edit chargeable") %>
+
+<h3>Claims & Claim Sets</h3>
+
+<p>
+  The term "claim" is not typically associated with futures and options on futures. The term "contract" is widely
+  used. Why adopt "claim"?
+</p>
+
+<p>
+  The <a href="http://www.businessdictionary.com/definition/claims.html">definition</a> of "claim" may provide some
+  insight. The choice allows the system to adapt to an ever evolving set of claims via sensible refinement of the core
+  idea.
+</p>
+
+<p>
+  Claims are particular. The following snap lists some of the Claims known to the system. A glance at enteries named
+  will generate obvious associations with other characteristics noted on each line.
+</p>
+
+<%= image_tag("index-claims.png", :alt => "index claims") %>
+
+<p>
+  Each Claim is an element of a ClaimSet, i.e., a collection of associated Claims. The following snap shows Claims
+  associated with Corn Futures (ClaimSet name) at the time the snap was taken. Transaction information is sufficiently
+  rich to construct Claims and ClaimSets definitions within the system.
+</p>
+
+<%= image_tag("filtered-claims.png", :alt => "filtered claims") %>
+
+<h3>Claims & Futures</h3>
+
+<p>
+  The description has refered to Claim in the general sense. Sepcifically, no such thing exits. What exists is a
+  specific kind of Claim - a specific kind of contractual obligation.
+</p>
+
+<p>
+  A traded futures contract is a specific kind of Claim within the system and the world: a Future. The following snap
+  shws characteristics currently defined for a particular Claim. The snap does not show many characteristics typically
+  associated with a futures contract. Those are modeled as a Future, a refinement of Claim.
+</p>
+
+<%= image_tag("claim-cbt-corn-201709.png", :alt => "corn claim") %>
+
+<p>
+  The following snap shows Future related characterisitcs associated witha paticular (abstract) Claim. The
+  characteristic date "last delivery on" makes sense for a Future Claim. It makes no sense for many other types of
+  Claims, e.g., a USD vanilla interest rate swap.
+</p>
+
+<%= image_tag("future-cbt-corn-201709.png", :alt => "corn future") %>
+
+<h3>Claims Aliases & Claim Set Aliases</h3>
+
+<p>
+  Claims (contracts) have names. Those names can differ between (entity related) systems responsible for handling
+  information associated with those Claims.
+</p>
+
+<p>
+  The system has its own "name" for each contract it knows of. That name is visible as the "name" characteristic of the
+  Claim. This name is typically open to easy reading.
+</p>
+
+<p>
+  The system also as an "internal name" expressed as an integer. That name is unknown to all other systems. Mapping
+  between the system and all other systems requires and "aliasing scheme" - a means through which an external name is
+  mapped to an internal name.
+</p>
+
+<p>
+  The following snap shows some ClaimAliases. Each line shows a System (name), a Code and a Claim (name). Reading the
+  top line of the list reveals that the system maps "19:G:201709" receive from the system named "ABN AMRO Clearing
+  Corporation" as referencing the system Claim named "Gas Oil Futures Sep 2017".
+</p>
+
+<%= image_tag("index-claim-aliases.png", :alt => "claim aliases") %>
+
+<p>
+  A ClaimSet may be aliases also. Each Claim is a member of a set known toa system. Each ClaimSet can be identified and
+  aliased.
+</p>
+
+<p>
+  A ClaimSet may have many ClaimAliases, each associated with a specific System. The following snap lists the
+  ClaimSetAlieases associated with the ClaimSet named "Long Gilt Futures" belonging to systems for ABN and Quandl.
+</p>
+
+<%= image_tag("filtered-claim-set-aliaes.png", :alt => "filgered claim set aliases") %>
+
+

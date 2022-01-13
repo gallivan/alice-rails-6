@@ -1,0 +1,27 @@
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+sudo dpkg -i erlang-solutions_1.0_all.deb
+sudo apt-get update
+sudo apt-get install erlang
+
+<div>
+  <p>
+    <a href="https://www.rabbitmq.com/">RabbitMQ</a> is an
+    <a href="https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">AMQP</a> implementation. It is used for
+    messaging within the system related to picking, packing and booking in particular. The following snap shows a
+    fragment of a RabbitMQ messages inflight, taken from the RabbitMQ Administration application.
+  </p>
+  <p>
+    <a href="https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-18-04-lts/">Howto for Erlang on Ubuntu 18.04 LTS</a>
+  </p>
+  <p>
+  <pre>
+    sudo wget -O- https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add -
+    sudo echo "deb https://packages.erlang-solutions.com/ubuntu bionic contrib" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+    sudo apt update
+    sudo apt -y install erlang
+    </pre>
+  </p>
+  <p>
+    <%= image_tag("rabbitmq-messages.png", :alt => "RabbitMQ Messages") %>
+  </p>
+</div>

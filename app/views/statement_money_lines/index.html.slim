@@ -1,0 +1,35 @@
+h1 Stated Money Lines
+
+- unless current_user.can_see_all_accounts? or current_user.has_accounts?
+  'You have no accounts.
+- else
+  == render 'statement_money_lines/search_form'
+  .row
+    = paginate @statement_money_lines
+  .row
+    .large-12.columns
+      table class="table table-striped table-bordered table-condensed table-hover"
+        thead
+          tr
+            - names = %W(Account Stated Posted Kind CCY Seg Begin Chgs Adjs PnL Ledger OTE Cash NetLiq Mark)
+            - names.each do |name|
+              th class="text-right" = name
+        tbody
+          - @statement_money_lines.each do |statement_money_line|
+            tr
+              td class="text-right" = statement_money_line.account_code
+              td class="text-right" = statement_money_line.stated_on
+              td class="text-right" = statement_money_line.posted_on
+              td class="text-right" = statement_money_line.kind
+              td class="text-right" = statement_money_line.currency_code
+              td class="text-right" = statement_money_line.segregation_code
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.beginning_balance, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.charges, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.adjustments, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.pnl_futures, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.ledger_balance, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.open_trade_equity, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.cash_account_balance, precision: 2), delimiter: ',')
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_money_line.net_liquidating_balance, precision: 2), delimiter: ',')
+              td class="text-right" = statement_money_line.currency_mark
+              td class="text-right" = link_to 'Show', statement_money_line

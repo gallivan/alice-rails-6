@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21964345430" TrdTyp="0" ExecID="22815220160725114514TN0000059" TrdDt="2016-07-25"
+              BizDt="2016-07-25"
+              MLegRptTyp="1" MtchStat="0" MsgEvtSrc="REG" TrdID="172326" LastQty="20" LastPx="109.234375"
+              TxnTm="2016-07-25T11:45:14-05:00" SettlCcy="USD" SettlDt="2016-12-30"
+              OrigTrdID="1561EEC09E9LTP0201D25F24E"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="26" Desc="2 YEAR TREASURY NOTE FUTURES" CFI="FFDPSO" SecTyp="FUT" MMY="201612" MatDt="2016-12-30"
+             Mult="2000" Exch="CBT" UOM="Ccy" UOMCcy="USD" UOMQty="200000" PxUOM="IPNT" PxUOMQty="100" ValMeth="FUT"
+             Fctr="1" PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="-625" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="ABW1" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="Y">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CBT" R="22"></Pty>
+      <Pty ID="330" R="1"></Pty>
+      <Pty ID="39009" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="330B" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="330" R="7"></Pty>
+      <RegTrdID ID="FECF1561EEC09E9LTP0201D25F250" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

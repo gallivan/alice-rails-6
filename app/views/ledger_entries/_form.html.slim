@@ -1,0 +1,15 @@
+= simple_form_for(@ledger_entry) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :ledger_id
+    = f.input :ledger_entry_type_id
+    = f.input :account_id
+    = f.input :currency_id
+    = f.input :posted_on
+    = f.input :as_of_on
+    = f.input :amount
+    = f.input :memo
+
+  .form-actions
+    = f.button :submit

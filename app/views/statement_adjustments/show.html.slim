@@ -1,0 +1,31 @@
+p#notice = notice
+
+p
+  strong Posted on:
+  = @statement_adjustment.posted_on
+p
+  strong Stated on:
+  = @statement_adjustment.stated_on
+p
+  strong Account:
+  = @statement_adjustment.account_id
+p
+  strong Account code:
+  = @statement_adjustment.account_code
+p
+  strong Adjustment code:
+  = @statement_adjustment.adjustment_code
+p
+  strong Journal code:
+  = @statement_adjustment.journal_code
+p
+  strong Currency code:
+  = @statement_adjustment.currency_code
+p
+  strong Amount:
+  = @statement_adjustment.amount
+p
+  strong Memo:
+  = @statement_adjustment.memo
+
+= link_to 'Back', statement_adjustments_path

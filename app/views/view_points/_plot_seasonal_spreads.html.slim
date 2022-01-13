@@ -1,0 +1,18 @@
+div class="panel panel-info"
+  div class="panel-heading" Seasonal Spread
+  div class="panel-body"
+    div id='reset-button'
+      input type="button" value=("Reset All")
+    div id='dc-line-chart' class='dc-chart'
+    div id='dc-pins-chart' class='dc-chart'
+    div id='dc-data-table' class="table table-hover dc-data-table"
+      div class='header'
+        span Date
+        span Open
+        span High
+        span Low
+        span Mark
+        span Volume
+javascript:
+  var url = "/view_point/seasonal_spreads_data.json?claim_id=#{@claim.id}";
+  plotSeasonalSpreads(url);

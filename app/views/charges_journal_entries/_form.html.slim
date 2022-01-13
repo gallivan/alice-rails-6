@@ -1,0 +1,9 @@
+= simple_form_for(@charges_journal_entry) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :charge_id
+    = f.input :journal_entry_id
+
+  .form-actions
+    = f.button :submit

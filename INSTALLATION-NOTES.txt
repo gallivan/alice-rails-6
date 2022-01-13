@@ -1,0 +1,300 @@
+# Setup Notes for Rails Application alice-rails-5
+
+## Dependencies
+
+* Ubuntu 20.04 LTS
+* Linode DNS Setup
+* PostgreSQL 12
+* RabbitMQ
+* Node.js
+* Ruby 2.7.2
+* Rails 5.2.4.4
+* Shell ENV
+* Firewall
+* Puma + Nginx
+* RabbitMQ + Nginx
+* Let's Encrypt
+* Memcached 1.5
+* Restore DB dump
+
+########################################################################################################################
+
+## NOTE WELL
+
+Substitue, without quotes
+
+"environment-name" for "[ENVIRONMENT_NAME]", e.g., "integration"
+"nginx-server-name" for "alice-rails-5", e.g., "int-alice-rails-5.jackijack.com"
+
+########################################################################################################################
+
+## User Setup
+
+### Target Host
+
+sudo adduser alice
+sudo adduser alice sudo
+ssh-keygen -t rsa -b 4096
+ssh-copy-id alice@NODE.jackijack.com
+
+### set hostname
+sudo vi /etc/hostname # set hostname
+sudo reboot now
+
+### Shell environment variables
+
+Add .bashrc values from elsewhere
+
+########################################################################################################################
+
+## var directories
+
+mkdir -p /home/alice/var/dnl/abn
+mkdir -p /home/alice/var/dnl/cme
+mkdir -p /home/alice/var/pdf
+mkdir -p /home/alice/var/txt
+mkdir -p /home/alice/var/lrg
+mkdir -p /home/alice/var/stl
+
+########################################################################################################################
+
+## PDF generation and email
+
+sudo apt install enscript
+sudo apt install ghostscript
+sudo apt install mailutils
+
+########################################################################################################################
+
+## snapd
+
+sudo snap install core; sudo snap refresh core
+
+########################################################################################################################
+
+## Memcached
+
+sudo apt-get install memcached
+
+########################################################################################################################
+
+## letsencrypt
+
+# https://letsencrypt.org/getting-started/
+# https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
+
+#sudo apt install certbot python3-certbot-nginx
+
+certbot, sudo dnf remove certbot, or sudo yum remove certbot
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+## revocation
+
+sudo certbot revoke --cert-path /etc/letsencrypt/archive/${YOUR_DOMAIN}/cert1.pem
+sudo certbot revoke --cert-path /etc/letsencrypt/archive/emm1.jackijack.com/cert1.pem
+
+########################################################################################################################
+
+## PostgreSQL
+
+sudo apt install postgresql postgresql-contrib libpq-dev
+
+Substitute [ENVIRONMENT_NAME] for Rails environment, e.g., staging.
+
+sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+sudo -u postgres createdb -O alice alice_[ENVIRONMENT_NAME]
+sudo -u postgres psql -c 'grant all privileges on database alice_[ENVIRONMENT_NAME] to alice;'
+
+sudo vi /etc/postgresql/<ver>/main/pg_hba.conf
+
+-- from --
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+
+-- to --
+host    all             all             127.0.0.1/32            trust #md5
+host    all             all             ::1/128                 trust #md5
+
+sudo service postgresql restart
+
+########################################################################################################################
+
+## RabbitMQ
+
+# https://www.rabbitmq.com/install-debian.html#apt
+
+echo "deb https://dl.bintray.com/rabbitmq/debian bionic main" | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list
+wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+sudo apt update
+sudo apt upgrade
+sudo apt install rabbitmq-server
+sudo rabbitmq-plugins enable rabbitmq_management
+
+########################################################################################################################
+
+## Ruby
+
+# https://gorails.com/setup/ubuntu/20.04#ruby-rvm
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install curl
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
+
+sudo apt-get update
+sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn
+sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+rvm install 2.7.2
+rvm use 2.7.2 --default
+gem install bundler
+rvm gemset create rails-5.2.4.4
+rvm use 2.7.2@rails-5.2.4.4 --default
+gem install bundler
+
+## setup shared Rails configuration files on remote
+
+### remote host
+
+mkdir -p /home/alice/www/alice-rails-5/shared/config
+
+### localhost
+
+Substitute [FQDN] for the target host fully qualified domainname, e.g., stg.jackijack.com.
+
+scp config/master.key alice@NODE:~/www/alice-rails-5/shared/config
+scp config/database.yml alice@NODE:~/www/alice-rails-5/shared/config
+scp config/secrets.yml alice@NODE:~/www/alice-rails-5/shared/config
+cap [ENVIRONMENT_NAME] deploy
+
+### remote host
+
+bundle exec rails db:restore[localhost,alice_[ENVIRONMENT],alice,/home/alice/dumps/alice_production_<DATE>_post.pgr]
+
+### local host
+
+cap [ENVIRONMENT] deploy
+
+########################################################################################################################
+
+## update dot files
+
+scp alice@soure:~/.sftp* .
+
+.quandl_api_key
+.sendgrid_pwd
+
+########################################################################################################################
+
+## Puma + Nginx
+
+# https://www.tecmint.com/install-nginx-on-ubuntu-20-04/
+# https://matthewhoelter.com/2020/11/10/deploying-ruby-on-rails-for-ubuntu-2004.html
+# https://blog.nousefreak.be/blog/letsencrypt-nginx-reverse-proxy
+
+sudo apt install nginx
+cd /etc/nginx
+curl http://NODE.jackijack.com # from localhost
+sudo certbot --email jay.gallivan@gmail.com -d NODE.jackijack.com
+#sudo certbot certonly --webroot --agree-tos --no-eff-email --email jay.gallivan@gmail.com -w /etc/letsencrypt -d NODE.jackijack.com
+sudo certbot renew --dry-run
+
+sudo mv nginx.conf nginx.conf.orig
+sudo ln -s /home/alice/www/alice-rails-5/current/config/nginx.conf nginx.conf
+cd sites-available
+sudo ln -s /home/alice/www/alice-rails-5/current/config/alice-rails-5.conf alice-rails-5
+cd ../sites-enabled
+sudo ln -s ../sites-available/alice-rails-5
+sudo rm default
+
+
+### NEED TO DO SOMETHING WITH SNIPPETS ###
+### NEED TO DO SOMETHING WITH SNIPPETS ###
+### NEED TO DO SOMETHING WITH SNIPPETS ###
+### NEED TO DO SOMETHING WITH SNIPPETS ###
+
+
+sudo cat > /etc/nginx/snippets/ssl.conf <<HERE
+ssl_session_timeout 1d;
+ssl_session_cache shared:SSL:50m;
+ssl_session_tickets off;
+
+ssl_protocols TLSv1.2;
+ssl_ciphers EECDH+AESGCM:EECDH+AES;
+ssl_ecdh_curve secp384r1;
+ssl_prefer_server_ciphers on;
+
+ssl_stapling on;
+ssl_stapling_verify on;
+
+add_header Strict-Transport-Security "max-age=15768000; includeSubdomains; preload";
+add_header X-Frame-Options DENY;
+add_header X-Content-Type-Options nosniff;
+HERE
+
+sudo service nginx restart
+
+cap [environment] puma:restart
+
+########################################################################################################################
+
+## RabbitMQ + Nginx
+
+# https://blog.b2-4ac.com/rabbitmq-management/
+# https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/
+
+In the following, substitute [FQDN], e.g, stg.jackijack.com.
+
+sudo cat > /etc/nginx/sites-enabled/rabbitmq-manager <<HERE
+server {
+   listen 8080;
+   listen [::]:8080 default_server ipv6only=on;
+   server_name rabbitmq-manager;
+
+   location / {
+       return 301 https://$host:8083$request_uri;
+   }
+}
+
+server {
+    listen 8083 ssl spdy; # spdy may need to be dropped
+    server_name rabbitmq-manager;
+
+    ssl_certificate /etc/letsencrypt/live/[FQDN]/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/[FQDN]/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/[FQDN]/fullchain.pem;
+    include /etc/nginx/snippets/ssl.conf;
+
+    location / {
+       proxy_pass http://localhost:15672;
+       proxy_set_header Host $host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+HERE
+
+sudo ln -s /etc/nginx/sites-enabled/alice-rails-5 /etc/nginx/sites-available/rabbitmq-manager
+
+########################################################################################################################
+
+## Firewall
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04
+
+#sudo ufw default deny incoming
+#sudo ufw default allow outgoing
+sudo ufw app list
+sudo ufw allow OpenSSH
+sudo ufw allow "Nginx Full"
+sudo ufw enable
+sudo ufw status
+sudo reboot now

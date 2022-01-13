@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Posted:
+  = @picker_report.posted_on
+p
+  strong Kind:
+  = @picker_report.kind
+p
+  strong Fate:
+  = @picker_report.fate
+p
+  strong Data:
+  = @picker_report.data
+p
+  strong Error:
+  = @picker_report.goof_error
+p
+  strong Trace:
+  = @picker_report.goof_trace
+p
+  strong Created:
+  = @picker_report.created_at
+p
+  strong Updated:
+  = @picker_report.updated_at
+
+= link_to 'Edit', edit_picker_report_path(@picker_report)
+'|
+= link_to 'Back', picker_reports_path

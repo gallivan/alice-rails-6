@@ -1,0 +1,25 @@
+h1 Listing view_points
+
+table
+  thead
+    tr
+      th Name
+      th Note
+      th Code
+      th
+      th
+      th
+
+  tbody
+    - @view_points.each do |view_point|
+      tr
+        td = view_point.name
+        td = view_point.note
+        td = view_point.code
+        td = link_to 'Show', view_point
+        td = link_to 'Edit', edit_view_point_path(view_point)
+        td = link_to 'Destroy', view_point, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New View point', new_view_point_path

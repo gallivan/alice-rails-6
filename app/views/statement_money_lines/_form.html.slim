@@ -1,0 +1,45 @@
+= form_for @statement_money_line do |f|
+  - if @statement_money_line.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@statement_money_line.errors.count, "error")} prohibited this statement_money_line from being saved:"
+      ul
+        - @statement_money_line.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :stated_on
+    = f.date_select :stated_on
+  .field
+    = f.label :posted_on
+    = f.date_select :posted_on
+  .field
+    = f.label :account_id
+    = f.number_field :account_id
+  .field
+    = f.label :account_code
+    = f.text_field :account_code
+  .field
+    = f.label :held_currency_code
+    = f.text_field :held_currency_code
+  .field
+    = f.label :base_currency_code
+    = f.text_field :base_currency_code
+  .field
+    = f.label :beginning_balance
+    = f.text_field :beginning_balance
+  .field
+    = f.label :pnl_futures
+    = f.text_field :pnl_futures
+  .field
+    = f.label :ledger_balance
+    = f.text_field :ledger_balance
+  .field
+    = f.label :open_trade_equity
+    = f.text_field :open_trade_equity
+  .field
+    = f.label :cash_account_balance
+    = f.text_field :cash_account_balance
+  .field
+    = f.label :net_liquidating_balance
+    = f.text_field :net_liquidating_balance
+  .actions = f.submit

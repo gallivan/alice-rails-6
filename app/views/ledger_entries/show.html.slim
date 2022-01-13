@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Ledger:
+  = @ledger_entry.ledger.code
+p
+  strong Ledger entry type:
+  = @ledger_entry.ledger_entry_type.code
+p
+  strong Account:
+  = @ledger_entry.account.code
+p
+  strong Currency:
+  = @ledger_entry.currency.code
+p
+  strong Posted on:
+  = @ledger_entry.posted_on
+p
+  strong As of on:
+  = @ledger_entry.as_of_on
+p
+  strong Amount:
+  = @ledger_entry.amount
+p
+  strong Memo:
+  = @ledger_entry.memo
+
+= link_to 'Edit', edit_ledger_entry_path(@ledger_entry)
+'|
+= link_to 'Back', ledger_entries_path

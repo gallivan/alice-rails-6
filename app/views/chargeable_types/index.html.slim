@@ -1,0 +1,23 @@
+h1 Listing chargeable_types
+
+table
+  thead
+    tr
+      th Code
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @chargeable_types.each do |chargeable_type|
+      tr
+        td = chargeable_type.code
+        td = chargeable_type.name
+        td = link_to 'Show', chargeable_type
+        td = link_to 'Edit', edit_chargeable_type_path(chargeable_type)
+        td = link_to 'Destroy', chargeable_type, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Chargeable type', new_chargeable_type_path

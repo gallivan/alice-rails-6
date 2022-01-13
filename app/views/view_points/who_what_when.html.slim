@@ -1,0 +1,51 @@
+#timestamp.row
+  .large-8.columns
+    = Time.now.to_s(:alice_time_short)
+  .large-4.columns
+br
+=render 'view_points/what_when_date_range_select'
+.row style=("margin-left: 20px;")
+  .columns-12
+    #message
+      div style=("position: fixed; top: 40%; width: 100%;font-size: 200%; text-align: left; z-index: 11;")
+br
+
+.row
+  .col-md-2
+    #dc-chart-exch
+  .col-md-2
+    #dc-chart-acct-nets
+  .col-md-2
+    #dc-chart-name-nets
+  .col-md-1
+  .col-md-5
+    .row
+      #dc-chart-bar-rats-totals.medium-12.columns
+    .row
+      #dc-chart-bar-nets-totals.medium-12.columns
+    .row
+      #dc-chart-bar-flow-totals.medium-12.columns
+    .row
+      #dc-chart-bar-cost-totals.medium-12.columns
+    .row
+      #dc-chart-bar-done-totals.medium-12.columns
+javascript:
+    function onStartup() {
+        var _qtr = moment(new Date()).subtract(1, 'Q').toDate();
+        $("#startDate").datepicker({'autoclose': true, 'format': 'yyyy-mm-dd'});
+        $("#startDate").datepicker('setDate', _qtr);
+        $("#endDate").datepicker({'autoclose': true, 'format': 'yyyy-mm-dd'});
+        $("#endDate").datepicker('setDate', new Date());
+        plotGraph();
+    }
+
+    function plotGraph() {
+        var showWho = true;
+        var url = "/view_point/who_what_when_range.json";
+        plotWhoWhatWhen(showWho, url, {"startDate": $('#startDate').val(), "endDate": $('#endDate').val()});
+    }
+
+    $(document).ready(onStartup);
+
+
+

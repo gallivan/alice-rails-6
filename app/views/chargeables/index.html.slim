@@ -1,0 +1,31 @@
+h1 Listing chargeables
+
+table
+  thead
+    tr
+      th Chargeable type
+      th Claim set
+      th Currency
+      th Amount
+      th Begun on
+      th Ended on
+      th
+      th
+      th
+
+  tbody
+    - @chargeables.each do |chargeable|
+      tr
+        td = chargeable.chargeable_type_id
+        td = chargeable.claim_set_id
+        td = chargeable.currency_id
+        td = chargeable.amount
+        td = chargeable.begun_on
+        td = chargeable.ended_on
+        td = link_to 'Show', chargeable
+        td = link_to 'Edit', edit_chargeable_path(chargeable)
+        td = link_to 'Destroy', chargeable, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Chargeable', new_chargeable_path

@@ -1,0 +1,29 @@
+h1 Listing booker_reports
+
+== render 'shared/reports_search_form'
+
+.row
+  = paginate @booker_reports
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th ID
+          th Posted
+          th Kind
+          th Fate
+          th Data
+          th
+
+      tbody
+        - @booker_reports.each do |booker_report|
+          tr
+            td = booker_report.id
+            td = booker_report.posted_on
+            td = booker_report.kind
+            td = booker_report.fate
+            td = booker_report.data
+            td = link_to 'Show', booker_report
+            td = link_to 'Redo', redo_booker_report_path(booker_report)

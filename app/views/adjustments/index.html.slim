@@ -1,0 +1,38 @@
+h1 Listing adjustments
+
+== render 'shared/search_form'
+
+.btn.btn-default = link_to 'New Adjustment', new_adjustment_path
+
+.row
+  = paginate @adjustments
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Posted
+          th Account
+          th Type
+          /th Journal entry
+          th Amount
+          th Currency
+          th Memo
+          th
+          th
+          th
+
+      tbody
+        - @adjustments.each do |adjustment|
+          tr
+            td = adjustment.posted_on
+            td = adjustment.account.code
+            td = adjustment.adjustment_type.code
+            /td = adjustment.journal_entry_id
+            td = adjustment.amount
+            td = adjustment.currency.code
+            td = adjustment.memo
+            td = link_to 'Show', adjustment
+            td = link_to 'Edit', edit_adjustment_path(adjustment)
+            td = link_to 'Destroy', adjustment, data: {:confirm => 'Are you sure?'}, :method => :delete

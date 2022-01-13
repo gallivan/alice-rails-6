@@ -1,0 +1,36 @@
+h1 Listing claim_marks
+
+== render 'search_form'
+
+.row
+  .large-6.columns = paginate @claim_marks
+  .large-6.columns
+    .btn.btn-default = link_to 'New ClaimMark', new_claim_mark_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th System
+          th Claim
+          th Posted
+          th Mark
+          th
+          th
+          th
+
+      tbody
+        - @claim_marks.each do |claim_mark|
+          tr
+            td = claim_mark.system.code
+            td = claim_mark.claim.name
+            td = claim_mark.posted_on
+            td = claim_mark.mark
+            td = link_to 'Show', claim_mark
+            td = link_to 'Edit', edit_claim_mark_path(claim_mark)
+            td = link_to 'Destroy', claim_mark, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+/= link_to 'New Claim mark', new_claim_mark_path

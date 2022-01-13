@@ -1,0 +1,23 @@
+h1 Listing claim_sub_types
+
+table
+  thead
+    tr
+      th Code
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @claim_sub_types.each do |claim_sub_type|
+      tr
+        td = claim_sub_type.code
+        td = claim_sub_type.name
+        td = link_to 'Show', claim_sub_type
+        td = link_to 'Edit', edit_claim_sub_type_path(claim_sub_type)
+        td = link_to 'Destroy', claim_sub_type, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Claim sub type', new_claim_sub_type_path

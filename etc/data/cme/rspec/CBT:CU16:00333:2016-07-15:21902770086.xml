@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21902770086" TrdTyp="0" TrdSubTyp="7" ExecID="54333320160715084135TN0030317" TrdDt="2016-07-15"
+              BizDt="2016-07-15" MLegRptTyp="2" MtchStat="0" MsgEvtSrc="REG" TrdID="123175" LastQty="39" LastPx="357.75"
+              TxnTm="2016-07-15T08:41:35-05:00" SettlCcy="USD" SettlDt="2016-09-14"
+              OrigTrdID="155D6D300E8LTP0202D1025312"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="C" Desc="CORN FUTURES" CFI="FCAPSO" SecTyp="FUT" MMY="201609" MatDt="2016-09-14" Mult="5000" Exch="CBT"
+             UOM="Bu" UOMQty="5000" PxUOM="BU" PxUOMQty="1" ValMeth="FUT" Fctr="1" PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="10725" Ccy="USD"/>
+    <RptSide Side="2" ClOrdID="32P" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="N">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CBT" R="22"></Pty>
+      <Pty ID="330" R="1"></Pty>
+      <Pty ID="00333" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="330B" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="330" R="7"></Pty>
+      <RegTrdID ID="FECF155D6D300E8LTP0202D102531A" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

@@ -1,0 +1,55 @@
+
+#
+# streaming backup
+#
+
+http://www.rassoc.com/gregr/weblog/2013/02/16/zero-to-postgresql-streaming-replication-in-10-mins/
+https://www.postgresql.org/docs/9.5/static/runtime-config-replication.html
+
+# on master - emm1.jackijack.com
+# on master - emm1.jackijack.com
+# on master - emm1.jackijack.com
+
+sudo -u postgres vi  /etc/postgresql/9.5/main/postgresql.conf
+listen_addresses = '*'
+
+sudo -u postgres bash -c "cat >> /etc/postgresql/9.5/main/postgresql.conf" <<EOF
+wal_level = hot_standby
+full_page_writes = on
+wal_log_hints = on
+max_wal_senders = 6
+max_wal_segments = 1000
+max_replication_slots = 6
+hot_standby = on
+hot_standby_feedback = on
+EOF
+
+sudo -u postgres bash -c "cat >> /etc/postgresql/9.5/main/pg_hba.conf" <<EOF
+hostssl    replication replicator    45.79.96.208/32 md5 # emm1.jackijack.com
+hostssl    replication replicator 173.255.237.107/32 md5 # emm2.jackijack.com
+EOF
+
+sudo -u postgres psql -c "DROP USER IF EXISTS replicator;"
+sudo -u postgres psql -c "CREATE USER replicator REPLICATION LOGIN ENCRYPTED PASSWORD 'REPLACE_ME_WITH_REP_PWD';"
+sudo -u postgres psql -d postgres -c "SELECT * FROM pg_create_physical_replication_slot('standby1');"
+
+sudo service postgresql restart
+
+sudo -u postgres psql -x -c "select * from pg_stat_replication;"
+
+# on slave - emm2.jackijack.com
+# on slave - emm2.jackijack.com
+# on slave - emm2.jackijack.com
+
+sudo service postgresql stop
+
+sudo -u postgres rm -rf /var/lib/postgresql/9.5/main
+sudo -u postgres pg_basebackup -h emm1.jackijack.com -D /var/lib/postgresql/9.5/main -U replicator -v -P
+
+sudo -u postgres bash -c "cat > /var/lib/postgresql/9.5/main/recovery.conf" <<EOF
+standby_mode = 'on'
+primary_conninfo = 'host=emm1.jackijack.com port=5432 user=replicator password=REPLACE_ME_WITH_REP_PWD sslmode=require'
+trigger_file = '/tmp/postgresql.trigger'
+EOF
+
+sudo service postgresql start

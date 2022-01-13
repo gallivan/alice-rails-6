@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Entity:
+  = @system.entity_id
+p
+  strong System type:
+  = @system.system_type_id
+p
+  strong Code:
+  = @system.code
+p
+  strong Name:
+  = @system.name
+
+= link_to 'Edit', edit_system_path(@system)
+'|
+= link_to 'Back', systems_path

@@ -1,0 +1,205 @@
+<h1>Frequently Asked Questions</h1>
+
+<div class="panel-group" id="accordion">
+
+  <!-- What can go worng during EOD processing? -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#what-can-go-wrong">What can go worng during EOD
+          processing?</a>
+      </h4>
+    </div>
+    <div id="what-can-go-wrong" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          It's more about "missing" than "wrong".
+        </p>
+        <ul>
+          <li>One or more settlements (ClaimMarks) missing</li>
+          <li>All settlements missing because of a holiday</li>
+          <li>Expense (Chargeable) setup missing</li>
+          <li>Fill files not available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- normal text messages -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">What EOD Status texts will be received with
+          the run is normal?</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          The following messages will be received during a normal EOD run.
+        </p>
+        <ol>
+          <li>(eod status) begun db dump alice_production</li>
+          <li>(eod status) begun</li>
+          <li>(eod status) ended</li>
+          <li>(eod status) ended db dump alice_production</li>
+          <li>(eod status) begun itd_abn_pick</li>
+          <li>(eod status) ended itd_abn_pick</li>
+          <li>(eod status) begun eod_cme_pick</li>
+          <li>(eod status) ended eod_cme_pick</li>
+          <li>(eod status) begun getting marks</li>
+          <li>(eod status) ended getting marks</li>
+          <li>(eod status) begun run_eod_for_accounts</li>
+          <li>(eod status) ended run_eod_for_accounts</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- missing ClaimMarks -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">When a Claim Mark is missing, what EOD
+          ALERT texts will be received?</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          EOD will search for ClaimMarks for Claims that have open positions. If a ClaimMark is not found a text message
+          will be sent. The message will show the settlement date, system code and Quandl key (code) used for the
+          search.
+        </p>
+        <pre>
+          (eod ALERT) Quandl Service has no data for code MATIF:EBMU17 key LIFFE/EBMU2017 on date 2017-07-14
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adding ClaimMarks -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Can ClaimMarks be manually added?</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          Instructions for manually adding ClaimMarks are <a href="/pages/operations_help#settlements">here</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Holdiay ClaimMarks -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#holiday-claim-marks">What about holiday marks?</a>
+      </h4>
+    </div>
+    <div id="holiday-claim-marks" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          When an exchange is closed for a holiday Quandl will not have marks, e.g., July 4th for CME and CBT. The EOD
+          process will generate a set of texts due to missing marks. The system has a commandline script which can be
+          run to use marks from the prior day as marks for thecurrent day.
+        </p>
+        <p>
+          Instructions for manually adding holiday ClaimMarks can be found <strong>FILL ME IN</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- missing ClaimSetAlias -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#missing-claim-set-alias">When a Claim Set Alias is
+          missing, what EOD ALERT texts will be received?</a>
+      </h4>
+    </div>
+    <div id="missing-claim-set-alias" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          EOD will search for a ClaimSetAlias associated with a ClaimSet when looking for ClaimMarks at quandl.com. If a
+          ClaimSetAlias is not found a text message will be sent. The message will show the ClaimSet code for which the
+          ClaimSetAlias is missing.
+          search.
+        </p>
+        <pre>
+          (eod ALERT) quandl.com ClaimSetAlias missing for NYCE:28N17.
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adding ClaimSetAlias -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#adding-claim-set-alias">How can I add or change a
+          ClaimSetAlias?</a>
+      </h4>
+    </div>
+    <div id="adding-claim-set-alias" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          Instructions for adding ClaimSetAlias are <a href="/pages/operations_help#claim-set-aliases">here</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Missing Chargeables -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">When a Chargeable is missing, what EOD
+          ALERT text will be received?</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          Chargeables will not be found for a Claim traded for the first time since Chargeables are associated with
+          Claims. If a ClaimSet has no associated Chargeables a text like the following will be sent.
+        </p>
+        <pre>
+          (eod ALERT) Missing Chargeable for ClaimSet Milling Wheat Futures Sep 2017 [MATIF:EBMU17]
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chargeables maintenance -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">How are Charges added or updated?</a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+          Instructions for adding/updating Charges are <a href="/pages/back_office_help#chargeable-maintenance">here</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+

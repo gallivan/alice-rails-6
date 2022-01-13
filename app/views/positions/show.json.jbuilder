@@ -1,0 +1,1 @@
+json.extract! @position, :id, :account_id, :claim_id, :currency_id, :position_status_id, :posted_on, :traded_on, :price, :price_traded, :bot, :sld, :bot_off, :sld_off, :net, :mark, :ote, :created_at, :updated_at

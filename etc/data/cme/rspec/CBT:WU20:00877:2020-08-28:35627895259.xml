@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="35627895259" TrdTyp="0" TrdSubTyp="7" ExecID="70507:M:4343912TN0000863" TrdDt="2020-08-28"
+              BizDt="2020-08-28" MLegRptTyp="2" MtchStat="0" MsgEvtSrc="REG" TrdID="106749" LastQty="1" LastPx="5.425"
+              TxnTm="2020-08-28T12:13:18-05:00" SettlCcy="USD" SettlDt="2020-09-14" OrigTrdID="1741C492FCC1203D2D079D0"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="W" Desc="WHEAT FUTURES" CFI="FCAPSO" SecTyp="FUT" MMY="202009" MatDt="2020-09-14" Mult="5000"
+             Exch="CBT" UOM="Bu" UOMQty="5000" PxUOM="BU" PxUOMQty="1" ValMeth="FUT" Fctr="1" PxQteCcy="USD"/>
+    <Amt Typ="TVAR" Amt="-162.5" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="70122871874449" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0"
+             AgrsrInd="Y">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CBT" R="22"></Pty>
+      <Pty ID="330" R="1"></Pty>
+      <Pty ID="00877" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="330B" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="330" R="7"></Pty>
+      <RegTrdID ID="FECC1741C492FCC1203D2D079D6" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

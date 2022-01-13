@@ -1,0 +1,14 @@
+%table
+  %thead
+    %tr
+      %th Hour
+      %th Done
+      %th Flow
+      %th F:D
+  %tbody
+  - @offset_flows.each do |offset_flow|
+    %tr
+      %td= offset_flow['out_at']
+      %td.number= offset_flow['done'].to_i
+      %td.number= offset_flow['flow'].to_i
+      %td.number= (offset_flow['flow'] / offset_flow['done']).round(2)

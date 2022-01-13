@@ -1,0 +1,43 @@
+h1 Listing ledger_entries
+
+== render 'shared/search_form'
+
+.btn.btn-default = link_to 'New Ledger entry', new_ledger_entry_path
+
+.row
+  = paginate @ledger_entries
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Account
+          th Posted
+          th As of
+          th Ledger
+          th Type
+          th Amount
+          th Currency
+          th Memo
+          th
+          th
+          th
+
+      tbody
+        - @ledger_entries.each do |ledger_entry|
+          tr
+            td = ledger_entry.account.code
+            td = ledger_entry.posted_on
+            td = ledger_entry.as_of_on
+            td = ledger_entry.ledger.code
+            td = ledger_entry.ledger_entry_type.code
+            td = ledger_entry.amount
+            td = ledger_entry.currency.code
+            td = ledger_entry.memo
+            td = link_to 'Show', ledger_entry
+            td = link_to 'Edit', edit_ledger_entry_path(ledger_entry)
+            td = link_to 'Destroy', ledger_entry, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+    br
+

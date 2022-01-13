@@ -1,0 +1,31 @@
+h1 Listing picker_reports
+
+.row
+== render 'shared/reports_search_form'
+
+.row
+  = paginate @picker_reports
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th ID
+          th Posted
+          th Created
+          th Kind
+          th Fate
+          th Data
+          th
+
+      tbody
+        - @picker_reports.each do |picker_report|
+          tr
+            td = picker_report.id
+            td = picker_report.posted_on
+            td = picker_report.created_at
+            td = picker_report.kind
+            td = picker_report.fate
+            td = picker_report.data
+            td = link_to 'Show', picker_report

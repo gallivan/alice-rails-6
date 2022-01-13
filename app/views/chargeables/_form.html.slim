@@ -1,0 +1,13 @@
+= simple_form_for(@chargeable) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :chargeable_type_id
+    = f.input :claim_set_id
+    = f.input :currency_id
+    = f.input :amount
+    = f.input :begun_on
+    = f.input :ended_on
+
+  .form-actions
+    = f.button :submit

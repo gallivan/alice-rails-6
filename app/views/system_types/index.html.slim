@@ -1,0 +1,23 @@
+h1 Listing system_types
+
+.btn.btn-default = link_to 'New System type', new_system_type_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @system_types.each do |system_type|
+          tr
+            td = system_type.code
+            td = system_type.name
+            td = link_to 'Show', system_type
+            td = link_to 'Edit', edit_system_type_path(system_type)
+            td = link_to 'Destroy', system_type, data: {:confirm => 'Are you sure?'}, :method => :delete

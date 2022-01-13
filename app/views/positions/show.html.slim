@@ -1,0 +1,49 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @position.account.code
+p
+  strong Claim:
+  = @position.claim.name
+p
+  strong Currency:
+  = @position.currency.code
+p
+  strong Position status:
+  = @position.position_status.code
+p
+  strong Posted on:
+  = @position.posted_on
+p
+  strong Traded on:
+  = @position.traded_on
+p
+  strong Price:
+  = @position.price
+p
+  strong Price traded:
+  = @position.price_traded
+p
+  strong Bot:
+  = @position.bot
+p
+  strong Sld:
+  = @position.sld
+p
+  strong Bot off:
+  = @position.bot_off
+p
+  strong Sld off:
+  = @position.sld_off
+p
+  strong Net:
+  = @position.net
+p
+  strong Mark:
+  = @position.mark
+p
+  strong Ote:
+  = @position.ote
+
+= link_to 'Back', deal_leg_fills_path

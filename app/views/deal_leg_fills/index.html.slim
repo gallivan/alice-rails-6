@@ -1,0 +1,37 @@
+.row
+  .col-md-4
+    h1 Listing deal_leg_fills
+  .col-md-4
+  .col-md-4
+    .pull-right.pu
+      .btn.btn-default = link_to 'New Deal leg fill', new_deal_leg_fill_path
+
+== render 'search_form'
+
+.row
+  = paginate @deal_leg_fills
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          - names = %W(System Venue Account Claim Done Decimal Traded Posted Stamped)
+          - names.each do |name|
+            th class="text-right" = name
+          th
+
+      tbody
+        - @deal_leg_fills.each do |deal_leg_fill|
+          tr
+            td class="text-right" = deal_leg_fill.system.code
+            td class="text-right" = deal_leg_fill.dealing_venue.code
+            td class="text-right" = deal_leg_fill.account.code
+            td class="text-right" = deal_leg_fill.claim.name
+            td class="text-right" = number_with_delimiter(deal_leg_fill.done.to_int, delimiter: ',')
+            td class="text-right" = deal_leg_fill.price
+            td class="text-right" = deal_leg_fill.price_traded
+            td class="text-right" = deal_leg_fill.posted_on
+            td class="text-right" = deal_leg_fill.traded_at
+            td = link_to 'Show', deal_leg_fill
+

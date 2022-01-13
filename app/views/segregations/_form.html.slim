@@ -1,0 +1,10 @@
+= simple_form_for(@segregation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :code
+    = f.input :name
+    = f.input :note
+
+  .form-actions
+    = f.button :submit

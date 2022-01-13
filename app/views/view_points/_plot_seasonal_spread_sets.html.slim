@@ -1,0 +1,7 @@
+div class="panel panel-info"
+  div class="panel-heading" Seasonal Spread Sets
+  div class="panel-body"
+    div id='plot-wrapper'
+      javascript:
+        var url = "/view_point/seasonal_spread_sets_data.json?claim_set_id=#{@claim_set.id}";
+        plotSeasonalSpreadsOverview(url);

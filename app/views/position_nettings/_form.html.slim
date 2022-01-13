@@ -1,0 +1,48 @@
+= form_for @position_netting do |f|
+  - if @position_netting.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@position_netting.errors.count, "error")} prohibited this position_netting from being saved:"
+      ul
+        - @position_netting.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :account_id
+    = f.number_field :account_id
+  .field
+    = f.label :currency_id
+    = f.number_field :currency_id
+  .field
+    = f.label :claim_id
+    = f.number_field :claim_id
+  .field
+    = f.label :position_netting_type_id
+    = f.number_field :position_netting_type_id
+  .field
+    = f.label :bot_position_id
+    = f.number_field :bot_position_id
+  .field
+    = f.label :sld_position_id
+    = f.number_field :sld_position_id
+  .field
+    = f.label :posted_on
+    = f.date_select :posted_on
+  .field
+    = f.label :done
+    = f.text_field :done
+  .field
+    = f.label :bot_price
+    = f.text_field :bot_price
+  .field
+    = f.label :sld_price
+    = f.text_field :sld_price
+  .field
+    = f.label :bot_price_traded
+    = f.text_field :bot_price_traded
+  .field
+    = f.label :sld_price_traded
+    = f.text_field :sld_price_traded
+  .field
+    = f.label :pnl
+    = f.text_field :pnl
+  .actions = f.submit

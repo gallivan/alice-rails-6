@@ -1,0 +1,31 @@
+h1 Stated Fills
+
+- unless current_user.can_see_all_accounts? or current_user.has_accounts?
+  'You have no accounts.
+- else
+  == render 'shared/statement_search_form'
+  .row
+    = paginate @statement_deal_leg_fills
+  .row
+    .large-12.columns
+      table class="table table-striped table-bordered table-condensed table-hover"
+        thead
+          tr
+            - names = %W(Account Claim Stated Posted Traded Bot Sld Net Traded Decimal)
+            - names.each do |name|
+              th class="text-right" = name
+            th
+        tbody
+          - @statement_deal_leg_fills.each do |statement_deal_leg_fill|
+            tr
+              td class="text-right" = statement_deal_leg_fill.account_code
+              td class="text-right" = statement_deal_leg_fill.stated_on
+              td class="text-right" = statement_deal_leg_fill.posted_on
+              td class="text-right" = statement_deal_leg_fill.traded_on
+              td class="text-right" = statement_deal_leg_fill.claim_name
+              td class="text-right" = number_with_delimiter(statement_deal_leg_fill.bot.to_int, delimiter: ',')
+              td class="text-right" = number_with_delimiter(statement_deal_leg_fill.sld.to_int, delimiter: ',')
+              td class="text-right" = number_with_delimiter(statement_deal_leg_fill.net.to_int, delimiter: ',')
+              td class="text-right" = statement_deal_leg_fill.price_traded
+              td class="text-right" = statement_deal_leg_fill.price
+              td class="text-right" = link_to 'Show', statement_deal_leg_fill

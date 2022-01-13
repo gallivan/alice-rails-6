@@ -1,0 +1,45 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @position_netting.account_id
+p
+  strong Currency:
+  = @position_netting.currency_id
+p
+  strong Claim:
+  = @position_netting.claim_id
+p
+  strong Position netting type:
+  = @position_netting.position_netting_type_id
+p
+  strong Bot position:
+  = @position_netting.bot_position_id
+p
+  strong Sld position:
+  = @position_netting.sld_position_id
+p
+  strong Posted on:
+  = @position_netting.posted_on
+p
+  strong Done:
+  = @position_netting.done
+p
+  strong Bot price:
+  = @position_netting.bot_price
+p
+  strong Sld price:
+  = @position_netting.sld_price
+p
+  strong Bot price traded:
+  = @position_netting.bot_price_traded
+p
+  strong Sld price traded:
+  = @position_netting.sld_price_traded
+p
+  strong Pnl:
+  = @position_netting.pnl
+
+= link_to 'Edit', edit_position_netting_path(@position_netting)
+'|
+= link_to 'Back', position_nettings_path

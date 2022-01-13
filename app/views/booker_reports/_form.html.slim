@@ -1,0 +1,27 @@
+= form_for @booker_report do |f|
+  - if @booker_report.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@booker_report.errors.count, "error")} prohibited this booker_report from being saved:"
+      ul
+        - @booker_report.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :posted_on
+    = f.date_select :posted_on
+  .field
+    = f.label :kind
+    = f.text_field :kind
+  .field
+    = f.label :fate
+    = f.text_field :fate
+  .field
+    = f.label :data
+    = f.text_area :data
+  .field
+    = f.label :goof_error
+    = f.text_area :goof_error
+  .field
+    = f.label :goof_trace
+    = f.text_area :goof_trace
+  .actions = f.submit

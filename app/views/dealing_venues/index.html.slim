@@ -1,0 +1,27 @@
+h1 Listing dealing_venues
+
+.btn.btn-default = link_to 'New Dealing venue', new_dealing_venue_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Entity
+          th Type
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @dealing_venues.each do |dealing_venue|
+          tr
+            td = dealing_venue.entity.name
+            td = dealing_venue.dealing_venue_type.name
+            td = dealing_venue.code
+            td = dealing_venue.name
+            td = link_to 'Show', dealing_venue
+            td = link_to 'Edit', edit_dealing_venue_path(dealing_venue)
+            td = link_to 'Destroy', dealing_venue, data: {:confirm => 'Are you sure?'}, :method => :delete

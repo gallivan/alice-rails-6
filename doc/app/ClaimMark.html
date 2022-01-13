@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class ClaimMark - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-claims_to_mark_for_date">::claims_to_mark_for_date</a>
+    
+    <li ><a href="#method-c-missing_marks_for_date-3F">::missing_marks_for_date?</a>
+    
+    <li ><a href="#method-c-move_marks">::move_marks</a>
+    
+    <li ><a href="#method-c-post_mark">::post_mark</a>
+    
+    <li ><a href="#method-i-approved-3F">#approved?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ClaimMark">
+  <h1 id="class-ClaimMark" class="class">
+    class ClaimMark
+  </h1>
+
+  <section class="description">
+    
+<h2 id="class-ClaimMark-label-Schema+Information">Schema Information<span><a href="#class-ClaimMark-label-Schema+Information">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Table name: claim_marks</p>
+
+<pre>id          :integer          not null, primary key
+system_id   :integer
+claim_id    :integer
+posted_on   :date
+mark        :decimal(, )
+created_at  :datetime         not null
+updated_at  :datetime         not null
+approved    :boolean          not null
+mark_traded :string
+open        :decimal(16, 8)
+high        :decimal(16, 8)
+low         :decimal(16, 8)
+last        :decimal(16, 8)
+change      :decimal(16, 8)
+volume      :integer
+interest    :integer</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-claims_to_mark_for_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">claims_to_mark_for_date</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="claims_to_mark_for_date-source">
+            <pre><span class="ruby-comment"># File app/models/claim_mark.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">claims_to_mark_for_date</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">claims</span> = []
+
+  <span class="ruby-comment"># Future.where(&quot;expires_on &gt;= ?&quot;, date).order(:code).each do |claim|</span>
+  <span class="ruby-comment">#   claims &lt;&lt; claim</span>
+  <span class="ruby-comment"># end</span>
+
+  <span class="ruby-identifier">claim_ids</span> = <span class="ruby-constant">Position</span>.<span class="ruby-identifier">posted_on_or_before</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">open</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:claim_id</span>).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">claim_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">claims</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Claim</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">claims</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-missing_marks_for_date-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">missing_marks_for_date?</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="missing_marks_for_date-3F-source">
+            <pre><span class="ruby-comment"># File app/models/claim_mark.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">missing_marks_for_date?</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-comment"># claim_ids = Future.where(&quot;expires_on &gt;= ?&quot;, date).order(:id).pluck(:id)</span>
+  <span class="ruby-comment"># claim_mark_ids = ClaimMark.posted_on(date).order(:id).pluck(:claim_id)</span>
+  <span class="ruby-comment"># not (claim_ids - claim_mark_ids).empty?</span>
+  <span class="ruby-identifier">missed</span> = []
+  <span class="ruby-identifier">claims</span> = <span class="ruby-identifier">claims_to_mark_for_date</span>(<span class="ruby-identifier">date</span>)
+
+  <span class="ruby-identifier">claims</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">missed</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">claim</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_marks</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">blank?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">missed</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">missed</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;ClaimMark missing for #{claim.code} for date #{date}&quot;</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">msg</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-move_marks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move_marks</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="move_marks-source">
+            <pre><span class="ruby-comment"># File app/models/claim_mark.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">move_marks</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Getting claim marks for #{date}&quot;</span>
+
+  <span class="ruby-identifier">claim_ids</span> = <span class="ruby-constant">DealLegFill</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:claim_id</span>)
+
+  <span class="ruby-identifier">claim_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim_id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">claim</span> = <span class="ruby-constant">Claim</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">claim_id</span>)
+    <span class="ruby-identifier">mark</span> = <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">posted_fo</span>(<span class="ruby-identifier">claim_id</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">mark</span>.<span class="ruby-identifier">blank?</span>
+      <span class="ruby-identifier">price</span> = <span class="ruby-constant">DealLegFill</span>.<span class="ruby-identifier">for_claim</span>(<span class="ruby-identifier">claim_id</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:price</span>).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sample</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Posting mark price for #{claim.code} of #{price}&quot;</span>
+      <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">create!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">system_id</span> = <span class="ruby-constant">System</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;QDL&#39;</span>).<span class="ruby-identifier">id</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">claim_id</span> = <span class="ruby-identifier">claim_id</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">posted_on</span> = <span class="ruby-identifier">date</span>
+        <span class="ruby-identifier">s</span>.<span class="ruby-identifier">mark</span> = <span class="ruby-identifier">price</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">fill</span> = <span class="ruby-constant">DealLegFill</span>.<span class="ruby-identifier">for_claim</span>(<span class="ruby-identifier">claim_id</span>).<span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Updating mark price for #{claim.code} of #{fill.price}&quot;</span>
+      <span class="ruby-identifier">mark</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:mark</span>, <span class="ruby-identifier">fill</span>.<span class="ruby-identifier">price</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-post_mark" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_mark</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_mark-source">
+            <pre><span class="ruby-comment"># File app/models/claim_mark.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">post_mark</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">filter</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^(system_id|claim_id|posted_on)$/</span>) }
+  <span class="ruby-identifier">claim</span> = <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">filter</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">create!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">system_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:system_id</span>]
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">claim_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:claim_id</span>]
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">posted_on</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:posted_on</span>]
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">mark</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:mark</span>]
+      <span class="ruby-identifier">m</span>.<span class="ruby-identifier">approved</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:approved</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:mark</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:mark</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-approved-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">approved?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="approved-3F-source">
+            <pre><span class="ruby-comment"># File app/models/claim_mark.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">approved?</span>
+  <span class="ruby-identifier">approved</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

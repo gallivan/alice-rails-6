@@ -1,0 +1,27 @@
+h1 Listing claim_sets
+
+.row
+  .large-6.columns
+    = paginate @claim_sets
+  .large-6.columns
+    .btn.btn-default = link_to 'New Claim Set', new_claim_set_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @claim_sets.each do |claim_set|
+          tr
+            td = claim_set.code
+            td = claim_set.name
+            td = link_to 'Show', claim_set
+            td = link_to 'Edit', edit_claim_set_path(claim_set)
+            td = link_to 'Destroy', claim_set, data: {:confirm => 'Are you sure?'}, :method => :delete

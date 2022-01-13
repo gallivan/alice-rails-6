@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by XMLSpy 2013 Professional Ed. Release 2 (Commodity Futures Trading Commission) -->
+<!--Schema Maintenance:
+	2013-01-24, inserted @cs:isTradingAccount into cftcForm102Type 
+	2013-01-24, inserted @cs:isSpecialAccount into cftcForm102Type 
+	2013-01-24, inserted @cs:DMAStatus into cftcForm102Type
+	2013-02-14, inserted @cs:isPartialRecord  into cftcForm102Type
+	2013-02-21, extended cftcForm102Type/relatedAccount to include the element pairedSwapOrSwaptionActivity
+	2013-03-26, added cs:relatedContactForm40Type with additional requried attributes and changed cftcForm40Type/contact to use it -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cs="http://cftc.gov.us/cftc-shared" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="unqualified" attributeFormDefault="unqualified" xsi:schemaLocation="http://cftc.gov.us/cftc-forms cftc-forms.xsd">
+	<xs:import namespace="http://cftc.gov.us/cftc-shared" schemaLocation="cftc-shared.xsd"/>
+	<xs:element name="cftcBatch">
+		<xs:annotation>
+			<xs:documentation>CFTC Batch file specification</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cftcHeader" type="cs:cftcHeaderType">
+					<xs:annotation>
+						<xs:documentation>CFTC SFTP file identification and routing information</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cftcForm40" type="cs:cftcForm40Type" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>CFTC Form 40 - Statement of Reporting Trader</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cftcForm71" type="cs:cftcForm71Type" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>CFTC Form 71 - Identification of Omnibus Accounts and Sub-Accounts</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cftcForm102" type="cs:cftcForm102Type" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>CFTC Form 102 - Identification of Special Accounts, Volume Threshold Accounts, and Consolidated Accounts</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="newUserInfo">
+		<xs:annotation>
+			<xs:documentation>OCR Portal new user information.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="newUserRequest" type="cs:newUserRequestType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

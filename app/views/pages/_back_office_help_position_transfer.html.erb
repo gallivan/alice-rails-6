@@ -1,0 +1,36 @@
+<p>
+  A position transfer is just that: the transfer of a position from one account to another. It is not a trade entry.
+</p>
+
+<p>
+  Position transfer includes transfer of all econimic characteristics of the original exchange - dates and price - with
+  their accounting consequences. OTE for the transfered position will be derived from the original prices.
+</p>
+
+<p>
+  Transfer of a position includes a signed quantity of the associated Claim and the associated original price and dates.
+</p>
+
+<p>
+  A position transfer is initiated from the Position screen via the Transfer link associated with each open position.
+</p>
+
+<%= image_tag("open-positions-for-transfer.png", :alt => "transferable open positions") %>
+
+<p>
+  Select a particular position to transfer. The following snap shows the results of selecting the first position from
+  the snap above. Above the form the notation "Transfering Eurodollar Futures Jun 2018 at 98.455 from account 00022"
+  describes the position being transfered. The form offers a drop down menu to select the account to which the position
+  will be transfered and the transfer quantity. The snap shows the transfer to account 00333 selected and a sld transfer
+  quantity of 30 - which is the size of the position held by account 00022. A quantity less than the default may be
+  transfered. A transfer of 20 to 00333 would leave 10 in 00022.
+</p>
+
+<%= image_tag("new-position-transfer.png", :alt => "new position transfer") %>
+
+<p>
+  A click of the "Create Position Transfer" button will submit the the transfer request. Successful request submission
+  will return a view of the transfer created.
+</p>
+
+<%= image_tag("created-position-transfer.png", :alt => "created position transfer") %>

@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @duty.code
+p
+  strong Name:
+  = @duty.name
+
+= link_to 'Edit', edit_duty_path(@duty)
+'|
+= link_to 'Back', duties_path

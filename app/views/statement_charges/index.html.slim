@@ -1,0 +1,30 @@
+h1 Stated Charges
+
+- unless current_user.can_see_all_accounts? or current_user.has_accounts?
+  'You have no accounts.
+- else
+  == render 'shared/statement_search_form'
+  .row
+    = paginate @statement_charges
+  .row
+    .large-12.columns
+      table class="table table-striped table-bordered table-condensed table-hover"
+        thead
+          tr
+            - names = %W(Account Stated Posted Kind Journal Amount Currency)
+            - names.each do |name|
+              th class="text-right" = name
+            th = 'Memo'
+            th
+        tbody
+          - @statement_charges.each do |statement_charge|
+            tr
+              td class="text-right" = statement_charge.account_code
+              td class="text-right" = statement_charge.stated_on
+              td class="text-right" = statement_charge.posted_on
+              td class="text-right" = statement_charge.charge_code
+              td class="text-right" = statement_charge.journal_code
+              td class="text-right" = statement_charge.currency_code
+              td class="text-right" = number_with_delimiter(number_with_precision(statement_charge.amount, precision: 2), delimiter: ',')
+              td = statement_charge.memo
+              td class="text-right" = link_to 'Show', statement_charge

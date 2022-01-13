@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Fm position:
+  = @position_transfer.fm_position
+p
+  strong To position:
+  = @position_transfer.to_position
+p
+  strong Bot transfered:
+  = @position_transfer.bot_transfered
+p
+  strong Sld transfered:
+  = @position_transfer.sld_transfered
+p
+  strong User:
+  = @position_transfer.user
+
+= link_to 'Edit', edit_position_transfer_path(@position_transfer)
+'|
+= link_to 'Back', position_transfers_path

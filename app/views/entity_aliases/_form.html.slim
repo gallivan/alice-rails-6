@@ -1,0 +1,10 @@
+= simple_form_for(@entity_alias) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :system_id
+    = f.input :entity_id
+    = f.input :code
+
+  .form-actions
+    = f.button :submit

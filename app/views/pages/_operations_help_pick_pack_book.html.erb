@@ -1,0 +1,18 @@
+<div>
+  <p>
+    Execution reports are pulled and their contents turned into messages sent through a set of three message queues
+    supported by a RabbitMQ instance running on the host. This results in validation, normalization, build, and
+    persistence of message content. Message content at each stage is persisted to the database.
+  </p>
+  <p>
+    A picker are responsible for pulling execution reports from their point of origin and writting them to a "picked"
+    queue in the chain of three in their original format, e.g., CSV, FIXML. A packers are responsible for pulling
+    messages from the picker queue and normalizing their content, e.g., converting source claim identifiers into
+    application claim identifiers, and writing the results to a "packed" queue. A bookers pick messages from the
+    "packed" queue, building the approprate model instance and writing it to the database.
+  </p>
+  <p>
+    Errors that occur during processing are noted on persisted messages and written to the database. Errors are very,
+    very rare. EOD processing will block on the identification of outstanding errors, pending their correction.
+  </p>
+</div>

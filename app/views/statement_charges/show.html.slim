@@ -1,0 +1,31 @@
+p#notice = notice
+
+p
+  strong Posted on:
+  = @statement_charge.posted_on
+p
+  strong Stated on:
+  = @statement_charge.stated_on
+p
+  strong Account:
+  = @statement_charge.account_id
+p
+  strong Account code:
+  = @statement_charge.account_code
+p
+  strong Charge code:
+  = @statement_charge.charge_code
+p
+  strong Journal code:
+  = @statement_charge.journal_code
+p
+  strong Currency code:
+  = @statement_charge.currency_code
+p
+  strong Amount:
+  = @statement_charge.amount
+p
+  strong Memo:
+  = @statement_charge.memo
+
+= link_to 'Back', statement_charges_path

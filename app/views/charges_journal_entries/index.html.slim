@@ -1,0 +1,23 @@
+h1 Listing charges_journal_entries
+
+table
+  thead
+    tr
+      th Charge
+      th Journal entry
+      th
+      th
+      th
+
+  tbody
+    - @charges_journal_entries.each do |charges_journal_entry|
+      tr
+        td = charges_journal_entry.charge_id
+        td = charges_journal_entry.journal_entry_id
+        td = link_to 'Show', charges_journal_entry
+        td = link_to 'Edit', edit_charges_journal_entry_path(charges_journal_entry)
+        td = link_to 'Destroy', charges_journal_entry, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Charges journal entry', new_charges_journal_entry_path

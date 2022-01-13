@@ -1,0 +1,41 @@
+h1 Listing journal_entries
+
+== render 'shared/search_form'
+
+.btn.btn-default = link_to 'New Journal entry', new_journal_entry_path
+
+.row
+  = paginate @journal_entries
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Account
+          th Posted
+          th As of
+          th Journal
+          th Type
+          th Amount
+          th Currency
+          th Memo
+          th
+          /th
+          /th
+
+      tbody
+        - @journal_entries.each do |journal_entry|
+          tr
+            td = journal_entry.account.code
+            td = journal_entry.posted_on
+            td = journal_entry.as_of_on
+            td = journal_entry.journal.code
+            td = journal_entry.journal_entry_type.code
+            td = journal_entry.amount
+            td = journal_entry.currency.code
+            td = journal_entry.memo
+            td = link_to 'Show', journal_entry
+            /td = link_to 'Edit', edit_journal_entry_path(journal_entry)
+            /td = link_to 'Destroy', journal_entry, data: {:confirm => 'Are you sure?'}, :method => :delete
+

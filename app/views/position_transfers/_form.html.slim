@@ -1,0 +1,15 @@
+h2
+  = "Transfering #{@position_transfer.fm_position.claim.name} at #{@position_transfer.fm_position.price_traded} from account #{@position_transfer.fm_position.account.code}"
+
+= simple_form_for(@position_transfer) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :fm_position_id, :as => :hidden, :input_html => { :value => @position_transfer.fm_position.id }
+    = f.simple_fields_for :to_position do |t|
+    = f.input :to_account_id, collection: Account.select_options, include_blank: false
+    = f.input :bot_transfered, input_html: {value: @position_transfer.fm_position.bot.to_i || '0'}
+    = f.input :sld_transfered, input_html: {value: @position_transfer.fm_position.sld.to_i || '0'}
+
+  .form-actions
+    = f.button :submit

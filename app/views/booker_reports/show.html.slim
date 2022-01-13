@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Posted:
+  = @booker_report.posted_on
+p
+  strong Kind:
+  = @booker_report.kind
+p
+  strong Fate:
+  = @booker_report.fate
+p
+  strong Data:
+  = @booker_report.data
+p
+  strong Error:
+  = @booker_report.goof_error
+p
+  strong Trace:
+  = @booker_report.goof_trace
+p
+  strong Created:
+  = @booker_report.created_at
+p
+  strong Updated:
+  = @booker_report.updated_at
+
+= link_to 'Edit', edit_booker_report_path(@booker_report)
+'|
+= link_to 'Back', booker_reports_path

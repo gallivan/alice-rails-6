@@ -1,0 +1,69 @@
+= form_for @money_line do |f|
+  - if @money_line.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@money_line.errors.count, "error")} prohibited this money_line from being saved:"
+      ul
+        - @money_line.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :account_id
+    = f.number_field :account_id
+  .field
+    = f.label :currency_held_id
+    = f.number_field :currency_held_id
+  .field
+    = f.label :currency_base_id
+    = f.number_field :currency_base_id
+  .field
+    = f.label :currency_mark_id
+    = f.number_field :currency_mark_id
+  .field
+    = f.label :posted_on
+    = f.date_select :posted_on
+  .field
+    = f.label :beginning_balance
+    = f.text_field :beginning_balance
+  .field
+    = f.label :cash
+    = f.text_field :cash
+  .field
+    = f.label :pnl_futures
+    = f.text_field :pnl_futures
+  .field
+    = f.label :pnl_options
+    = f.text_field :pnl_options
+  .field
+    = f.label :adjustments
+    = f.text_field :adjustments
+  .field
+    = f.label :rebates
+    = f.text_field :rebates
+  .field
+    = f.label :charges
+    = f.text_field :charges
+  .field
+    = f.label :ledger_balance
+    = f.text_field :ledger_balance
+  .field
+    = f.label :open_trade_equity
+    = f.text_field :open_trade_equity
+  .field
+    = f.label :cash_account_balance
+    = f.text_field :cash_account_balance
+  .field
+    = f.label :margin
+    = f.text_field :margin
+  .field
+    = f.label :long_option_value
+    = f.text_field :long_option_value
+  .field
+    = f.label :short_option_value
+    = f.text_field :short_option_value
+  .field
+    = f.label :net_option_value
+    = f.text_field :net_option_value
+  .field
+    = f.label :net_liquidating_balance
+    = f.text_field :net_liquidating_balance
+  .actions = f.submit

@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong ID:
+  = @claim_set.id
+p
+  strong Code:
+  = @claim_set.code
+p
+  strong Name:
+  = @claim_set.name
+
+= link_to 'Edit', edit_claim_set_path(@claim_set)
+'|
+= link_to 'Back', claim_sets_path

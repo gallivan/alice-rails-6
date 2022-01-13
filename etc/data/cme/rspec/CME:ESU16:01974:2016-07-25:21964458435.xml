@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21964458435" TrdTyp="0" ExecID="27712820160725115508TN0276673" TrdDt="2016-07-25"
+              BizDt="2016-07-25"
+              MLegRptTyp="1" MtchStat="0" MsgEvtSrc="REG" TrdID="106066" LastQty="2" LastPx="2158.75"
+              TxnTm="2016-07-25T11:55:08-05:00" SettlCcy="USD" SettlDt="2016-09-16"
+              OrigTrdID="1561EEC09E5LTP0301D262D90"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="ES" Desc="E-MINI S&amp;P 500 FUTURES" CFI="FFICSO" SecTyp="FUT" MMY="201609" MatDt="2016-09-16"
+             Mult="50"
+             Exch="CME" UOM="IPNT" UOMQty="50" PxUOM="IPNT" PxUOMQty="1" ValMeth="FUT" Fctr="1"
+             PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="345" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="EZLZ" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="N">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CME" R="22"></Pty>
+      <Pty ID="353" R="1"></Pty>
+      <Pty ID="01974" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="353" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="353" R="7"></Pty>
+      <RegTrdID ID="FECF1561EEC09E5LTP0301D262D92" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

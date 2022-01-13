@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Workers::QuandlDAO - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-backfill_prices_and_volumes">::backfill_prices_and_volumes</a>
+    
+    <li ><a href="#method-c-get_claim_name">::get_claim_name</a>
+    
+    <li ><a href="#method-c-get_quandl_mark">::get_quandl_mark</a>
+    
+    <li ><a href="#method-c-get_quandl_marks">::get_quandl_marks</a>
+    
+    <li ><a href="#method-c-quandl_code_for_claim">::quandl_code_for_claim</a>
+    
+    <li ><a href="#method-c-try_quandl">::try_quandl</a>
+    
+    <li ><a href="#method-c-try_quandl_query">::try_quandl_query</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Workers::QuandlDAO">
+  <h1 id="class-Workers::QuandlDAO" class="class">
+    class Workers::QuandlDAO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-backfill_prices_and_volumes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">backfill_prices_and_volumes</span><span
+            class="method-args">(period_bagun_on, period_ended_on)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="backfill_prices_and_volumes-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">backfill_prices_and_volumes</span>(<span class="ruby-identifier">period_bagun_on</span>, <span class="ruby-identifier">period_ended_on</span>)
+
+  <span class="ruby-identifier">begun_on_str</span> = <span class="ruby-identifier">period_bagun_on</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%Y-%m-%d&#39;</span>)
+  <span class="ruby-identifier">ended_on_str</span> = <span class="ruby-identifier">period_ended_on</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%Y-%m-%d&#39;</span>)
+
+  <span class="ruby-constant">Claim</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">system</span> = <span class="ruby-constant">System</span>.<span class="ruby-identifier">find_by_code</span> <span class="ruby-string">&#39;QDL&#39;</span>
+    <span class="ruby-identifier">q_code</span> = <span class="ruby-identifier">quandl_code_for_claim</span>(<span class="ruby-identifier">claim</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">code</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Backfilling prices and volumes for #{claim.code}&quot;</span>
+    <span class="ruby-identifier">query</span> = <span class="ruby-node">&quot;https://www.quandl.com/api/v3/datasets/#{q_code}.json?start_date=#{begun_on_str}&amp;end_date=#{ended_on_str}&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot;</span>
+    <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">try_quandl_query</span>(<span class="ruby-identifier">query</span>)
+    <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;data&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">data</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;*&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">data</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">code</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">data</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;A&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+      <span class="ruby-identifier">params</span> = {
+          <span class="ruby-identifier">system</span><span class="ruby-operator">:</span> <span class="ruby-identifier">system</span>,
+          <span class="ruby-identifier">claim</span><span class="ruby-operator">:</span> <span class="ruby-identifier">claim</span>,
+          <span class="ruby-identifier">approved</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+      }
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;B&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+
+      <span class="ruby-comment"># [&quot;Date&quot;, &quot;Open&quot;, &quot;High&quot;, &quot;Low&quot;,                   &quot;Settle&quot;, &quot;Volume&quot;, &quot;Interest&quot;]</span>
+      <span class="ruby-comment"># [&quot;Date&quot;, &quot;Open&quot;, &quot;High&quot;, &quot;Low&quot;, &quot;Last&quot;, &quot;Change&quot;, &quot;Settle&quot;, &quot;Volume&quot;,            &quot;Previous Day Open Interest&quot;]</span>
+      <span class="ruby-comment"># [&quot;Date&quot;, &quot;Open&quot;, &quot;High&quot;, &quot;Low&quot;,                   &quot;Close&quot;,  &quot;Volume&quot;,            &quot;Prev Day OI&quot;,               &quot;Prev Day Volume&quot;]</span>
+
+      <span class="ruby-identifier">index_date</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Date&#39;</span>)
+      <span class="ruby-identifier">index_open</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Open&#39;</span>)
+      <span class="ruby-identifier">index_high</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;High&#39;</span>)
+      <span class="ruby-identifier">index_low</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Low&#39;</span>)
+      <span class="ruby-identifier">index_last</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Last&#39;</span>)
+      <span class="ruby-identifier">index_change</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Change&#39;</span>)
+      <span class="ruby-identifier">index_volume</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Volume&#39;</span>)
+      <span class="ruby-identifier">index_interest</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Interest&#39;</span>)
+      <span class="ruby-comment"># index_interest_previous = hash[&#39;dataset&#39;][&#39;column_names&#39;].index(&#39;Previous Day Open Interest&#39;)</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;Settle&#39;</span>)
+        <span class="ruby-identifier">index_settle</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Settle&#39;</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;Close&#39;</span>)
+        <span class="ruby-identifier">index_settle</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Close&#39;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Location of settlement or closing price not found.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      
+      <span class="ruby-identifier">date</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_date</span>])
+      <span class="ruby-identifier">open</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_open</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">high</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_high</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">low</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_low</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">last</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_last</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">mark</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_settle</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">volume</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_volume</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">change</span> = <span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_change</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_change</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+      <span class="ruby-identifier">interest</span> = <span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_interest</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">index_interest</span>].<span class="ruby-identifier">to_f</span>, <span class="ruby-value">16</span>)
+
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(
+          {
+              <span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date</span>,
+              <span class="ruby-identifier">open</span><span class="ruby-operator">:</span> <span class="ruby-identifier">open</span>,
+              <span class="ruby-identifier">high</span><span class="ruby-operator">:</span> <span class="ruby-identifier">high</span>,
+              <span class="ruby-identifier">low</span><span class="ruby-operator">:</span> <span class="ruby-identifier">low</span>,
+              <span class="ruby-identifier">mark</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mark</span>,
+              <span class="ruby-identifier">volume</span><span class="ruby-operator">:</span> <span class="ruby-identifier">volume</span>,
+          }
+      )
+
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;C&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mark</span>].<span class="ruby-identifier">blank?</span>
+        <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Mark blank for #{claim.code} on #{params[:posted_on]}. Skipping.&quot;</span>
+        <span class="ruby-keyword">next</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;D&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+      <span class="ruby-identifier">claim_mark</span> = <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">claim_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">system_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">system</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">posted_on</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:posted_on</span>]).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">blank?</span>
+      <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">create!</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_claim_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_claim_name</span><span
+            class="method-args">(claim)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_claim_name-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_claim_name</span>(<span class="ruby-identifier">claim</span>)
+  <span class="ruby-identifier">code</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">quandl_code_for_claim</span>(<span class="ruby-identifier">claim</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Getting name given #{claim.code}[#{code}].&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">msg</span>
+
+    <span class="ruby-identifier">claim_mark</span> = <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_marks</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:id</span>).<span class="ruby-identifier">last</span>
+
+    <span class="ruby-identifier">date</span> = <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claimable</span>.<span class="ruby-identifier">expires_on</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">posted_on</span>
+    <span class="ruby-identifier">date_str</span> = <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%Y-%m-%d&#39;</span>)
+
+    <span class="ruby-identifier">query</span> = <span class="ruby-node">&quot;https://www.quandl.com/api/v3/datasets/#{code}.json?start_date=#{date_str}&amp;end_date=#{date_str}&amp;rows=1&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot;</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">query</span>
+
+    <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">data</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;name&#39;</span>]
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Quandl Service Exception: #{e.message}&quot;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Retrying in 5 seconds&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_quandl_mark" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_quandl_mark</span><span
+            class="method-args">(date, claim)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_quandl_mark-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_quandl_mark</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">claim</span>)
+  <span class="ruby-constant">Quandl</span><span class="ruby-operator">::</span><span class="ruby-constant">ApiConfig</span>.<span class="ruby-identifier">api_key</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;QUANDL_API_KEY&#39;</span>]
+  <span class="ruby-constant">Quandl</span><span class="ruby-operator">::</span><span class="ruby-constant">ApiConfig</span>.<span class="ruby-identifier">api_version</span> = <span class="ruby-string">&#39;2015-04-09&#39;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Quandl</span><span class="ruby-operator">::</span><span class="ruby-constant">ApiConfig</span>.<span class="ruby-identifier">api_key</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Quandl api key not set. Exiting.&quot;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># curl &quot;https://www.quandl.com/api/v3/datasets/EUREX/FDAXM2016/data.csv?start_date=2016-03-30&amp;end_date=2016-03-30&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot; -X GET</span>
+
+  <span class="ruby-identifier">q_code</span> = <span class="ruby-identifier">quandl_code_for_claim</span>(<span class="ruby-identifier">claim</span>)
+
+  <span class="ruby-identifier">claim_mark</span> = <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">posted_on</span>(<span class="ruby-identifier">date</span>).<span class="ruby-identifier">posted_for</span>(<span class="ruby-identifier">claim</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">first</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">claim_mark</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Seek: code #{claim.code} key #{q_code}&quot;</span>
+    <span class="ruby-identifier">try_quandl</span>(<span class="ruby-identifier">claim</span>, <span class="ruby-identifier">q_code</span>, <span class="ruby-identifier">date</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Skip: code #{claim.code} key #{q_code} settled #{claim_mark.mark}&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_quandl_marks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_quandl_marks</span><span
+            class="method-args">(date, claims)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_quandl_marks-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_quandl_marks</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">claims</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;Getting Quandl marks&#39;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Checking for #{claims.size} marks.&quot;</span>
+  <span class="ruby-identifier">claims</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">claim</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">get_quandl_mark</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">claim</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-quandl_code_for_claim" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quandl_code_for_claim</span><span
+            class="method-args">(claim)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quandl_code_for_claim-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">quandl_code_for_claim</span>(<span class="ruby-identifier">claim</span>)
+  <span class="ruby-identifier">system</span> = <span class="ruby-constant">System</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">code</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;QDL&#39;</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">claim_set</span> = <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">claim_set</span>
+  <span class="ruby-identifier">claim_set_alias</span> = (<span class="ruby-constant">ClaimSetAlias</span>.<span class="ruby-identifier">where</span> <span class="ruby-identifier">claim_set_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">claim_set</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">system_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">system</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">first</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">claim_set_alias</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;#{system.name} ClaimSetAlias missing for #{claim.code}.&quot;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-constant">EodMailer</span>.<span class="ruby-identifier">alert</span>(<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Sleeping until #{15.minutes.from_now}.&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">900</span>
+    <span class="ruby-identifier">claim_set_alias</span> = (<span class="ruby-constant">ClaimSetAlias</span>.<span class="ruby-identifier">where</span> <span class="ruby-identifier">claim_set_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">claim_set</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">system_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">system</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">claim_set_alias</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">code</span>[<span class="ruby-value">-3</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&#39;20&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">code</span>[<span class="ruby-value">-2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-try_quandl" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_quandl</span><span
+            class="method-args">(claim, key, date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_quandl-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">try_quandl</span>(<span class="ruby-identifier">claim</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">date</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;*&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">80</span>
+  <span class="ruby-comment"># json = `curl &quot;https://www.quandl.com/api/v3/datasets/CME/BOV2016.json?start_date=2016-10-11&amp;end_date=2016-10-11&amp;rows=1&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot;`</span>
+  <span class="ruby-comment"># json = `curl &quot;https://www.quandl.com/api/v3/datasets/EUREX/FESXZ2016.json?start_date=2016-10-10&amp;end_date=2016-10-10&amp;rows=1&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot;`</span>
+  <span class="ruby-comment"># hash = JSON.parse(json)</span>
+  <span class="ruby-comment"># setl = hash[&#39;dataset&#39;][&#39;data&#39;][0][6]</span>
+
+  <span class="ruby-identifier">date_str</span> = <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%Y-%m-%d&#39;</span>)
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;A&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+    <span class="ruby-comment"># json = `curl &quot;https://www.quandl.com/api/v3/datasets/#{key}.json?start_date=#{date_str}&amp;end_date=#{date_str}&amp;rows=1&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot;`</span>
+
+    <span class="ruby-identifier">query</span> = <span class="ruby-node">&quot;https://www.quandl.com/api/v3/datasets/#{key}.json?start_date=#{date_str}&amp;end_date=#{date_str}&amp;rows=1&amp;api_key=g-d7xhAs-eJsXPeJkinZ&quot;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Quandl Query: #{query}&quot;</span>
+
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">query</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;JSON &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">5</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">json</span>
+
+    <span class="ruby-identifier">hash</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;HASH &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">5</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">hash</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;data&#39;</span>].<span class="ruby-identifier">blank?</span>
+
+      <span class="ruby-comment"># check this blankness</span>
+
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Miss: code #{claim.code} key #{key}&quot;</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Quandl Service has no data for code #{claim.code} key #{key} on date #{date}&quot;</span>
+      <span class="ruby-constant">EodMailer</span>.<span class="ruby-identifier">alert</span>(<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">deliver</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">price</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">index</span> = <span class="ruby-keyword">nil</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;Settle&#39;</span>)
+        <span class="ruby-identifier">index</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Settle&#39;</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;Close&#39;</span>)
+        <span class="ruby-identifier">index</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;column_names&#39;</span>].<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;Close&#39;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Location of settlement or closing price not found.&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">price</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dataset&#39;</span>][<span class="ruby-string">&#39;data&#39;</span>][<span class="ruby-value">0</span>][<span class="ruby-identifier">index</span>]
+
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Grab: code #{claim.code} key #{key} settle #{price}.&quot;</span>
+
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;C&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-value">20</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-constant">ClaimMark</span>.<span class="ruby-identifier">create!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">s</span>.<span class="ruby-identifier">system_id</span> = <span class="ruby-constant">System</span>.<span class="ruby-identifier">find_by_code</span>(<span class="ruby-string">&#39;QDL&#39;</span>).<span class="ruby-identifier">id</span>
+          <span class="ruby-identifier">s</span>.<span class="ruby-identifier">claim_id</span> = <span class="ruby-identifier">claim</span>.<span class="ruby-identifier">id</span>
+          <span class="ruby-identifier">s</span>.<span class="ruby-identifier">posted_on</span> = <span class="ruby-identifier">date</span>
+          <span class="ruby-identifier">s</span>.<span class="ruby-identifier">mark</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-identifier">price</span>, <span class="ruby-value">16</span>)
+          <span class="ruby-identifier">s</span>.<span class="ruby-identifier">approved</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+        <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Exception at #{Time.now}.&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Quandl Service Exception: #{e.message}&quot;</span>
+    <span class="ruby-constant">EodMailer</span>.<span class="ruby-identifier">alert</span>(<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Exception at #{Time.now}.&quot;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Retrying in 5 minutes.&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>.<span class="ruby-identifier">minutes</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-try_quandl_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_quandl_query</span><span
+            class="method-args">(query)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_quandl_query-source">
+            <pre><span class="ruby-comment"># File app/models/workers/quandl_dao.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">try_quandl_query</span>(<span class="ruby-identifier">query</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Quandl Query: #{query}&quot;</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">query</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">json</span>
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Quandl Service Exception: #{e.message}&quot;</span>
+    <span class="ruby-constant">EodMailer</span>.<span class="ruby-identifier">alert</span>(<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">msg</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Exception at #{Time.now}.&quot;</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Retrying in 5 minutes.&quot;</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">5</span>.<span class="ruby-identifier">minutes</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

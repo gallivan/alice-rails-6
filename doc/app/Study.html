@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Study - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-gross_by_tradeable_set">::gross_by_tradeable_set</a>
+    
+    <li ><a href="#method-c-matches">::matches</a>
+    
+    <li ><a href="#method-c-offset_flows">::offset_flows</a>
+    
+    <li ><a href="#method-c-select_gross_by_tradeable_set">::select_gross_by_tradeable_set</a>
+    
+    <li ><a href="#method-c-select_matches">::select_matches</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Study">
+  <h1 id="class-Study" class="class">
+    class Study
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-gross_by_tradeable_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gross_by_tradeable_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gross_by_tradeable_set-source">
+            <pre><span class="ruby-comment"># File app/models/study.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gross_by_tradeable_set</span>
+  <span class="ruby-identifier">select_gross_by_tradeable_set</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-matches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>attr_accessible :title, :body</p>
+          
+          
+
+          
+          <div class="method-source-code" id="matches-source">
+            <pre><span class="ruby-comment"># File app/models/study.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">matches</span>
+  <span class="ruby-identifier">select_matches</span>
+  <span class="ruby-comment"># StudyMatch.where(&quot;matched_on &gt;= ? and matched_on &lt;= ?&quot;, Date.parse(&#39;20140202&#39;), Date.parse(&#39;20140208&#39;)).order(:offset_id)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-offset_flows" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">offset_flows</span><span
+            class="method-args">(account_code, tradeable_code, tradeable_set_code, posting_date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="offset_flows-source">
+            <pre><span class="ruby-comment"># File app/models/study.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">offset_flows</span>(<span class="ruby-identifier">account_code</span>, <span class="ruby-identifier">tradeable_code</span>, <span class="ruby-identifier">tradeable_set_code</span>, <span class="ruby-identifier">posting_date</span>)
+  <span class="ruby-constant">OffsetFlow</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">account_code</span><span class="ruby-operator">:</span> <span class="ruby-identifier">account_code</span>, <span class="ruby-identifier">tradeable_code</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tradeable_code</span>, <span class="ruby-identifier">tradeable_set_code</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tradeable_set_code</span>, <span class="ruby-identifier">posting_date</span><span class="ruby-operator">:</span> <span class="ruby-identifier">posting_date</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-select_gross_by_tradeable_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_gross_by_tradeable_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>sql</p>
+          
+          
+
+          
+          <div class="method-source-code" id="select_gross_by_tradeable_set-source">
+            <pre><span class="ruby-comment"># File app/models/study.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">select_gross_by_tradeable_set</span>
+  <span class="ruby-identifier">sql</span> = <span class="ruby-string">%Q(
+    SELECT
+        a.code                             AS acc_code,
+        TO_CHAR(n.posted_on, &#39;YYYY-MM-DD&#39;) AS posted_on,
+        split_part(s.code, &#39;:&#39;, 1)         AS exg_code,
+        split_part(s.name, &#39;:&#39;, 2)         AS set_name,
+        SUM(n.done * 2)::INTEGER           AS traded,
+        SUM(n.pnl * m.mark):: INTEGER      AS grs
+    FROM
+        position_nettings n,
+        claims c,
+        claim_sets s,
+        accounts a,
+        currency_marks m
+    WHERE
+        a.id = n.account_id AND
+        s.id = c.claim_set_id AND
+        c.id = n.claim_id AND
+        n.currency_id = m.currency_id AND
+        n.posted_on = m.posted_on
+    GROUP BY
+        a.code,
+        s.code,
+        n.posted_on,
+        s.name
+    ORDER BY
+        n.posted_on,
+        s.name
+  )</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-select_matches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_matches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select_matches-source">
+            <pre><span class="ruby-comment"># File app/models/study.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">select_matches</span>
+  <span class="ruby-identifier">sql</span> = <span class="ruby-string">%q(
+    SELECT
+        post,
+        hour,
+        acct,
+        exch,
+        code,
+        name,
+        CASE
+            WHEN hour &gt;= 22 AND hour &lt;= 23 THEN 1
+            WHEN hour &gt;  00 AND hour &lt;= 06 THEN 1
+            WHEN hour &gt;  07 AND hour &lt;= 14 THEN 2
+            ELSE 3
+        END AS team,
+        done,
+        flow,
+        ROUND(CAST(cost AS NUMERIC),3) AS cost
+    FROM
+        study_matches
+  )</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">sql</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

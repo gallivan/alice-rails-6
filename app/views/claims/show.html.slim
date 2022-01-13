@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+  strong Claim set:
+  = @claim.claim_set_id
+p
+  strong Claim type:
+  = @claim.claim_type_id
+p
+  strong Entity:
+  = @claim.entity_id
+p
+  strong Claimable:
+  = @claim.claimable_id
+p
+  strong Claimable type:
+  = @claim.claimable_type
+p
+  strong Code:
+  = @claim.code
+p
+  strong Name:
+  = @claim.name
+p
+  strong Size:
+  = @claim.size
+p
+  strong Point value:
+  = @claim.point_value
+p
+  strong Point currency:
+  = @claim.point_currency_id
+
+= link_to 'Edit', edit_claim_path(@claim)
+'|
+= link_to 'Back', claims_path

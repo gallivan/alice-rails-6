@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Account type:
+  = @account.account_type_id
+p
+  strong Entity:
+  = @account.entity_id
+p
+  strong Code:
+  = @account.code
+p
+  strong Name:
+  = @account.name
+p
+  strong Active:
+  = @account.active
+
+= link_to 'Edit', edit_account_path(@account)
+'|
+= link_to 'Back', accounts_path

@@ -1,0 +1,148 @@
+- content_for :head do
+  = javascript_include_tag "crossfilter.min"
+  = javascript_include_tag "d3.v3.min"
+  = javascript_include_tag "dc"
+  = stylesheet_link_tag "studies"
+
+.row{ :style => "margin-left: 20px;" }
+  .columns-12
+    %div{:id => "loading"}
+      %div{:style => "position: fixed; top: 40%; width: 100%;font-size: 200%; text-align: left; z-index: 11;"}
+        loading...
+
+.row
+  .large-12.columns{:id => "dc-chart-bar-traded"}
+
+.row
+  .large-12.columns{:id => "dc-chart-bar-cashed"}
+
+.row
+  .large-4.columns{:id => "dc-chart-ring-exchange"}
+  .large-4.columns{:id => "dc-chart-ring-set-code"}
+  .large-4.columns
+
+.row{:id => 'timestamp'}
+  .large-8.columns
+    = Time.now.to_s(:alice_time_short)
+  .large-4.columns
+
+:javascript
+  //'use strict';
+  console.log('begun');
+
+  function print_filter(filter){
+  	var f=eval(filter);
+  	if (typeof(f.length) != "undefined") {}else{}
+  	if (typeof(f.top) != "undefined") {f=f.top(Infinity);}else{}
+  	if (typeof(f.dimension) != "undefined") {f=f.dimension(function(d) { return "";}).top(Infinity);}else{}
+  	console.log(filter+"("+f.length+") = "+JSON.stringify(f).replace("[","[\n\t").replace(/}\,/g,"},\n\t").replace("]","\n]"));
+  }
+
+  $("#timestamp").hide();
+  $("#dc-chart-bar-traded").hide();
+  $("#dc-chart-bar-cashed").hide();
+  $("#dc-chart-ring-exchange").hide();
+  $("#dc-chart-ring-set-code").hide();
+
+  var format = d3.time.format("%Y-%m-%d");
+
+  d3.json("/gross_by_tradeable_set.json", function (data){
+    data.forEach(function (d){
+      //console.log('++++');
+      //console.log(d.posted_on);
+      //console.log(d.traded);
+      //console.log(d.grs);
+      d.posted_on = format.parse(d.posted_on);
+      d.traded = +d.traded;
+      d.grs = +d.grs;
+    });
+
+    //print_filter(data);
+
+    var facts = crossfilter(data);
+
+    var dateDimension = facts.dimension(function (d) { return d.posted_on; });
+
+    print_filter(dateDimension.top(5));
+    print_filter(dateDimension.bottom(5));
+
+    var traded_totals = dateDimension.group().reduceSum(function (d) { return d.traded; });
+    var cashed_totals = dateDimension.group().reduceSum(function (d) { return d.grs; });
+
+    // bar chart
+
+    var minDate = dateDimension.bottom(1)[0].posted_on;
+    var maxDate = dateDimension.top(1)[0].posted_on;
+
+    console.log(minDate);
+    console.log(maxDate);
+
+    var barChartTraded = dc.barChart("#dc-chart-bar-traded");
+
+    // contracts offset
+
+    barChartTraded
+      .width(700)
+      .height(300)
+      .transitionDuration(1500)
+      .margins({top: 50, right: 50, bottom: 30, left: 50})
+      .yAxisLabel("Contracts Traded")
+      .dimension(dateDimension)
+      .centerBar(true)
+      .gap(1)
+      .group(traded_totals)
+      .x(d3.time.scale().domain([minDate, maxDate]));
+
+    var barChartCashed = dc.barChart("#dc-chart-bar-cashed");
+
+    // gross pnl
+
+    barChartCashed
+      .width(700)
+      .height(300)
+      .transitionDuration(1500)
+      .margins({top: 50, right: 50, bottom: 30, left: 50})
+      .yAxisLabel("Gross PnL")
+      .dimension(dateDimension)
+      .centerBar(true)
+      .gap(1)
+      .group(cashed_totals)
+      .x(d3.time.scale().domain([minDate, maxDate]));
+
+      // ring chart - volume by exchanges
+
+    var exchangegDimension = facts.dimension(function (d) { return d.exg_code; });
+    var exchange_traded_totals = exchangegDimension.group().reduceSum(function (d) { return d.traded; });
+    var ringChartType = dc.pieChart("#dc-chart-ring-exchange");
+    ringChartType
+      .width(200)
+      .height(200)
+      .transitionDuration(1500)
+      .dimension(exchangegDimension)
+      .group(exchange_traded_totals)
+      .innerRadius(30);
+
+    // ring chart - volume by set code
+
+    var setCodeDimension = facts.dimension(function (d) { return d.set_code; });
+    var set_code_traded_totals = setCodeDimension.group().reduceSum(function (d) { return d.traded; });
+    var ringChartType = dc.pieChart("#dc-chart-ring-set-code");
+    ringChartType
+      .width(200)
+      .height(200)
+      .transitionDuration(1500)
+      .dimension(setCodeDimension)
+      .group(set_code_traded_totals)
+      .innerRadius(30);
+
+    $("#loading").fadeOut();
+    $("#timestamp").show();
+    $("#dc-chart-bar-traded").show();
+    $("#dc-chart-bar-cashed").show();
+    $("#dc-chart-ring-exchange").show();
+    $("#dc-chart-ring-set-code").show();
+    dc.renderAll();
+
+    console.log('ended');
+
+    });

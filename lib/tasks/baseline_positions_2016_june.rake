@@ -1,0 +1,96 @@
+lines = <<HERE
+
+00002 2016-05-31 -300 EUREX:FGBMM16 131.380
+00002 2016-05-31 +300 EUREX:FGBMU16 132.270
+00002 2016-05-31 +100 EUREX:FGBLM16 163.97
+00002 2016-05-31 -100 EUREX:FGBLU16 162.94
+
+00005 2016-05-31 +27 EUREX:FGBLM16 163.97
+00005 2016-05-31 -27 EUREX:FGBLU16 162.94
+00005 2016-05-31 +47 EUREX:FESXM16 3053.0
+00005 2016-05-31 -47 EUREX:FESXU16 3042.0
+
+00024 2016-05-31 -500 EUREX:FGBSM16 111.830
+00024 2016-05-31 +500 EUREX:FGBSU16 111.775
+
+00071 2016-05-31 +250 EUREX:FGBLM16 163.97
+00071 2016-05-31 -250 EUREX:FGBLU16 162.94
+
+00077 2016-05-31 +125 EUREX:FGBLM16 163.97
+00077 2016-05-31 -125 EUREX:FGBLU16 162.94
+
+00099 2016-05-31 +350 EUREX:FGBSM16 111.830
+00099 2016-05-31 -400 EUREX:FGBSU16 111.775
+00099 2016-05-31 +13 EUREX:FESXM16 3053.0
+00099 2016-05-31 -8 EUREX:FESXU16 3042.0
+
+00624 2016-05-31 +350 EUREX:FGBLM16 163.97
+00624 2016-05-31 -350 EUREX:FGBLU16 162.94
+
+00877 2016-05-31 +51 EUREX:FGBMM16 131.380
+00877 2016-05-31 -51 EUREX:FGBMU16 132.270
+00877 2016-05-31 +999 EUREX:FGBSM16 111.830
+00877 2016-05-31 -999 EUREX:FGBSU16 111.775
+
+03000 2016-05-31 -171 EUREX:FGBMM16 131.380
+03000 2016-05-31 +171 EUREX:FGBMU16 132.270
+03000 2016-05-31 -162 EUREX:FGBSM16 111.830
+03000 2016-05-31 +162 EUREX:FGBSU16 111.775
+03000 2016-05-31 +116 EUREX:FESXM16 3053.0
+03000 2016-05-31 -116 EUREX:FESXU16 3042.0
+
+05520 2016-05-31 -288 EUREX:FGBMM16 131.380
+05520 2016-05-31 +288 EUREX:FGBMU16 132.270
+05520 2016-05-31 +501 EUREX:FGBSM16 111.830
+05520 2016-05-31 -501 EUREX:FGBSU16 111.775
+
+09009 2016-05-31 -10 EUREX:FGBMM16 131.380
+09009 2016-05-31 +10 EUREX:FGBMU16 132.270
+09009 2016-05-31 +2 EUREX:FGBLM16 163.97
+09009 2016-05-31 -2 EUREX:FGBLU16 162.94
+09009 2016-05-31 -5 EUREX:FESXM16 3053.0
+09009 2016-05-31 +5 EUREX:FESXU16 3042.0
+
+HERE
+
+task :baseline_positions_2016_june => :environment do
+
+  print "Clearing positions and fills..."
+
+  date = Date.parse('2016-05-31')
+  DealLegFill.posted_on(date).delete_all
+  Position.posted_on(date).delete_all
+  puts "done"
+
+  puts "Handling reports..."
+
+  reports = []
+  lines.split("\n").each do |line|
+    reports << line
+  end
+
+  reports.each do |report|
+    puts report
+    account_code = report.split(' ').first
+    next if account_code.nil?
+    account = Account.find_by_code(account_code)
+    if account.blank?
+      puts "Account #{account_code} does not exist"
+      print "Deleting DealLegFills..."
+      DealLegFill.delete_all
+      puts "done"
+      print "Deleting Positions..."
+      Position.delete_all
+      puts "done"
+      puts "Exiting"
+      exit
+    end
+
+    norm = Workers::Normalizer.normalize_baseline_report(report)
+
+    account.handle_fill(norm)
+
+  end
+
+  puts 'done'
+end

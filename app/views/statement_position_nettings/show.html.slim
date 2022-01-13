@@ -1,0 +1,37 @@
+p#notice = notice
+
+p
+  strong Stated on:
+  = @statement_position_netting.stated_on
+p
+  strong Posted on:
+  = @statement_position_netting.posted_on
+p
+  strong Account:
+  = @statement_position_netting.account_id
+p
+  strong Account code:
+  = @statement_position_netting.account_code
+p
+  strong Claim code:
+  = @statement_position_netting.claim_code
+p
+  strong Netting code:
+  = @statement_position_netting.netting_code
+p
+  strong Bot price traded:
+  = @statement_position_netting.bot_price_traded
+p
+  strong Sld price traded:
+  = @statement_position_netting.sld_price_traded
+p
+  strong Done:
+  = @statement_position_netting.done
+p
+  strong Pnl:
+  = @statement_position_netting.pnl
+p
+  strong Currency code:
+  = @statement_position_netting.currency_code
+
+= link_to 'Back', statement_position_nettings_path

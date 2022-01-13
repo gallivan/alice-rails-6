@@ -1,0 +1,27 @@
+<div>
+  <p>
+    <a href="https://memcached.org/">Memcached</a> is a distributed, memory resident key/value store. Rails
+    implementats the ActiveRecord pattern relies heavily on database use. Database roundtrip times can be dramatically
+    reduced by going to cache instead of the database. The Ruby Gem used for service access is
+    <a href="https://github.com/petergoldstein/dalli">Dalli</a>.
+  </p>
+
+  <p>
+    Memcached can be installed on Ubuntu 16.04LTS via the following commands.
+  </p>
+
+  <pre>
+    sudo apt-get update
+    sudo apt-get install memcached
+  </pre>
+
+  <p>
+    When running, memcached will have an appearancein the process table similar to the following.
+  </p>
+
+  <pre>
+    alice@perth:~$ ps auxww | grep memcached
+
+    memcache  3699  0.0  0.0 325540  2640 ?        Ssl  Jul04   0:12 /usr/bin/memcached -m 64 -p 11211 -u memcache -l 127.0.0.1
+  </pre>
+</div>

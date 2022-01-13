@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Code:
+  = @adjustment_type.code
+p
+  strong Name:
+  = @adjustment_type.name
+
+= link_to 'Edit', edit_adjustment_type_path(@adjustment_type)
+'|
+= link_to 'Back', adjustment_types_path

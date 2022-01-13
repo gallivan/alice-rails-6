@@ -1,0 +1,8 @@
+<pre>
+
+user$> sudo -u postgres createuser --pwprompt --createdb --login --createrole alice
+user$> sudo -u postgres createdb -O alice alice_development
+user$> sudo -u postgres createdb -O alice alice_test
+user$> sudo -u postgres psql -c 'grant all privileges on database alice_development to alice;'
+user$> sudo -u postgres psql -c 'grant all privileges on database alice_test to alice;'
+</pre>

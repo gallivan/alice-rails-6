@@ -1,0 +1,239 @@
+<div>
+  <p>
+    The fundamental accounting document is the statement. It represents all account activity including execution
+    reports, position netting, positions, charges, adjustments, and money balances.
+  </p>
+  <p>
+    Driving abstractions are account and claim. A claim is a multi-party (usually bilateral) contract that defines a
+    collection of rules (obligations and/or expectations) by which claim valued is determined for each party. An account
+    is a kind-of claim container.
+  </p>
+  <p>
+    Parties enter and exit claims with associated account consequences, e.g., accrual of transaction expenses and the
+    recognition of claim value variation.
+  </p>
+</div>
+
+<h3>Statement Components</h3>
+
+<h4>DealLegFill - Execution Reports - Fills</h4>
+
+<div>
+  <p>
+    Execution reports are the consequence of order execution through pit or electronic order matching. The statement
+    fragment shown below notes the account and claims for which reports were received on a particular day - the Posted
+    date. Reports may be posted for days other than that on which they were traded - showing different Posted and Traded
+    dates.
+  </p>
+  <p>
+    The quantity of claims exchanged is shown and Bot, Sld and Net. The statement fragment shows two claims: 2 Year Note
+    futures with expirations in June and September of 2017. The account was a buyer and seller of both claims but left
+    with a net position to receive 32 of the June 2 Years and deliviver 32 of the September 2 Years.
+  </p>
+  <p>
+    Two prices are represented in the statement fragment: Traded and Decimal. Some claims are traded with fractional
+    prices, some with decimal prices. The statement shows both because the price traded is visible basis
+    for the exchange. The decimal price is the used for accounting computation and derived from an conventional
+    interpreation of the traded price.
+  </p>
+  <p>
+    The September 2 Year activity shows two Traded prices: 108-070 and 108-072. The digits to the left side of the dash
+    is "the handle" and those to the right called "the tail". The handle, in this instance, is the whole number
+    percentage of par that will be paid for the Note. The tail portion is the fractional percentage of part to be paid.
+    The tail is expressed in 32 in terms of 32nds with the right-most digit representing a fraction of a 32nd. The
+    fractional representation of 070 means 7 32nds and 072 means 7-1/4 32nds.
+  </p>
+  <p>
+    A position in a claim is due to the accumulation of claim exchanges for receipt and delivery. The reports below
+    shows recipt of 41 units and delivery of 9 units leaving a net position of 32 units of June for receipt. The inverse
+    is shown for September, leaving the account with 32 units of June to deliver.
+  </p>
+
+  <pre>
+Posted     Traded    Account                                                        Claim      Bot      Sld      Net       Traded      Decimal
+
+2017-05-22 2017-05-22      54321                                   2 Yr Note Futures Jun 2017       41        9       32      108-110  108.3437500
+                                                                                                    41        9       32
+
+2017-05-22 2017-05-22      54321                                   2 Yr Note Futures Sep 2017        9        0        9      108-070  108.2187500
+2017-05-22 2017-05-22      54321                                   2 Yr Note Futures Sep 2017        0       41      -41      108-072  108.2265625
+                                                                                                     9       41      -32
+</pre>
+</div>
+
+<h4>PositionNetting - Offsets</h4>
+
+<div>
+  <p>
+    On any legal day of exchange, claims contracted for receipt and delivery may be netted through cancelation of
+    offsetting claim positions.
+  </p>
+  <p>
+    The execution reports above show 41 units of June contracted for receipt and 9 units of June contracted for
+    delivery.The net claim responsibility is receipt of 32 June. The differences between 41 and 32 is derived from
+    offsetting 9 of 41 claim units through cancellation.
+  </p>
+  <p>
+    The following position netting fragment shows 9 units of both June and September offset. The difference in prices
+    paid and received can result in a profit or loss realized during offset. June was contracted for receipt and
+    delivery at the same price of 108-110 so offset generated neither a profit nor a loss. September was contracted for
+    receipt at 108-070 and delivery at 108-072 for a 1/4 32nd difference in price, generating a 140.67 USD profit.
+  </p>
+  <pre>
+Posted    Account                                                             Claim How          Bot          Sld       Done            PnL CCY
+
+2017-05-22      54321                                        2 Yr Note Futures Jun 2017 SCH      108-110      108-110          9           0.00 USD
+                                                                                                                               9           0.00
+
+2017-05-22      54321                                        2 Yr Note Futures Sep 2017 DAY      108-070      108-072          9         140.67 USD
+                                                                                                                               9         140.67
+</pre>
+</div>
+
+
+<h4>Position</h4>
+<div>
+  <p>
+    The exchange of claims generates claim positions. The netting of positions may result in carried claims - also
+    called open positions. The following statement fragment shows open positions in June and September. The account
+    remains contracted to receive 32 June at a price of 108-110 and deliver 32 September at a price of 108-072.
+  </p>
+  <p>
+    Carried positions are subject to change in value with a settlement price marked for each claim each session. June is
+    marked at 108-110 and September at 108-07 (108.2187500). Open Trade Euqity (OTE) indicates the variation in the
+    value of the carried position given position size, price and mark. The September mark is below the contracted
+    delivery price and implies a possible profit of 500.16 USD as OTE.
+  </p>
+
+</div>
+<pre>
+Posted     Traded    Account                                              Claim    Bot    Sld    Net        Price         Mark          OTE CCY
+
+2017-05-22 2017-05-22      54321                         2 Yr Note Futures Jun 2017     32      0     32      108-110  108.3437500         0.00 USD
+                                                                                        32      0      0                                   0.00
+
+2017-05-22 2017-05-22      54321                         2 Yr Note Futures Sep 2017      0     32    -32      108-072  108.2187500       500.16 USD
+                                                                                         0     32      0
+</pre>
+
+<h4>Charge</h4>
+<div>
+  <p>
+    The contracting claims has costs. The statement fragment below reflects service (SRV) and exchange (EXG) transaction
+    costs incurred by the account on the date posted. SRV charges were assessed at 0.035 USD per unit. EXG charges were
+    assessed at 0.12 USD per unit.
+  </p>
+</div>
+
+<pre>
+Posted    Account                                                                                                        Memo       Amount CCY
+
+2017-05-22      54321                                                             2 Yr Note Futures Jun 2017 50 at 0.035 USD SRV         -1.75 USD
+2017-05-22      54321                                                              2 Yr Note Futures Jun 2017 50 at 0.12 USD EXG         -6.00 USD
+
+2017-05-22      54321                                                             2 Yr Note Futures Sep 2017 50 at 0.035 USD SRV         -1.75 USD
+2017-05-22      54321                                                              2 Yr Note Futures Sep 2017 50 at 0.12 USD EXG         -6.00 USD
+</pre>
+
+<h4>Adjustment</h4>
+<p>
+  Cash adjustments may be entered for an account that reflects an external accounting events such as credits or debits
+  outside the system, e.g., the rebate shown below. Adjustments may also reflect setup errors within the system, e.g.,
+  incorrect definition of a EXG unit cost.
+</p>
+<pre>
+Posted    Account                                                         Memo     Amount CCY
+2017-05-22      54321                         Trader Development Rebate March 2017     548.00 EUR
+2017-05-22      54321              To adjust for incorrect coding of Exchange fees       0.02 USD
+</pre>
+
+<h4>Money Line</h4>
+<p>
+  Moeny balances are are deived from claim exchange, offset, charges and adjustments in the currency balances held as
+  appropriate to the accounted events. Each day, an account has a begnning balance from which a ledger balance is
+  computed via the application of charges, adjustments and realized profit and loss. A net liquidating balance is
+  computed with the application of OTE and cash to the ledger balance. Fianlly, a base currency balance in USD is
+  computed using the sum of held balances adjusted to reflect current foreign exchange rates.
+</p>
+
+<ul>
+  <li>
+    Ledger Balance = Beginning + Charges + Adjustments + Profit or Loss
+  </li>
+  <li>
+    Net Liquidating Balance = Ledger Balance + OTE + Cash
+  </li>
+</ul>
+
+<pre>
+Posted    Account CCY  Seg Kind      Begin    Charges        Adj        PnL     Ledger        OTE       Cash        Net        Mark
+
+2017-05-22      54321 EUR SEGN HELD   -1727.29       0.00     548.00       0.00   -1179.29       0.00   -1179.29   -1179.29    1.125000
+2017-05-22      54321 USD SEGN HELD   65665.00    -333.51       0.02     772.04   66103.55     494.16   66597.71   66597.71    1.000000
+2017-05-22      54321 USD SEGB BASE   63721.80    -333.51     616.52     772.04   64776.85     494.16   65271.01   65271.01
+</pre>
+
+<h3>Statement Information Access</h3>
+<p>
+  The web user interface is the principal way through which statement information is accessed. Information can be shown
+  on-screen or via PDF and TXT file downloads. Screen presentation allows for CSV, XML and JSON representation download
+  also.
+</p>
+
+<h4>Screen</h4>
+
+Statement information can be found for screen presentation at links similar to the following.
+
+<ul>
+  <li>
+    <a href="/admin/statement_deal_leg_fills">Executions</a>
+  </li>
+  <li>
+    <a href="/admin/statement_position_nettings">Position Nettings</a>
+  </li>
+  <li>
+    <a href="/admin/statement_positions">Positions</a>
+  </li>
+  <li>
+    <a href="/admin/statement_charges">Charges</a>
+  </li>
+  <li>
+    <a href="/admin/statement_adjustments">Adjustments</a>
+  </li>
+  <li>
+    <a href="/admin/statement_money_lines">Money Lines</a>
+  </li>
+</ul>
+
+<h4>Print</h4>
+<div>
+  <p>
+    Statement components assembled into PDF and TXT documents can be found via the Reports page
+    http://jackijack.com/admin/reports.
+  </p>
+  <p>
+    Select filter with the following options for PDF representations of all daily account statements.
+  </p>
+
+  <ul>
+    <li>
+      Report Type: daily_account_statement
+    </li>
+    <li>
+      Format Type: PDF
+    </li>
+  </ul>
+
+  <p>
+    The set of reports can be further reduced using the following options.
+  </p>
+
+  <ul>
+    <li>
+      Memo: Contains [account number]
+    </li>
+    <li>
+      Posted On: [first date] - [last date]
+    </li>
+  </ul>
+</div>

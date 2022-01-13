@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21962308953" TrdTyp="0" ExecID="15675020160725094044TN0004503" TrdDt="2016-07-25"
+              BizDt="2016-07-25"
+              MLegRptTyp="1" MtchStat="0" MsgEvtSrc="REG" TrdID="102411" LastQty="1" LastPx="111.975"
+              TxnTm="2016-07-25T09:40:44-05:00" SettlCcy="USD" SettlDt="2016-12-30"
+              OrigTrdID="1561EEC09D4LTP0302D1BC930"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="48" Desc="LIVE CATTLE FUTURES" CFI="FCAPSO" SecTyp="FUT" MMY="201612" MatDt="2016-12-30" Mult="400"
+             Exch="CME" UOM="lbs" UOMQty="40000" PxUOM="LBS" PxUOMQty="100" ValMeth="FUT" Fctr="1"
+             PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="90" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="EK4H" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="N">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CME" R="22"></Pty>
+      <Pty ID="353" R="1"></Pty>
+      <Pty ID="03000" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="353" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="353" R="7"></Pty>
+      <RegTrdID ID="FECF1561EEC09D4LTP0302D1BC932" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

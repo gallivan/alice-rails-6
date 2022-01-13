@@ -1,0 +1,39 @@
+<FIXML>
+   <PtyDetlListRpt RptID="SOC Account Master" BizDt="2014-12-02" TxnTm="2014-12-02T19:00:17-06:00">
+      <PtyDetl ID="03000" R="24">
+         <!-- client account ID -->
+         <Sub ID="1" Typ="26" />
+         <!-- customer origin -->
+         <Sub ID="Eagle Market Makers" Typ="5" />
+         <!-- account name -->
+         <Sub ID="H" Typ="41" />
+         <!-- customer account type -->
+         <Sub ID="???" Typ="44" />
+         <!-- guarantee fund (product group) -->
+         <Sub ID="AB" Typ="24" />
+         <!-- office code -->
+         <Sub ID="USA" Typ="31" />
+         <!-- country of origin -->
+         <Sub ID="Ronald Manaster" Typ="9" />
+         <!-- client contact person -->
+         <Sub ID="312-935-2400" Typ="7" />
+         <!-- client telephone number -->
+         <Sub ID="manaster@eaglemarketmakers.com" Typ="8" />
+         <!-- client email -->
+         <Sub ID="601 South LaSalle Street, Suite 400, Chicago IL 60605" Typ="6" />
+         <!-- client address -->
+         <ReltdPtyDetl ID="CME" R="21" />
+         <!-- clearing organization-->
+         <ReltdPtyDetl ID="353" R="4" />
+         <!-- clearing member firm ID -->
+         <ReltdPtyDetl ID="CBT" R="22" />
+         <!-- firm exchange -->
+         <ReltdPtyDetl ID="330" R="1" />
+         <!-- trade mgmt firm ID -->
+         <ReltdPtyDetl ID="???" R="52" />
+         <!-- CFTC Reportable Number -->
+         <ReltdPtyDetl ID="???" R="7" Src="N" />
+         <!-- US LEI of the client -->
+      </PtyDetl>
+   </PtyDetlListRpt>
+</FIXML>

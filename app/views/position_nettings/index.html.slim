@@ -1,0 +1,49 @@
+h1 Listing position_nettings
+
+== render 'shared/search_form'
+
+.row
+  = paginate @position_nettings
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Posted on
+          th Account
+          th Currency
+          th Claim
+          th Type
+          /th Bot position id
+          /th Sld position_id
+          th Done
+          th Bot price
+          th Sld price
+          /th Bot price traded
+          /th Sld price traded
+          th Pnl
+          th
+          /th
+          /th
+
+      tbody
+        - @position_nettings.each do |position_netting|
+          tr
+            td = position_netting.posted_on
+            td = position_netting.account.code
+            td = position_netting.currency.code
+            td = position_netting.claim.code
+            td = position_netting.position_netting_type.code
+            /td = position_netting.bot_position_id
+            /td = position_netting.sld_position_id
+            td = position_netting.done
+            td = position_netting.bot_price
+            td = position_netting.sld_price
+            /td = position_netting.bot_price_traded
+            /td = position_netting.sld_price_traded
+            td = position_netting.pnl
+            td = link_to 'Show', position_netting
+            /td = link_to 'Edit', edit_position_netting_path(position_netting)
+            /td = link_to 'Destroy', position_netting, data: {:confirm => 'Are you sure?'}, :method => :delete
+

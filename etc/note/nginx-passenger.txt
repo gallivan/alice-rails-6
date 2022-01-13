@@ -1,0 +1,1 @@
+https://gorails.com/deploy/ubuntu/16.04

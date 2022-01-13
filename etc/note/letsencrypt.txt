@@ -1,0 +1,13 @@
+
+# instructions
+
+https://gist.github.com/cecilemuller/a26737699a7e70a7093d4dc115915de8
+
+# TESTING
+
+https://www.ssllabs.com/ssltest/analyze.html?d=jackijack.com
+https://www.ssllabs.com/ssltest/analyze.html?d=emm1.jackijack.com
+https://www.ssllabs.com/ssltest/analyze.html?d=emm2.jackijack.com
+https://www.ssllabs.com/ssltest/analyze.html?d=stg.jackijack.com
+https://www.ssllabs.com/ssltest/analyze.html?d=int.jackijack.com
+

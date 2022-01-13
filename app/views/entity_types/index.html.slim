@@ -1,0 +1,23 @@
+h1 Listing entity_types
+
+.btn.btn-default = link_to 'New Entity type', new_entity_type_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @entity_types.each do |entity_type|
+          tr
+            td = entity_type.code
+            td = entity_type.name
+            td = link_to 'Show', entity_type
+            td = link_to 'Edit', edit_entity_type_path(entity_type)
+            td = link_to 'Destroy', entity_type, data: {:confirm => 'Are you sure?'}, :method => :delete

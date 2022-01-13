@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21937832663" TrdTyp="0" TrdSubTyp="7" ExecID="87472920160720190002TN0000015" TrdDt="2016-07-21"
+              BizDt="2016-07-21" MLegRptTyp="2" MtchStat="0" MsgEvtSrc="REG" TrdID="100432" LastQty="1" LastPx="347.7"
+              TxnTm="2016-07-20T19:00:02-05:00" SettlCcy="USD" SettlDt="2016-12-14"
+              OrigTrdID="155FADF8568LTP0202D90652A" PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="06" Desc="SOYBEAN MEAL FUTURES" CFI="FCAPSO" SecTyp="FUT" MMY="201612" MatDt="2016-12-14" Mult="100"
+             Exch="CBT" UOM="tn" UOMQty="100" PxUOM="TON" PxUOMQty="1" ValMeth="FUT" Fctr="1" PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="20" Ccy="USD"/>
+    <RptSide Side="2" ClOrdID="17W9" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="Y">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CBT" R="22"></Pty>
+      <Pty ID="330" R="1"></Pty>
+      <Pty ID="39009" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="330B" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="330" R="7"></Pty>
+      <RegTrdID ID="FECF155FADF8568LTP0202D90652E" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

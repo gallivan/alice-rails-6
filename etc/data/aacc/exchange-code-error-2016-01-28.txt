@@ -1,0 +1,34 @@
+{"8"=>"FIX.4.2", "9"=>"1446", "35"=>"8", "34"=>"2400", "49"=>"AACC", "52"=>"20160128-21:11:12.232", "56"=>"EAGLE_MARKET_MAKERS", "1"=>"6901E0877", "6"=>"321.75", "11"=>"201197609860", "14"=>"1", "17"=>"211307032", "20"=>"0", "31"=>"321.75", "32"=>"1", "37"=>"211307032", "38"=>"1", "39"=>"2", "44"=>"321.75", "54"=>"1", "55"=>"G", "60"=>"20160128-21:11:07", "75"=>"20160128", "76"=>"JHG", "150"=>"2", "151"=>"0", "167"=>"FUT", "200"=>"201604", "207"=>"16", "231"=>"100", "439"=>"690", "440"=>"E0877", "9028"=>"1", "9029"=>"Future", "9031"=>"NGRM", "9032"=>"655", "9033"=>"20160128/FCR/IFEU/4187851", "9034"=>"E0877", "9037"=>"20160412", "9038"=>"2", 
+
+"9039"=>"<FIXML><TrdCaptRpt RptID~\"468980\" CopyMsgInd~\"Y\" TrdRptStat~\"0\" TrdID~\"4187851\" LastPx~\"321.75\" LastQty~\"1\" TrdDt~\"2016-01-28\" BizDt~\"2016-01-28\" TxnTm~\"2016-01-28T16:11:07-05:00\" TrdTyp~\"0\" MtchStat~\"0\" VenuTyp~\"E\" ExecID~\"14589996\" MLegRptTyp~\"2\" TrdPubInd~\"1\" RptTyp~\"0\" TransTyp~\"0\"><Hdr Snt~\"2016-01-28T16:11:07-05:00\" SID~\"ICE\" TID~\"FCR\"/><RegTrdID Typ~\"0\" ID~\"10000000000000000000000000NPXHT9\" Src~\"1010000180\" Evnt~\"2\"/><TrdRegTS Typ~\"19\" TS~\"2016-01-28T16:11:07.892-05:00\"/><TrdRegTS Typ~\"1\" TS~\"2016-01-28T16:11:07.888-05:00\"/><Pty R~\"73\" ID~\"IFEU\"/><Instrmt ID~\"G\" SecTyp~\"FUT\" MMY~\"201604\" Exch~\"IFEU\" SubTyp~\"99\"/><RptSide Side~\"1\" OrdID~\"14583923\" ClOrdID2~\"522356583\" AgrsrInd~\"N\" ClOrdID~\"201197609860\" InptSrc~\"ICE\" InptDev~\"ICE\" PosEfct~\"O\" StrategyLinkID~\"14583923\"><Pty R~\"12\" ID~\"JHG\"/><Pty R~\"21\" ID~\"ICEU\"/><Pty R~\"4\" ID~\"FCR\"/><Pty R~\"1\" ID~\"FCR\"/><Pty R~\"22\" ID~\"IFEU\"/><Pty R~\"38\" ID~\"W\"><Sub ID~\"4\" Typ~\"26\"/></Pty><Pty R~\"24\" ID~\"E0877\"/><Pty R~\"44\" ID~\"NGRM\"/><Pty R~\"55\" ID~\"ngremmemm\"/></RptSide></TrdCaptRpt></FIXML>", 
+
+"10"=>"120"}
+
+Could not find Exchange Code 41878 for System AACC.
+
+["/home/alice/www/alice/releases/20160127000117/app/models/builders/claim_builder.rb:66:in `build_from_aacc_fix_42'",
+"/home/alice/www/alice/releases/20160127000117/app/models/workers/normalizer.rb:91:in `block in grab_claim'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/cache.rb:299:in `block in fetch'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/cache.rb:585:in `block in save_block_result_to_cache'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/cache.rb:547:in `block in instrument'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/notifications.rb:166:in `instrument'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/cache.rb:547:in `instrument'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/cache.rb:584:in `save_block_result_to_cache'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/activesupport-4.2.3/lib/active_support/cache.rb:299:in `fetch'",
+"/home/alice/www/alice/releases/20160127000117/app/models/workers/normalizer.rb:90:in `grab_claim'",
+"/home/alice/www/alice/releases/20160127000117/app/models/workers/normalizer.rb:40:in `normalize_aacc_fix_42'",
+"/home/alice/www/alice/releases/20160127000117/app/models/workers/normalizer.rb:7:in `normalize'",
+"/home/alice/www/alice/releases/20160127000117/app/services/packer.rb:52:in `block in pack'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer.rb:56:in `call'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer.rb:56:in `call'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/channel.rb:1722:in `block in handle_frameset'"
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer_work_pool.rb:94:in `call'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer_work_pool.rb:94:in `block (2 levels) in run_loop'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer_work_pool.rb:89:in `loop'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer_work_pool.rb:89:in `block in run_loop'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer_work_pool.rb:88:in `catch'",
+"/home/alice/www/alice/shared/bundle/ruby/2.2.0/gems/bunny-2.2.1/lib/bunny/consumer_work_pool.rb:88:in `run_loop'"]
+
+
+
+"9039"=>"<FIXML><TrdCaptRpt RptID~\"468980\" CopyMsgInd~\"Y\" TrdRptStat~\"0\" TrdID~\"4187851\" LastPx~\"321.75\" LastQty~\"1\" TrdDt~\"2016-01-28\" BizDt~\"2016-01-28\" TxnTm~\"2016-01-28T16:11:07-05:00\" TrdTyp~\"0\" MtchStat~\"0\" VenuTyp~\"E\" ExecID~\"14589996\" MLegRptTyp~\"2\" TrdPubInd~\"1\" RptTyp~\"0\" TransTyp~\"0\"><Hdr Snt~\"2016-01-28T16:11:07-05:00\" SID~\"ICE\" TID~\"FCR\"/><RegTrdID Typ~\"0\" ID~\"10000000000000000000000000NPXHT9\" Src~\"1010000180\" Evnt~\"2\"/><TrdRegTS Typ~\"19\" TS~\"2016-01-28T16:11:07.892-05:00\"/><TrdRegTS Typ~\"1\" TS~\"2016-01-28T16:11:07.888-05:00\"/><Pty R~\"73\" ID~\"IFEU\"/><Instrmt ID~\"G\" SecTyp~\"FUT\" MMY~\"201604\" Exch~\"IFEU\" SubTyp~\"99\"/><RptSide Side~\"1\" OrdID~\"14583923\" ClOrdID2~\"522356583\" AgrsrInd~\"N\" ClOrdID~\"201197609860\" InptSrc~\"ICE\" InptDev~\"ICE\" PosEfct~\"O\" StrategyLinkID~\"14583923\"><Pty R~\"12\" ID~\"JHG\"/><Pty R~\"21\" ID~\"ICEU\"/><Pty R~\"4\" ID~\"FCR\"/><Pty R~\"1\" ID~\"FCR\"/><Pty R~\"22\" ID~\"IFEU\"/><Pty R~\"38\" ID~\"W\"><Sub ID~\"4\" Typ~\"26\"/></Pty><Pty R~\"24\" ID~\"E0877\"/><Pty R~\"44\" ID~\"NGRM\"/><Pty R~\"55\" ID~\"ngremmemm\"/></RptSide></TrdCaptRpt></FIXML>",

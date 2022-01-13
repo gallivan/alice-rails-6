@@ -1,0 +1,123 @@
+Eurex|FGBL Mar16|159.9|15990|March 2016 Bund Future|2015/11/23
+CME|ZSH6-ZSK6|-0.0625|-25|March 2016 Soybeans Calendar|2015/11/23
+CME|ZLZ5|2791|2791|December 2015 Soybean Oil Future|2015/11/23
+CME|ZFZ5|119.046875|15238|December 2015 U.S. Treasury 5 Year Notes Future|2015/11/23
+CME|ZCZ5|3.6725|1469|December 2015 Corn Future|2015/11/23
+CME|ZCH6-ZCK6|-0.0575|-23|March 2016 Corn Calendar|2015/11/23
+CME|ZMF6-ZMH6|-6|-6|January 2016 Soybean Meal Calendar|2015/11/23
+CME|ZCN6-ZCZ6|-0.105|-42|July 2016 Corn Calendar|2015/11/23
+CME|ZCZ5-ZCH6|-0.065|-26|December 2015 Corn Calendar|2015/11/23
+CME|UBZ5-UBH6|-0.1875|-24|December 2015 U.S. Treasury Ultra Bonds ReducedTickSpread|2015/11/23
+CME|ZFZ5-ZFH6|0.515625|66|December 2015 U.S. Treasury 5 Year Notes Calendar|2015/11/23
+CME|GEH6-GEU6|31.5|63|March 2016 Eurodollar Calendar|2015/11/23
+NYSE_Liffe|yEBM Mar16|184.25|737|March 2016 Milling Wheat Future|2015/11/23
+CME|GEH6-GEM6|15.5|31|March 2016 Eurodollar Calendar|2015/11/23
+CME|ZCH6-ZCU6|-0.145|-58|March 2016 Corn Calendar|2015/11/23
+CME|ZTZ5-ZTH6|0.296875|38|December 2015 U.S. Treasury 2 Year Bills Calendar|2015/11/23
+CME|GEU6-GEZ6|16|32|September 2016 Eurodollar Calendar|2015/11/23
+CME|ZCZ5-ZCK6|-0.1225|-49|December 2015 Corn Calendar|2015/11/23
+CME|ZCZ5-ZCN6|-0.175|-70|December 2015 Corn Calendar|2015/11/23
+Eurex|FGBM Dec15|129.89|12989|December 2015 Bobble Future|2015/11/23
+CME|ZMZ5-ZMH6|-6|-6|December 2015 Soybean Meal Calendar|2015/11/23
+CME|ZLH6-ZLK6|-23|-23|March 2016 Soybean Oil Calendar|2015/11/23
+CME|GEH7|9876.5|19753|March 2017 Eurodollar Future|2015/11/23
+CME|ZCZ6|3.945|1578|December 2016 Corn Future|2015/11/23
+CME|ZLF6-ZLK6|-48|-48|January 2016 Soybean Oil Calendar|2015/11/23
+CME|GEM7|9862|19724|June 2017 Eurodollar Future|2015/11/23
+CME|ZCU6|3.8725|1549|September 2016 Corn Future|2015/11/23
+CME|ZCTZ5|0|0|November 2015  Future|2015/11/23
+CME|ZSH6-ZSN6|-0.12|-48|March 2016 Soybeans Calendar|2015/11/23
+CME|ZWH6-ZWN6|-0.05|-20|March 2016 Wheat Calendar|2015/11/23
+CME|GEU7|9849|19698|September 2017 Eurodollar Future|2015/11/23
+CME|KEZ5-KEH6|-0.135|-54|December 2015 Kansas Wheat Calendar|2015/11/23
+CME|ZCN6|3.835|1534|July 2016 Corn Future|2015/11/23
+CME|GEZ7|9836|19672|December 2017 Eurodollar Future|2015/11/23
+CME|ZCK6|3.785|1514|May 2016 Corn Future|2015/11/23
+CME|ZBZ5-ZBH6|1.375|176|December 2015 U.S. Treasury 30 Year Bonds ReducedTickSpread|2015/11/23
+CME|ZS:BF H6-K6-N6|-0.005|-2|March 2016 Soybeans Butterfly|2015/11/23
+CME|ZCH6|3.73|1492|March 2016 Corn Future|2015/11/23
+CME|ZLZ5-ZLK6|-76|-76|December 2015 Soybean Oil Calendar|2015/11/23
+ICE_IPE|L Dec16|99.1|9910|December 2016 Sterling Future|2015/11/23
+ICE_IPE|R Dec15|118.06|11806|December 2015 Gilt Future|2015/11/23
+CME|ZBH6|153.0625|19592|March 2016 U.S. Treasury 30 Year Bonds Future|2015/11/23
+CME|LEZ5|129700|5188|December 2015 Live Cattle Future|2015/11/23
+CME|ZBZ5|154.4375|19768|December 2015 U.S. Treasury 30 Year Bonds Future|2015/11/23
+CME|ZCK6-ZCN6|-0.0525|-21|May 2016 Corn Calendar|2015/11/23
+CME|GEZ6-GEM7|28.5|57|December 2016 Eurodollar Calendar|2015/11/23
+Eurex|FGBL Dec15|158.02|15802|December 2015 Bund Future|2015/11/23
+CME|LEJ6|132750|5310|April 2016 Live Cattle Future|2015/11/23
+CME|CLF6|4190|4190|December 2015  Future|2015/11/23
+CME|ZCZ5-ZCU6|-0.21|-84|December 2015 Corn Calendar|2015/11/23
+CME|LEZ5-LEG6|-2325|-93|December 2015 Live Cattle Calendar|2015/11/23
+CME|ZTH6|108.75|13920|March 2016 U.S. Treasury 2 Year Bills Future|2015/11/23
+CME|ZLZ5-ZLH6|-53|-53|December 2015 Soybean Oil Calendar|2015/11/23
+ICE_IPE|L Jun16|99.31|9931|June 2016 Sterling Future|2015/11/23
+CME|ZLH6-ZLN6|-43|-43|March 2016 Soybean Oil Calendar|2015/11/23
+CME|LEG6|132025|5281|February 2016 Live Cattle Future|2015/11/23
+ICE_IPE|L Sep16|99.21|9921|September 2016 Sterling Future|2015/11/23
+CME|ZNZ5-ZNH6|0.59375|76|December 2015 U.S. Treasury 10 Year Notes ReducedTickSpread|2015/11/23
+NYSE_Liffe|yEBM Dec15|177.25|709|December 2015 Milling Wheat Future|2015/11/23
+CME|ZSF6-ZSK6|-0.0925|-37|January 2016 Soybeans Calendar|2015/11/23
+ICE_IPE|R Spread Dec15/Mar16|0.88|88|December 2015 Gilt Calendar|2015/11/23
+CME|ZFH6|118.53125|15172|March 2016 U.S. Treasury 5 Year Notes Future|2015/11/23
+CME|GEU7-GEZ7|13|26|September 2017 Eurodollar Calendar|2015/11/23
+CME|ZWZ5|4.95|1980|December 2015 Wheat Future|2015/11/23
+CME|ZTZ5|109.046875|13958|December 2015 U.S. Treasury 2 Year Bills Future|2015/11/23
+CME|ZWZ5-ZWK6|-0.0425|-17|December 2015 Wheat Calendar|2015/11/23
+CME|ZSF6-ZSH6|-0.03|-12|January 2016 Soybeans Calendar|2015/11/23
+CME|GEZ6-GEH7|14|28|December 2016 Eurodollar Calendar|2015/11/23
+CME|ZSN6|8.785|3514|July 2016 Soybeans Future|2015/11/23
+CME|ZSK6|8.7275|3491|May 2016 Soybeans Future|2015/11/23
+CME|UBH6|157.4375|20152|March 2016 U.S. Treasury Ultra Bonds Future|2015/11/23
+CME|GEH6|9938|19876|March 2016 Eurodollar Future|2015/11/23
+CME|ZSH6|8.6625|3465|March 2016 Soybeans Future|2015/11/23
+CME|ZSF6|8.6425|3457|January 2016 Soybeans Future|2015/11/23
+CME|ZLF6-ZLH6|-25|-25|January 2016 Soybean Oil Calendar|2015/11/23
+CME|ZCH6-ZCZ6|-0.215|-86|March 2016 Corn Calendar|2015/11/23
+CME|GEM6|9922.5|19845|June 2016 Eurodollar Future|2015/11/23
+NYSE_Liffe|Calendar: 1xyEBM Dec15:-1xMar16|-268435456|-268435456|December 2017 Milling Wheat Calendar|2015/11/23
+CME|ZCN6-ZCU6|-0.035|-14|July 2016 Corn Calendar|2015/11/23
+CME|ZL:BF Z5-F6-H6|-3|-3|December 2015 Soybean Oil Butterfly|2015/11/23
+CME|ZCK6-ZCU6|-0.0875|-35|May 2016 Corn Calendar|2015/11/23
+CME|UBZ5|157.25|20128|December 2015 U.S. Treasury Ultra Bonds Future|2015/11/23
+CME|GEU6|9906.5|19813|September 2016 Eurodollar Future|2015/11/23
+CME|GEZ6|9890.5|19781|December 2016 Eurodollar Future|2015/11/23
+CME|GEH7-GEM7|14.5|29|March 2017 Eurodollar Calendar|2015/11/23
+CME|ZMZ5|2853|2853|December 2015 Soybean Meal Future|2015/11/23
+Eurex|FGBS Mar16|111.645|22329|March 2016 Shatz Future|2015/11/23
+CME|ZWZ5-ZWN6|-0.065|-26|December 2015 Wheat Calendar|2015/11/23
+CME|ZSF6-ZSN6|-0.15|-60|January 2016 Soybeans Calendar|2015/11/23
+CME|ZWN6|5.0525|2021|July 2016 Wheat Future|2015/11/23
+CME|ZWK6|5.015|2006|May 2016 Wheat Future|2015/11/23
+CME|ZMZ5-ZMF6|0|0|December 2015 Soybean Meal Calendar|2015/11/23
+CME|ZWH6|4.9775|1991|March 2016 Wheat Future|2015/11/23
+ICE_IPE|R Mar16|117.18|11718|March 2016 Gilt Future|2015/11/23
+CME|GEM6-GEU6|16|32|June 2016 Eurodollar Calendar|2015/11/23
+CME|ZM:BF Z5-F6-H6|6|6|December 2015 Soybean Meal Butterfly|2015/11/23
+CME|ZC:BF H6-K6-N6|-0.005|-2|March 2016 Corn Butterfly|2015/11/23
+CME|ZCTH6|0|0|February 2016  Future|2015/11/23
+CME|ZNH6|126.078125|16138|March 2016 U.S. Treasury 10 Year Notes Future|2015/11/23
+CME|ZS:BF F6-H6-K6|0.0325|13|January 2016 Soybeans Butterfly|2015/11/23
+CME|GEM7-GEZ7|26|52|June 2017 Eurodollar Calendar|2015/11/23
+CME|GEM7-GEU7|13|26|June 2017 Eurodollar Calendar|2015/11/23
+CME|ZWH6-ZWK6|-0.0275|-11|March 2016 Wheat Calendar|2015/11/23
+CME|ZNZ5|126.671875|16214|December 2015 U.S. Treasury 10 Year Notes Future|2015/11/23
+CME|ZLN6|2886|2886|July 2016 Soybean Oil Future|2015/11/23
+CME|ZMH6|2869|2869|March 2016 Soybean Meal Future|2015/11/23
+CME|ZMF6|2859|2859|January 2016 Soybean Meal Future|2015/11/23
+CME|ZLK6|2865|2865|May 2016 Soybean Oil Future|2015/11/23
+CME|ZCH6-ZCN6|-0.11|-44|March 2016 Corn Calendar|2015/11/23
+CME|ZLH6|2843|2843|March 2016 Soybean Oil Future|2015/11/23
+CME|ZCTZ5-ZCTH6|0|0|November 2015  Calendar|2015/11/23
+CME|ZLF6|2819|2819|January 2016 Soybean Oil Future|2015/11/23
+CME|ZWZ5-ZWH6|-0.015|-6|December 2015 Wheat Calendar|2015/11/23
+CME|LEG6-LEJ6|-725|-29|February 2016 Live Cattle Calendar|2015/11/23
+CME|ZCZ5-ZCZ6|-0.28|-112|December 2015 Corn Calendar|2015/11/23
+Eurex|Calendar: 1xFGBL Dec15:-1xMar16|-268435456|-268435456|December 2015 Bund Calendar|2015/11/23
+Eurex|Calendar: 1xFGBS Dec15:-1xMar16|-268435456|-268435456|December 2015 Shatz Calendar|2015/11/23
+CME|KEZ5|4.57|1828|December 2015 Kansas Wheat Future|2015/11/23
+CME|ZLZ5-ZLF6|-28|-28|December 2015 Soybean Oil Calendar|2015/11/23
+Eurex|FGBS Dec15|111.615|22323|December 2015 Shatz Future|2015/11/23
+CME|KEK6|4.81|1924|May 2016 Kansas Wheat Future|2015/11/23
+CME|KEH6|4.705|1882|March 2016 Kansas Wheat Future|2015/11/23
+CME|ZC:BF Z5-H6-K6|-0.0075|-3|December 2015 Corn Butterfly|2015/11/23

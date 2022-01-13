@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Charge:
+  = @charges_journal_entry.charge_id
+p
+  strong Journal entry:
+  = @charges_journal_entry.journal_entry_id
+
+= link_to 'Edit', edit_charges_journal_entry_path(@charges_journal_entry)
+'|
+= link_to 'Back', charges_journal_entries_path

@@ -1,0 +1,40 @@
+p#notice = notice
+
+p
+  strong Stated on:
+  = @statement_money_line.stated_on
+p
+  strong Posted on:
+  = @statement_money_line.posted_on
+p
+  strong Account:
+  = @statement_money_line.account_id
+p
+  strong Account code:
+  = @statement_money_line.account_code
+p
+  strong currency_code:
+  = @statement_money_line.currency_code
+p
+  strong Beginning balance:
+  = @statement_money_line.beginning_balance
+p
+  strong Charges:
+  = @statement_money_line.charges
+p
+  strong Pnl futures:
+  = @statement_money_line.pnl_futures
+p
+  strong Ledger balance:
+  = @statement_money_line.ledger_balance
+p
+  strong Open trade equity:
+  = @statement_money_line.open_trade_equity
+p
+  strong Cash account balance:
+  = @statement_money_line.cash_account_balance
+p
+  strong Net liquidating balance:
+  = @statement_money_line.net_liquidating_balance
+
+= link_to 'Back', statement_money_lines_path

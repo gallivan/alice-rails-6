@@ -1,0 +1,23 @@
+h1 Listing entity_roles
+
+.btn.btn-default = link_to 'New Entity role', new_entity_role_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Entity
+          th Role
+          th
+          th
+          th
+
+      tbody
+        - @entity_roles.each do |entity_role|
+          tr
+            td = entity_role.entity_id
+            td = entity_role.role_id
+            td = link_to 'Show', entity_role
+            td = link_to 'Edit', edit_entity_role_path(entity_role)
+            td = link_to 'Destroy', entity_role, data: {:confirm => 'Are you sure?'}, :method => :delete

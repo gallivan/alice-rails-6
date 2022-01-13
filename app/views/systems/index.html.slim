@@ -1,0 +1,27 @@
+h1 Listing systems
+
+.btn.btn-default = link_to 'New System', new_system_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Entity
+          th Type
+          th Code
+          th Name
+          th
+          th
+          th
+
+      tbody
+        - @systems.each do |system|
+          tr
+            td = system.entity.name
+            td = system.system_type.name
+            td = system.code
+            td = system.name
+            td = link_to 'Show', system
+            td = link_to 'Edit', edit_system_path(system)
+            td = link_to 'Destroy', system, data: {:confirm => 'Are you sure?'}, :method => :delete

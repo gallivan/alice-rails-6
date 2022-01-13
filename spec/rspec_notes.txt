@@ -1,0 +1,20 @@
+https://stackoverflow.com/questions/18195851/how-do-i-use-factories-from-factorygirl-in-rails-console
+
+rails db:drop RAILS_ENV=test; rails db:create RAILS_ENV=test; rails db:schema:load RAILS_ENV=test
+
+rails console -e test --sandbox
+require 'factory_bot_rails'
+FactoryBot.find_definitions
+include FactoryBot::Syntax::Methods
+
+https://relishapp.com/rspec/
+
+http://www.virtuouscode.com/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/
+https://thoughtbot.com/blog/how-we-test-rails-applications
+https://www.stackbuilders.com/news/common-rails-testing-mistakes
+
+
+https://buildasaasappinrails.com/
+http://exceptionalruby.com/?utm_source=devblog&utm_medium=sidebar&utm_campaign=productlist
+
+https://www.rubytapas.com/

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML>
+  <TrdCaptRpt RptID="21959018827" TrdTyp="0" TrdSubTyp="7" ExecID="02319020160725011632TN0000481" TrdDt="2016-07-25"
+              BizDt="2016-07-25" MLegRptTyp="2" MtchStat="0" MsgEvtSrc="REG" TrdID="103631" LastQty="6" LastPx="30.7"
+              TxnTm="2016-07-25T01:16:32-05:00" SettlCcy="USD" SettlDt="2016-12-14" OrigTrdID="1561EEC09C8LTP0202D39702"
+              PxSubTyp="1" VenueTyp="E" VenuTyp="E">
+    <Instrmt ID="07" Desc="SOYBEAN OIL FUTURES" CFI="FCAPSO" SecTyp="FUT" MMY="201612" MatDt="2016-12-14" Mult="600"
+             Exch="CBT" UOM="lbs" UOMQty="60000" PxUOM="LBS" PxUOMQty="100" ValMeth="FUT" Fctr="1"
+             PxQteCcy="USD"></Instrmt>
+    <Amt Typ="TVAR" Amt="-2664" Ccy="USD"/>
+    <RptSide Side="1" ClOrdID="H4U" CustCpcty="2" OrdTyp="L" SesID="EOD" SesSub="E" AllocInd="0" AgrsrInd="N">
+      <Pty ID="CME" R="21"></Pty>
+      <Pty ID="353" R="4"></Pty>
+      <Pty ID="CBT" R="22"></Pty>
+      <Pty ID="330" R="1"></Pty>
+      <Pty ID="00123" R="24">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="3E3L" R="12"></Pty>
+      <Pty ID="330B" R="38">
+        <Sub ID="2" Typ="26"/>
+      </Pty>
+      <Pty ID="330" R="7"></Pty>
+      <RegTrdID ID="FECF1561EEC09C8LTP0202D39704" Src="1010000023" Typ="0" Evnt="2"/>
+    </RptSide>
+  </TrdCaptRpt>
+</FIXML>

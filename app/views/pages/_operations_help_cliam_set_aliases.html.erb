@@ -1,0 +1,29 @@
+<div>
+  <p>
+    A ClaimSet is a set of Claims (contracts). CBT Corn futures is a ClaimSet that includes May and July 2017 Claims.
+  </p>
+  <p>
+    Different information systems will maintain different codes/names for Claims and, by extention, ClaimSets. The
+    following snap shows several ClaimAliases. Each line reflects an association between an internal ClaimSet and an
+    external System and its ClaimSet code. The first line, for example, identifies "ICE/CT" as the Quandl code for the
+    ClaimSet code of "NYCE:28", named "Cotton No. 2 Futures" internally. ABN maintains code "13:28" for the same
+    ClaimSet.
+  </p>
+  <%= image_tag("claim-set-aliases.png", :alt => "Claim Set Aliases") %>
+  <p>
+    The setup of "ICE/CT" for Quandl was necessary the first time Quandl was called for a settlement price for a Cotton
+    No. 2 Claim in which a position was carried. Quandl expects a code like "ICE/CTN2017" for the July 2017 Claim. That
+    needs to be constructed by the system given the ClaimSetAlias for Quandl of "ICE/CT" with month and year of
+    expiration coded as "N" for July and "2017" for the year.
+  </p>
+  <p>
+    The following snap shows how the "ICE/CT" alias was setup via Admin > Claim Set Alias > New Claim Set Alias. The
+    following properties were set. All are mandatory.
+  </p>
+  <ul>
+    <li>System: quandl.com</li>
+    <li>ClaimSet: Cotton No. 2 Futures</li>
+    <li>ICE/CT</li>
+  </ul>
+  <%= image_tag("claim-set-alias-new.png", :alt => "New Claim Alias") %>
+</div>

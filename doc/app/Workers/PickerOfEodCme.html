@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Workers::PickerOfEodCme - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Picker.html">Workers::Picker</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-build_connection">#build_connection</a>
+    
+    <li ><a href="#method-i-build_report_eod_cme">#build_report_eod_cme</a>
+    
+    <li ><a href="#method-i-ext_file">#ext_file</a>
+    
+    <li ><a href="#method-i-get_file">#get_file</a>
+    
+    <li ><a href="#method-i-get_product_calendar_file">#get_product_calendar_file</a>
+    
+    <li ><a href="#method-i-pick">#pick</a>
+    
+    <li ><a href="#method-i-read_lines">#read_lines</a>
+    
+    <li ><a href="#method-i-resend_report">#resend_report</a>
+    
+    <li ><a href="#method-i-send_message">#send_message</a>
+    
+    <li ><a href="#method-i-send_report">#send_report</a>
+    
+    <li ><a href="#method-i-setup_file">#setup_file</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Workers::PickerOfEodCme">
+  <h1 id="class-Workers::PickerOfEodCme" class="class">
+    class Workers::PickerOfEodCme
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-comment"># @evn = build_connection(&#39;eod.cme.picked.evn&#39;)</span>
+  <span class="ruby-comment"># @odd = build_connection(&#39;eod.cme.picked.odd&#39;)</span>
+  <span class="ruby-ivar">@all</span> = <span class="ruby-identifier">build_connection</span>(<span class="ruby-string">&#39;eod.cme.picked.all&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-build_connection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_connection</span><span
+            class="method-args">(destination)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>reads fm a &#39;picked&#39; queue sends to a &#39;packed&#39; queue</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_connection-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_connection</span>(<span class="ruby-identifier">destination</span>)
+  <span class="ruby-identifier">conn</span> = <span class="ruby-constant">Bunny</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">conn</span>.<span class="ruby-identifier">start</span>
+
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">conn</span>.<span class="ruby-identifier">create_channel</span>
+  <span class="ruby-identifier">q</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">queue</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-value">:durable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:auto_delete</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">fanout</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-value">:durable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+
+  <span class="ruby-identifier">q</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">x</span>)
+
+  [<span class="ruby-identifier">x</span>, <span class="ruby-identifier">q</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_report_eod_cme" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_report_eod_cme</span><span
+            class="method-args">(root, kind, date, data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_report_eod_cme-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_report_eod_cme</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">kind</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">data</span>)
+  <span class="ruby-constant">PickerReport</span>.<span class="ruby-identifier">create!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">root</span> = <span class="ruby-identifier">root</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind</span> = <span class="ruby-identifier">kind</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">fate</span> = <span class="ruby-string">&#39;TODO&#39;</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">data</span> = <span class="ruby-identifier">data</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">posted_on</span> = <span class="ruby-identifier">date</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ext_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ext_file</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ext_file-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ext_file</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Unzipping #{filename}&quot;</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-node">&quot;#{ENV[&#39;DNL_DIR&#39;]}/cme/&quot;</span>
+  <span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">ZipFile</span>.<span class="ruby-identifier">open</span>(<span class="ruby-node">&quot;#{filename}&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cme_zip</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cme_zip</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">f_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-node">&quot;#{ENV[&#39;DNL_DIR&#39;]}/cme/&quot;</span>, <span class="ruby-identifier">f</span>.<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">cme_zip</span>.<span class="ruby-identifier">extract</span>(<span class="ruby-identifier">f</span>, <span class="ruby-identifier">f_path</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_file</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_file-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_file</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;get_file: #{filename}&quot;</span>
+
+  <span class="ruby-identifier">back</span> = <span class="ruby-string">&#39;167.204.41.33&#39;</span> <span class="ruby-comment"># backup</span>
+  <span class="ruby-identifier">host</span> = <span class="ruby-string">&#39;164.74.122.33&#39;</span> <span class="ruby-comment"># production</span>
+
+  <span class="ruby-identifier">username</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SFTP_CME_USR&#39;</span>]
+  <span class="ruby-identifier">password</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SFTP_CME_PWD&#39;</span>]
+
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Downloading #{filename}&quot;</span>
+
+  <span class="ruby-identifier">dnl_filename</span> = <span class="ruby-node">&quot;#{ENV[&#39;DNL_DIR&#39;]}/cme/#{filename}&quot;</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Downloading to #{dnl_filename}&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">dnl_filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dnl_filename</span>)
+
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Net::SFTP try file: #{filename}&quot;</span>
+      <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SFTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">username</span>, <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sftp</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">sftp</span>.<span class="ruby-identifier">download!</span>(<span class="ruby-node">&quot;Outgoing/#{filename}&quot;</span>, <span class="ruby-identifier">dnl_filename</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Net::SFTP got file: #{filename}&quot;</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;SFTP exception occurred: #{e.message}. Sleeping until #{Time.now + FILE_WAIT_INTERVAL}.&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">message</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">message</span>
+      <span class="ruby-comment"># send_delay_email(message, FILE_WAIT_INTERVAL.from_now)</span>
+      <span class="ruby-identifier">sleep</span> <span class="ruby-constant">FILE_WAIT_INTERVAL</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">dnl_filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_product_calendar_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_product_calendar_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_product_calendar_file-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_product_calendar_file</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-string">&#39;product_calendar.xml&#39;</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;get_file: #{filename}&quot;</span>
+
+  <span class="ruby-identifier">host</span> = <span class="ruby-string">&#39;ftp.cmegroup.com&#39;</span> <span class="ruby-comment"># production</span>
+
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Downloading #{filename}&quot;</span>
+
+  <span class="ruby-identifier">dnl_filename</span> = <span class="ruby-node">&quot;#{ENV[&#39;DNL_DIR&#39;]}/spn/#{filename}&quot;</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Downloading to #{dnl_filename}&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">dnl_filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dnl_filename</span>)
+
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Net::FTP try file: #{filename}&quot;</span>
+
+      <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">FTP</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">host</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ftp</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">ftp</span>.<span class="ruby-identifier">login</span>
+        <span class="ruby-identifier">files</span> = <span class="ruby-identifier">ftp</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-string">&#39;/span/util&#39;</span>)
+        <span class="ruby-identifier">ftp</span>.<span class="ruby-identifier">getbinaryfile</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">dnl_filename</span>, <span class="ruby-value">1024</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Net::FTP got file: #{filename}&quot;</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;FTP exception occurred: #{e.message}. Sleeping until #{Time.now + FILE_WAIT_INTERVAL}.&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">message</span>
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">message</span>
+      <span class="ruby-comment"># send_delay_email(message, FILE_WAIT_INTERVAL.from_now)</span>
+      <span class="ruby-identifier">sleep</span> <span class="ruby-constant">FILE_WAIT_INTERVAL</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">dnl_filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pick" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pick</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pick-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pick</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">date_str</span> = <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%Y%m%d&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Date</span>)
+
+  <span class="ruby-identifier">filenames</span> = [<span class="ruby-node">&quot;FIXML-353_NYM_EOD-#{date_str}.xml&quot;</span>, <span class="ruby-node">&quot;FIXML-353_CME_EOD-#{date_str}.xml&quot;</span>]
+
+  <span class="ruby-identifier">filenames</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Picking #{filename}&quot;</span>
+
+    <span class="ruby-identifier">working_filename</span> = <span class="ruby-identifier">setup_file</span>(<span class="ruby-identifier">filename</span>)
+
+    <span class="ruby-identifier">read_lines</span>(<span class="ruby-identifier">working_filename</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">report</span> = <span class="ruby-identifier">build_report_eod_cme</span>(<span class="ruby-string">&#39;EOD_CME&#39;</span>, <span class="ruby-string">&#39;FILL&#39;</span>, <span class="ruby-identifier">date</span>, <span class="ruby-identifier">line</span>)
+      <span class="ruby-identifier">send_report</span>(<span class="ruby-identifier">report</span>)
+
+      <span class="ruby-comment"># if line.match(&#39;Pty ID=&quot;\d{4}[13579]&quot; R=&quot;24&quot;&#39;)</span>
+      <span class="ruby-comment">#   send_message(@odd, date, &#39;EOD_CME&#39;, line)</span>
+      <span class="ruby-comment"># else</span>
+      <span class="ruby-comment">#   send_message(@evn, date, &#39;EOD_CME&#39;, line)</span>
+      <span class="ruby-comment"># end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># remove_file(filename)</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_lines" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_lines</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_lines-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_lines</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Reading lines from #{filename}&quot;</span>
+  <span class="ruby-identifier">lines</span> = []
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-node">&quot;#{filename}&quot;</span>).<span class="ruby-identifier">each_line</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">TRDCAPT_REGEX</span>)
+      <span class="ruby-identifier">lines</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prepare_line</span>(<span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">lines</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resend_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resend_report</span><span
+            class="method-args">(report)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resend_report-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resend_report</span>(<span class="ruby-identifier">report</span>)
+  <span class="ruby-identifier">send_report</span>(<span class="ruby-identifier">report</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_message</span><span
+            class="method-args">(destination, message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send_message-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_message</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">x</span>, <span class="ruby-identifier">q</span> = <span class="ruby-identifier">destination</span>
+  <span class="ruby-identifier">x</span>.<span class="ruby-identifier">publish</span>(<span class="ruby-identifier">message</span>, <span class="ruby-value">:routing_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_report</span><span
+            class="method-args">(report)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send_report-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_report</span>(<span class="ruby-identifier">report</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;PickerReport: #{report.id}&quot;</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;Picker: TODO handling PickerReport #{report.id}&quot;</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">send_message</span>(<span class="ruby-ivar">@all</span>, <span class="ruby-identifier">report</span>.<span class="ruby-identifier">data</span>)
+    <span class="ruby-identifier">report</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:fate</span>, <span class="ruby-string">&#39;DONE&#39;</span>)
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;Picker: DONE handling PickerReport #{report.id}&quot;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;Picker: FAIL handling PickerReport #{report.id}&quot;</span>)
+    <span class="ruby-identifier">report</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">fate</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;FAIL&#39;</span>, <span class="ruby-identifier">goof_error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">goof_trace</span><span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_file</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_file-source">
+            <pre><span class="ruby-comment"># File app/models/workers/picker_of_eod_cme.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_file</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;setup_file #{filename}&quot;</span>
+
+  <span class="ruby-identifier">local_filename</span> = <span class="ruby-node">&quot;#{ENV[&#39;DNL_DIR&#39;]}/cme/#{filename}&quot;</span>
+
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;local filename: #{local_filename}&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">local_filename</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Using local copy #{local_filename}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">local_filename</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.zip&#39;</span>)
+    <span class="ruby-identifier">filename</span> = <span class="ruby-identifier">local_filename</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.zip&#39;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Using local zip #{filename}&quot;</span>
+    <span class="ruby-identifier">ext_file</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Using remote copy&#39;</span>
+    <span class="ruby-identifier">rmt_filename</span> = <span class="ruby-node">&quot;#{filename}.zip&quot;</span>
+    <span class="ruby-identifier">dnl_filename</span> = <span class="ruby-identifier">get_file</span>(<span class="ruby-identifier">rmt_filename</span>)
+    <span class="ruby-identifier">ext_file</span>(<span class="ruby-identifier">dnl_filename</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">local_filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

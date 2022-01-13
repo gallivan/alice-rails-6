@@ -1,0 +1,11 @@
+= simple_form_for(@claim_mark) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :system, collection: System.select_options, include_blank: false
+    = f.association :claim, collection: Claim.select_options, include_blank: false
+    = f.input :posted_on, as: :date_picker, :input_html => { :value => Date.today}
+    = f.input :mark
+
+  .form-actions
+    = f.button :submit

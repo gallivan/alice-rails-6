@@ -1,0 +1,7 @@
+div class="panel panel-info"
+  div class="panel-heading" Account Statement Money Lines
+  div class="panel-body"
+    div id='statement_money_lines_plot_container'
+      javascript:
+        var url = "/view_point/statement_money_lines_since.json?account_id=#{@account.id}";
+        plotStatementMoneyLines(url);

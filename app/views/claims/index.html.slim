@@ -1,0 +1,41 @@
+h1 Listing claims
+
+== render 'search_form'
+
+.row
+  .large-6.columns = paginate @claims
+  .large-6.columns
+    .btn.btn-default = link_to 'New Claim', new_claim_path
+
+.row
+  .large-12.columns
+    table class="table table-striped table-bordered table-condensed table-hover"
+      thead
+        tr
+          th Entity
+          th Kind
+          th Claim Set Name
+          th Code
+          th Name
+          th Size
+          th Point value
+          th CCY
+          th
+          th
+          th
+
+      tbody
+        - @claims.each do |claim|
+          tr
+            td = claim.entity.code
+            td = claim.claimable_type
+            td = claim.claim_set.name
+            td = claim.code
+            td = claim.name
+            td = claim.size
+            td = claim.point_value
+            td = claim.point_currency.code
+            td = link_to 'Show', claim
+            td = link_to 'Edit', edit_claim_path(claim)
+            td = link_to 'Destroy', claim, data: {:confirm => 'Are you sure?'}, :method => :delete
+

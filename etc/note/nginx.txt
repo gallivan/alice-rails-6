@@ -1,0 +1,69 @@
+#
+# what i did
+#
+
+removed nginx/passenger: see below
+installed nginx/passenger: see below
+test nginx by IPA:    wget http://173.255.237.107
+configure nginx:      https://gist.github.com/cecilemuller/a26737699a7e70a7093d4dc115915de8
+test nginx by name:   wget http://[name].jackijack.com
+install certificate:  sudo letsencrypt certonly --webroot -d [name].jackijack.com -w /var/www/html
+assess security:      https://www.ssllabs.com/ssltest/
+
+configure passenger
+
+#
+# install nginx/passenger
+#
+
+Installing Passenger + Nginx on Ubuntu 16.04 LTS (with APT)
+
+https://www.phusionpassenger.com/library/install/nginx/install/oss/xenial/
+
+#
+# purge nginx/passenger
+#
+
+sudo apt-get remove nginx nginx-common # Removes all but config files.
+sudo apt-get purge nginx nginx-common # Removes everything.
+sudo apt-get autoremove # After using any of the above commands, use this in order to remove dependencies used by nginx which are no longer required.
+
+#
+# let's encrypt - installation
+#
+
+https://certbot.eff.org/
+
+sudo letsencrypt certonly --webroot -d [name].jackijack.com -w /var/www/html
+sudo letsencrypt certonly --webroot -d [name].jackijack.com -w /var/www/html
+
+sudo letsencrypt certonly --webroot -d int.jackijack.com -w /home/alice/www/alice-rails-5/shared/public
+sudo letsencrypt certonly --webroot -d stg.jackijack.com -w /home/alice/www/alice-rails-5/shared/public
+
+
+#
+# let's encrypt - removal
+#
+
+http://www.jeffgeerling.com/blog/2016/remove-single-certbot-letsencrypt-certificate-server
+
+rm -rf /etc/letsencrypt/archive/[sitename]/
+rm -rf /etc/letsencrypt/live/[sitename]/
+rm -rf /etc/letsencrypt/renewal/[sitename].conf
+
+#
+# How to setup Let's Encrypt for Nginx on Ubuntu 16.04 (including IPv6, HTTP/2 and A+ SLL rating)
+#
+
+How to setup Let's Encrypt for Nginx on Ubuntu 16.04 (including IPv6, HTTP/2 and A+ SLL rating)
+
+https://gist.github.com/cecilemuller/a26737699a7e70a7093d4dc115915de8
+
+
+
+Let's Encrypt & Nginx: State of the art secure web deployment
+
+https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/
+
+web-root /home/alice/www/alice-rails-5/shared/public
+

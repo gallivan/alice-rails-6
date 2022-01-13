@@ -1,0 +1,66 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @money_line.account_id
+p
+  strong Currency held:
+  = @money_line.currency_held_id
+p
+  strong Currency base:
+  = @money_line.currency_base_id
+p
+  strong Currency mark:
+  = @money_line.currency_mark_id
+p
+  strong Posted on:
+  = @money_line.posted_on
+p
+  strong Beginning balance:
+  = @money_line.beginning_balance
+p
+  strong Cash:
+  = @money_line.cash
+p
+  strong Pnl futures:
+  = @money_line.pnl_futures
+p
+  strong Pnl options:
+  = @money_line.pnl_options
+p
+  strong Adjustments:
+  = @money_line.adjustments
+p
+  strong Rebates:
+  = @money_line.rebates
+p
+  strong Charges:
+  = @money_line.charges
+p
+  strong Ledger balance:
+  = @money_line.ledger_balance
+p
+  strong Open trade equity:
+  = @money_line.open_trade_equity
+p
+  strong Cash account balance:
+  = @money_line.cash_account_balance
+p
+  strong Margin:
+  = @money_line.margin
+p
+  strong Long option value:
+  = @money_line.long_option_value
+p
+  strong Short option value:
+  = @money_line.short_option_value
+p
+  strong Net option value:
+  = @money_line.net_option_value
+p
+  strong Net liquidating balance:
+  = @money_line.net_liquidating_balance
+
+= link_to 'Edit', edit_money_line_path(@money_line)
+'|
+= link_to 'Back', money_lines_path

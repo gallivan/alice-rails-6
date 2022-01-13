@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cftcBatch xmlns:cs="http://cftc.gov.us/cftc-shared" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cftc-forms.xsd">
+  <cftcHeader email="lewis@egalemarketmakers.com" formCount="1" onBehalfOf="Eagle Market Makers, Inc." routingFileName="TODO WHAT IS THIS?" sentBy="Eagle Market Makers, Inc" sentDate="2016-12-08T12:00:00"/>
+  <cftcForm102 NFAIdentifier="AGF" accountCategory="VT" accountClass="H" accountName="Eagle Market Makers" accountNumber="03000" city="Chicago" country="Cook" entityType="LE" followOnInformationToCome="N" formNumber="102" informationType="N" isCM="N" isFB="N" isFCM="N" isOmnibus="Y" isOther="N" isSigned="N" isSpecialAccount="N" isSwapDealer="N" legalEntityIdentifier="" legalEntityName="Eagle Market Makers, Inc." onBehalfOf="Eagle Market Makers, Inc." optionalOrSuppFieldsSeparatelyReported="Y" originReason="OC" otherDescription="" postalCode="60605" reportingIdentifier="AGF" state="IL" street="601 South LaSalle" submitDate="2016-12-08T12:00:00" suite="400" website="http://www.eaglemarketmakers.com/">
+    <contact email="lewis@eaglemarketmakers.com" employerLEI="" employerNFAIdentifier="" employerName="Eagle Market Makers, Inc." firstName="Timothy" isAuthorizedRepresentative="Y" lastName="Lewis" middleName="Allen" nameSuffix="" relationship="Employee" telephone="312-935-2400" titleOrPosition="Manager"></contact>
+  </cftcForm102>
+</cftcBatch>

@@ -1,0 +1,46 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @statement_position.account_id
+p
+  strong Account code:
+  = @statement_position.account_code
+p
+  strong Claim code:
+  = @statement_position.claim_code
+p
+  strong Stated on:
+  = @statement_position.stated_on
+p
+  strong Posted on:
+  = @statement_position.posted_on
+p
+  strong Traded on:
+  = @statement_position.traded_on
+p
+  strong Bot:
+  = @statement_position.bot
+p
+  strong Sld:
+  = @statement_position.sld
+p
+  strong Net:
+  = @statement_position.net
+p
+  strong Price:
+  = @statement_position.price
+p
+  strong Mark:
+  = @statement_position.mark
+p
+  strong Ote:
+  = @statement_position.ote
+p
+  strong Currency code:
+  = @statement_position.currency_code
+p
+  strong Position status code:
+  = @statement_position.position_status_code
+
+= link_to 'Back', statement_positions_path

@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Account:
+  = @adjustment.account_id
+p
+  strong Adjustment type:
+  = @adjustment.adjustment_type_id
+p
+  strong Journal entry:
+  = @adjustment.journal_entry_id
+p
+  strong Amount:
+  = @adjustment.amount
+p
+  strong Currency:
+  = @adjustment.currency_id
+p
+  strong Posted on:
+  = @adjustment.posted_on
+p
+  strong Memo:
+  = @adjustment.memo
+
+= link_to 'Edit', edit_adjustment_path(@adjustment)
+'|
+= link_to 'Back', adjustments_path
