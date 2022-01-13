@@ -37,8 +37,8 @@ https://certbot.eff.org/
 sudo letsencrypt certonly --webroot -d [name].jackijack.com -w /var/www/html
 sudo letsencrypt certonly --webroot -d [name].jackijack.com -w /var/www/html
 
-sudo letsencrypt certonly --webroot -d int.jackijack.com -w /home/alice/www/alice-rails-5/shared/public
-sudo letsencrypt certonly --webroot -d stg.jackijack.com -w /home/alice/www/alice-rails-5/shared/public
+sudo letsencrypt certonly --webroot -d int.jackijack.com -w /home/alice/www/alice-rails-6/shared/public
+sudo letsencrypt certonly --webroot -d stg.jackijack.com -w /home/alice/www/alice-rails-6/shared/public
 
 
 #
@@ -65,5 +65,5 @@ Let's Encrypt & Nginx: State of the art secure web deployment
 
 https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/
 
-web-root /home/alice/www/alice-rails-5/shared/public
+web-root /home/alice/www/alice-rails-6/shared/public
 

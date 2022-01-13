@@ -5,7 +5,7 @@ echo running $0
 echo '##########################################################################'
 
 if [ "$(whoami)" == "alice" ]; then
-  source "${HOME}"/www/alice-rails-5/current/script/environment.sh
+  source "${HOME}"/www/alice-rails-6/current/script/environment.sh
 else
   source ~/ruby-projects/alice/script/environment.sh
 fi

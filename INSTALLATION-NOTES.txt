@@ -1,4 +1,4 @@
-# Setup Notes for Rails Application alice-rails-5
+# Setup Notes for Rails Application alice-rails-6
 
 ## Dependencies
 
@@ -24,7 +24,7 @@
 Substitue, without quotes
 
 "environment-name" for "[ENVIRONMENT_NAME]", e.g., "integration"
-"nginx-server-name" for "alice-rails-5", e.g., "int-alice-rails-5.jackijack.com"
+"nginx-server-name" for "alice-rails-6", e.g., "int-alice-rails-6.jackijack.com"
 
 ########################################################################################################################
 
@@ -164,15 +164,15 @@ gem install bundler
 
 ### remote host
 
-mkdir -p /home/alice/www/alice-rails-5/shared/config
+mkdir -p /home/alice/www/alice-rails-6/shared/config
 
 ### localhost
 
 Substitute [FQDN] for the target host fully qualified domainname, e.g., stg.jackijack.com.
 
-scp config/master.key alice@NODE:~/www/alice-rails-5/shared/config
-scp config/database.yml alice@NODE:~/www/alice-rails-5/shared/config
-scp config/secrets.yml alice@NODE:~/www/alice-rails-5/shared/config
+scp config/master.key alice@NODE:~/www/alice-rails-6/shared/config
+scp config/database.yml alice@NODE:~/www/alice-rails-6/shared/config
+scp config/secrets.yml alice@NODE:~/www/alice-rails-6/shared/config
 cap [ENVIRONMENT_NAME] deploy
 
 ### remote host
@@ -208,11 +208,11 @@ sudo certbot --email jay.gallivan@gmail.com -d NODE.jackijack.com
 sudo certbot renew --dry-run
 
 sudo mv nginx.conf nginx.conf.orig
-sudo ln -s /home/alice/www/alice-rails-5/current/config/nginx.conf nginx.conf
+sudo ln -s /home/alice/www/alice-rails-6/current/config/nginx.conf nginx.conf
 cd sites-available
-sudo ln -s /home/alice/www/alice-rails-5/current/config/alice-rails-5.conf alice-rails-5
+sudo ln -s /home/alice/www/alice-rails-6/current/config/alice-rails-6.conf alice-rails-6
 cd ../sites-enabled
-sudo ln -s ../sites-available/alice-rails-5
+sudo ln -s ../sites-available/alice-rails-6
 sudo rm default
 
 
@@ -282,7 +282,7 @@ server {
 }
 HERE
 
-sudo ln -s /etc/nginx/sites-enabled/alice-rails-5 /etc/nginx/sites-available/rabbitmq-manager
+sudo ln -s /etc/nginx/sites-enabled/alice-rails-6 /etc/nginx/sites-available/rabbitmq-manager
 
 ########################################################################################################################
 

@@ -2,8 +2,8 @@
 # https://coderwall.com/p/ttrhow/deploying-rails-app-using-nginx-puma-and-capistrano-3
 #
 
-set :repo_url, 'git@github.com:gallivan/alice-rails-5'
-set :application, 'alice-rails-5'
+set :repo_url, 'git@github.com:gallivan/alice-rails-6'
+set :application, 'alice-rails-6'
 set :user, 'alice'
 
 set :puma_threads,    [4, 16]

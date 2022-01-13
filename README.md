@@ -72,11 +72,11 @@ export RAILS_ENV=development
 export EDITOR=vi
 export PATH="$PATH:$HOME/.rvm/bin" 
 export sendgridusername=jay.gallivan@gmail.com
-export APP_DIR='/home/alice/www/alice-rails-5'
+export APP_DIR='/home/alice/www/alice-rails-6'
 
 # secrects
 
-export SECRET_KEY_BASE=`cat ~/www/alice-rails-5/shared/config/master.key`
+export SECRET_KEY_BASE=`cat ~/www/alice-rails-6/shared/config/master.key`
 export DEVISE_TOKEN_AUTH_SECRET_KEY=`cat ~/.devise_token_auth_secret_key`
 export sendgridpassword=`cat ~/.sendgrid_pwd`
 export QUANDL_API_KEY=`cat ~/.quandl_api_key`
@@ -264,8 +264,8 @@ export RAILS_ENV=staging
 Update ~/.bash_aliases also.
 
 ```console
-alias current='cd ~/www/alice-rails-5/current'
-alias shared='cd ~/www/alice-rails-5/shared'
+alias current='cd ~/www/alice-rails-6/current'
+alias shared='cd ~/www/alice-rails-6/shared'
 ```
 
 Source host Setup SSH keys now too, where NODE is the host name for the FQDN.
@@ -327,7 +327,7 @@ Using RVM and [Capistrano](https://capistranorb.com/) our deployment utility req
 of some share files. On the Target host, execute the following command as user alice.
 
 ``` console
-mkdir -p /home/alice/www/alice-rails-5/shared/config
+mkdir -p /home/alice/www/alice-rails-6/shared/config
 ```
 
 On your Source, execute the following commands, substituting the appropriate FQDN to identify
@@ -335,10 +335,10 @@ the target host. The secrets are not kept in source code. If not available local
 from a running host to your local.
 
 ```console
-cd ~/ruby-projects/alice-rails-5
-scp config/master.key alice@NODE:~/www/alice-rails-5/shared/config
-scp config/database.yml alice@NODE:~/www/alice-rails-5/shared/config
-scp config/secrets.yml alice@NODE:~/www/alice-rails-5/shared/config
+cd ~/ruby-projects/alice-rails-6
+scp config/master.key alice@NODE:~/www/alice-rails-6/shared/config
+scp config/database.yml alice@NODE:~/www/alice-rails-6/shared/config
+scp config/secrets.yml alice@NODE:~/www/alice-rails-6/shared/config
 ```
 
 Once the shared configuration directory has been created and configurations copied, the 
@@ -357,12 +357,12 @@ substituting for the name as needed. This can be tested.
 
 ```console
 alice@stg:~$ current
-alice@stg:~/www/alice-rails-5/current$ bundle exec rails c
+alice@stg:~/www/alice-rails-6/current$ bundle exec rails c
 Loading staging environment (Rails 5.2.4.4)
 2.7.2 :001 > Account.count
  => 0 
 2.7.2 :002 > exit
-alice@stg:~/www/alice-rails-5/current$ 
+alice@stg:~/www/alice-rails-6/current$ 
 ```
 
 With the environment setup and Rails running a database dump can be applied. Substitute for
@@ -507,13 +507,13 @@ on each host but links do. Create links as follows.
 ```console
 cd /etc/nginx
 sudo mv nginx.conf nginx.conf.orig
-sudo ln -s /home/alice/www/alice-rails-5/current/config/nginx.conf nginx.conf
+sudo ln -s /home/alice/www/alice-rails-6/current/config/nginx.conf nginx.conf
 ```
 
 Define available sites.
 ```console
 cd /etc/nginx/sites-available
-sudo ln -s /home/alice/www/alice-rails-5/current/config/nginx-alice-rails-5.conf alice-rails-5
+sudo ln -s /home/alice/www/alice-rails-6/current/config/nginx-alice-rails-6.conf alice-rails-6
 ```
 
 Define sites enabled
@@ -521,7 +521,7 @@ Define sites enabled
 ```console
 cd /etc/nginx/sites-enabled
 sudo rm ./default
-sudo ln -s ../sites-available/alice-rails-5 alice-rails-5
+sudo ln -s ../sites-available/alice-rails-6 alice-rails-6
 ```
 
 There is one exception to the use of links: snippets/ssl.conf. That file contains the FQDN
@@ -531,7 +531,7 @@ Setup SSL configuration.
 
 ```console
 cd /etc/nginx/snippets
-sudo ln -s /home/alice/www/alice-rails-5/current/config/nginx_ssl.conf ssl.conf
+sudo ln -s /home/alice/www/alice-rails-6/current/config/nginx_ssl.conf ssl.conf
 ```
 
 The certificate PEM files include needs to be set up. Replace FQDN per node.
@@ -547,7 +547,7 @@ ssl_trusted_certificate /etc/letsencrypt/live/FQDN/fullchain.pem;
 Puma needs to be started on Target. So on Source....
 
 ```console
-cd ~/ruby-projects/alice-rails-5
+cd ~/ruby-projects/alice-rails-6
 #cap integration puma:start
 cap staging puma:start
 #cap production puma:start
@@ -566,9 +566,9 @@ CDT vs CST, means the active entry will be determined by local timezone.
 
 ```console
 # US Standard Time
-#30 02 * * 2-6 cd /home/alice/www/alice-rails-5/current && /bin/bash -l -c '/home/alice/www/alice-rails-5/current/script/eod.sh'
+#30 02 * * 2-6 cd /home/alice/www/alice-rails-6/current && /bin/bash -l -c '/home/alice/www/alice-rails-6/current/script/eod.sh'
 # US Daylight Time
-#30 01 * * 2-6 cd /home/alice/www/alice-rails-5/current && /bin/bash -l -c '/home/alice/www/alice-rails-5/current/script/eod.sh'
+#30 01 * * 2-6 cd /home/alice/www/alice-rails-6/current && /bin/bash -l -c '/home/alice/www/alice-rails-6/current/script/eod.sh'
 ```
 
 

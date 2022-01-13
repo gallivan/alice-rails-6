@@ -1,5 +1,5 @@
-set :repo_url, 'git@github.com:gallivan/alice-rails-5'
-set :application, 'alice-rails-5'
+set :repo_url, 'git@github.com:gallivan/alice-rails-6'
+set :application, 'alice-rails-6'
 set :user, 'alice'
 
 set :pty, true

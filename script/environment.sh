@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export SECRET_KEY_BASE=`cat ~/www/alice-rails-5/shared/config/master.key`
+export SECRET_KEY_BASE=`cat ~/www/alice-rails-6/shared/config/master.key`
 export DEVISE_TOKEN_AUTH_SECRET_KEY=`cat ~/.devise_token_auth_secret_key`
 
 export sendgridusername='apikey'
@@ -43,7 +43,7 @@ fi
 # ruby-2.7.2@rails-5.2.4.4
 
 if [ ${RAILS_ENV} == 'development' ]; then
-  export APP_DIR=$HOME/ruby-projects/alice-rails-5
+  export APP_DIR=$HOME/ruby-projects/alice-rails-6
   export PATH="$HOME/.rvm/gems/ruby-2.7.2@rails-5.2.4.4/bin:$HOME/.rvm/gems/ruby-2.7.2@global/bin:$HOME/.rvm/rubies/ruby-2.7.2/bin:$PATH"
   export GEM_HOME='$HOME/.rvm/gems/ruby-2.7.2@rails-5.2.4.4'
   export GEM_PATH='$HOME/.rvm/gems/ruby-2.7.2@rails-5.2.4.4:$HOME/.rvm/gems/ruby-2.7.2@global'
@@ -51,7 +51,7 @@ if [ ${RAILS_ENV} == 'development' ]; then
   export IRBRC='$HOME/.rvm/rubies/ruby-2.7.2/.irbrc'
   export RUBY_VERSION='ruby-2.7.2'
 else
-  export APP_DIR=$HOME/www/alice-rails-5
+  export APP_DIR=$HOME/www/alice-rails-6
   export PATH="/home/alice/.rvm/gems/ruby-2.7.2@rails-5.2.4.4/bin:/home/alice/.rvm/gems/ruby-2.7.2@global/bin:/home/alice/.rvm/rubies/ruby-2.7.2/bin:$PATH"
   export GEM_HOME='/home/alice/.rvm/gems/ruby-2.7.2@rails-5.2.4.4'
   export GEM_PATH='/home/alice/.rvm/gems/ruby-2.7.2@rails-5.2.4.4:/home/alice/.rvm/gems/ruby-2.7.2@global'
