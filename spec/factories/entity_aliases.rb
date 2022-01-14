@@ -3,7 +3,7 @@ FactoryBot.define do
   factory :entity_alias do
     system {create(:system)}
     entity {create(:entity)}
-    code {Faker::Lorem.characters(3).upcase}
+    code {Faker::Lorem.characters(number: 3).upcase}
   end
 
   factory :entity_alias_cme_cbt, parent: :entity_alias do

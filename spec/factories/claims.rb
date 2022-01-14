@@ -12,16 +12,16 @@ FactoryBot.define do
 
     claimable_type {build_stubbed(:claim_type_future)}
 
-    code {Faker::Lorem.characters(4).upcase}
-    name {Faker::Lorem.words(4, true).join ' '}
+    code {Faker::Lorem.characters(number: 4).upcase}
+    name {Faker::Lorem.words(number: 4, supplemental: true).join ' '}
 
     entity {build_stubbed(:entity)}
 
     claim_set {build_stubbed(:claim_set)}
     claim_type {build_stubbed(:claim_type)}
 
-    size {Faker::Number.between(1, 1_000_000)}
-    point_value {Faker::Number.between(1, 100)}
+    size {Faker::Number.between(from: 1, to: 1_000_000)}
+    point_value {Faker::Number.between(from: 1, to: 100)}
     point_currency {build_stubbed(:currency_usd)}
 
     # factory :claim_money_1_usd do

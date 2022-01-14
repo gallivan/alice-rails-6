@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :dealing_venue do
-    code {Faker::Lorem.characters(3).upcase}
+    code {Faker::Lorem.characters(number: 3).upcase}
     name {Faker::Company.name}
     entity {create(:entity)}
     dealing_venue_type {find_or_create(:dealing_venue_type_sys)}

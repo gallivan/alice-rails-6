@@ -9,6 +9,6 @@ FactoryBot.define do
     journal_code {journal.code}
     currency_code {currency.code}
     amount {9.99}
-    memo { Faker::Lorem.words(4, true).join ' '}
+    memo { Faker::Lorem.words(number: 4, supplemental: true).join ' '}
   end
 end

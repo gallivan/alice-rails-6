@@ -14,8 +14,8 @@ FactoryBot.define do
     end
 
     # default construction
-    code { Faker::Lorem.characters(4).upcase }
-    name { Faker::Lorem.words(4, true).join ' ' }
+    code { Faker::Lorem.characters(number: 4).upcase }
+    name { Faker::Lorem.words(number: 4, supplemental: true).join ' ' }
 
     factory :money_forward, traits: [:money_forward]
   end

@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :account do
-    code { Faker::Lorem.characters(4).upcase }
+    code { Faker::Lorem.characters(number: 4).upcase }
     name { Faker::Company.name }
     entity { find_or_create(:entity) }
     account_type { find_or_create(:account_type) }

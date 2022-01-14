@@ -1,19 +1,19 @@
 FactoryBot.define do
 
   factory :entity do
-    code {Faker::Lorem.characters(4).upcase}
+    code {Faker::Lorem.characters(number: 4).upcase}
     name {Faker::Company.name}
     entity_type {find_or_create(:entity_type)}
   end
 
   factory :entity_individual, parent: :entity do
-    code {Faker::Lorem.characters(4).upcase}
+    code {Faker::Lorem.characters(number: 4).upcase}
     name {Faker::Company.name}
     entity_type {find_or_create(:entity_type_individual)}
   end
 
   factory :entity_corporation, parent: :entity do
-    code {Faker::Lorem.characters(4).upcase}
+    code {Faker::Lorem.characters(number: 4).upcase}
     name {Faker::Company.name}
     entity_type {find_or_create(:entity_type_corporation)}
   end

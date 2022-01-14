@@ -9,7 +9,7 @@ FactoryBot.define do
     posted_on {"2016-04-09"}
     as_of_on {"2016-04-09"}
     amount {9.99}
-    memo {Faker::Lorem.words(4, true).join ' '}
+    memo {Faker::Lorem.words(number: 4, supplemental: true).join ' '}
   end
 
 end

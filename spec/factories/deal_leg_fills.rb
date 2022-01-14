@@ -11,7 +11,7 @@ FactoryBot.define do
     traded_at {"2015-12-05 18:39:01"}
     system
     dealing_venue
-    dealing_venue_done_id { Faker::Number.between(1_000_000, 9_000_000) }
+    dealing_venue_done_id { Faker::Number.between(from: 1_000_000, to: 9_000_000) }
 
     # factory :deal_outright_claim_money_1_usd_monday_next_bid_fill do
     #   dealing_venue

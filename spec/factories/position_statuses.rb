@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :position_status do
-    code { Faker::Lorem.characters(4).upcase }
-    name { Faker::Lorem.words(4, true).join ' '}
+    code { Faker::Lorem.characters(number: 4).upcase }
+    name { Faker::Lorem.words(number: 4, supplemental: true).join ' '}
   end
 
   factory :position_status_opn, parent: :position_status do

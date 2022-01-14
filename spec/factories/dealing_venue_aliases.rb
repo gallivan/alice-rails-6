@@ -3,7 +3,7 @@ FactoryBot.define do
   factory :dealing_venue_alias do
     system {create(:system)}
     dealing_venue {create(:dealing_venue)}
-    code {Faker::Lorem.words(4, true).join ' '}
+    code {Faker::Lorem.words(number: 4, supplemental: true).join ' '}
   end
 
   factory :dealing_venue_alias_aacc_02, parent: :dealing_venue_alias do
