@@ -1,5 +1,3 @@
-require "bunny"
-
 module Workers
   class Packer
 

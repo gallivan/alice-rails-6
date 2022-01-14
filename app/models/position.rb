@@ -61,25 +61,15 @@ class Position < ApplicationRecord
         where("position_statuses.code = 'CLO'")
   }
 
-  scope :bots, -> {
-    where("bot > 0")
-  }
+  scope :bots, -> {    where("bot > 0")  }
 
-  scope :slds, -> {
-    where("sld > 0")
-  }
+  scope :slds, -> {    where("sld > 0")  }
 
-  scope :cme_core_marginable, -> {
-    joins(:claim => :entity).where("entities.code in ('CME', 'CBT', 'NYMEX')")
-  }
+  scope :cme_core_marginable, -> {    joins(:claim => :entity).where("entities.code in ('CME', 'CBT', 'NYMEX')")  }
 
-  scope :cme, -> {
-    joins(:claim => :entity).where("entities.code = 'CME'")
-  }
+  scope :cme, -> {    joins(:claim => :entity).where("entities.code = 'CME'")  }
 
-  scope :cbt, -> {
-    joins(:claim => :entity).where("entities.code = 'CBT'")
-  }
+  scope :cbt, -> {    joins(:claim => :entity).where("entities.code = 'CBT'")  }
 
   before_destroy do
     raise "Cannot destroy closed Position." if closed?
@@ -124,15 +114,15 @@ class Position < ApplicationRecord
     # puts "claim.point_value: #{self.claim.point_value}"
     # puts "ote: #{self.ote}"
 
-    self.update_attributes(ote: self.ote, currency_id: self.currency_id, mark: mark)
+    self.update(ote: self.ote, currency_id: self.currency_id, mark: mark)
   end
 
   def net!
-    update_attribute(:net, bot - sld)
+    update(net: bot - sld)
   end
 
   def close!
-    update_attribute(:position_status, PositionStatus.find_by_code('CLO'))
+    update(position_status: PositionStatus.find_by_code('CLO'))
   end
 
   def open?
@@ -166,12 +156,12 @@ class Position < ApplicationRecord
 
     ActiveRecord::Base.transaction do
       if deal_leg_fill.done > 0
-        self.update_attribute(:bot, self.bot - deal_leg_fill.done)
+        self.update(bot: self.bot - deal_leg_fill.done)
       else
-        self.update_attribute(:sld, self.sld - deal_leg_fill.done.abs)
+        self.update(sld: self.sld - deal_leg_fill.done.abs)
       end
 
-      self.update_attribute(:net, self.bot - self.sld)
+      self.update(net: self.bot - self.sld)
 
     end
   end

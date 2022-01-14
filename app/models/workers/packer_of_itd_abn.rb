@@ -47,10 +47,10 @@ module Workers
           x_norm.publish(norm.to_json, :routing_key => q_norm.name)
 
           chnl_aacc.ack(delivery_info.delivery_tag)
-          report.update_attribute(:fate, 'DONE')
+          report.update(:fate, 'DONE')
         rescue Exception => e
           chnl_aacc.reject(delivery_info.delivery_tag)
-          report.update_attributes(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
+          report.updates(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
           msg = "Packer.pack handling of message failed with #{e}"
           Rails.logger.warn msg
           e.backtrace_locations.each do |location|

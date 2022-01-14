@@ -31,7 +31,7 @@ module Builders
       e_hash.merge!(a_hash)
       e_hash.delete('id')
       e_hash[:as_of_on] = e_hash['posted_on']
-      journal_entry.update_attributes!(e_hash)
+      journal_entry.update!(e_hash)
     end
 
     def self.build_for_charge(charge)

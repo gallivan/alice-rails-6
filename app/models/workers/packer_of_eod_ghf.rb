@@ -13,7 +13,7 @@ module Workers
       Rails.logger.info("Packer: TODO handling PackerReport #{report.id}")
       puts "PackerReport: #{report.id}"
       packed << Workers::Normalizer.normalize_eod_ghf_csv(hash)
-      report.update_attribute(:fate, 'DONE')
+      report.update(:fate, 'DONE')
       packed
     end
 

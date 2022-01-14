@@ -38,7 +38,7 @@ module Builders
           sld: fm_position.sld - sld_to_transfer,
           ote: 0
       }
-      fm_position.update_attributes(params)
+      fm_position.update(params)
       fm_position.net!
       fm_position.close! if fm_position.bot == 0 and fm_position.sld == 0
 

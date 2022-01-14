@@ -23,14 +23,14 @@ module Builders
         end
       end
 
-      money_line.update_attribute(:beginning_balance, ledger_entry.amount) if type_code == 'BEG'
-      money_line.update_attribute(:cash_account_balance, ledger_entry.amount) if type_code == 'CSHACT'
-      money_line.update_attribute(:charges, ledger_entry.amount) if type_code == 'CHG'
-      money_line.update_attribute(:adjustments, ledger_entry.amount) if type_code == 'ADJ'
-      money_line.update_attribute(:pnl_futures, ledger_entry.amount) if type_code == 'PNLFUT'
-      money_line.update_attribute(:ledger_balance, ledger_entry.amount) if type_code == 'LEG'
-      money_line.update_attribute(:open_trade_equity, ledger_entry.amount) if type_code == 'OTE'
-      money_line.update_attribute(:net_liquidating_balance, ledger_entry.amount) if type_code == 'LIQ'
+      money_line.update({beginning_balance: ledger_entry.amount}) if type_code == 'BEG'
+      money_line.update({cash_account_balance: ledger_entry.amount}) if type_code == 'CSHACT'
+      money_line.update({charges: ledger_entry.amount}) if type_code == 'CHG'
+      money_line.update({adjustments: ledger_entry.amount}) if type_code == 'ADJ'
+      money_line.update({pnl_futures: ledger_entry.amount}) if type_code == 'PNLFUT'
+      money_line.update({ledger_balance: ledger_entry.amount}) if type_code == 'LEG'
+      money_line.update({open_trade_equity: ledger_entry.amount}) if type_code == 'OTE'
+      money_line.update({net_liquidating_balance: ledger_entry.amount}) if type_code == 'LIQ'
 
       money_line
     end

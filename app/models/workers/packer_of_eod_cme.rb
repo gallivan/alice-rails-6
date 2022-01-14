@@ -13,10 +13,10 @@ module Workers
       puts "PackerReport: #{report.id}"
 
       packed = Workers::Normalizer.normalize_cme_eod(hash)
-      report.update_attribute(:fate, 'DONE')
+      report.update(:fate, 'DONE')
       packed
     rescue Exception => e
-      report.update_attributes(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
+      report.updates(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
       msg = "Packer.pack handling of message failed with #{e}"
       Rails.logger.warn msg
       e.backtrace_locations.each do |location|

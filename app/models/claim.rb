@@ -377,11 +377,11 @@ class Claim < ApplicationRecord
       # move month and year from front to back
       name = contract['Contract_Name'].first
       name = name.split.rotate.rotate.join(' ')
-      claim.update_attribute(:name, name)
+      claim.update(:name, name)
     end
 
     claim_set = claim.claim_set
-    claim_set.update_attribute(:sector, sector)
+    claim_set.update(:sector, sector)
 
     claimable = claim.claimable
 
@@ -391,8 +391,8 @@ class Claim < ApplicationRecord
       Date.parse(input)
     }
 
-    claimable.update_attribute(:first_intent_on, parse_cme_date.call(contract['FID'].first)) unless contract['FID'].blank?
-    claimable.update_attribute(:last_intent_on, parse_cme_date.call(contract['LID'].first)) unless contract['LID'].blank?
+    claimable.update(:first_intent_on, parse_cme_date.call(contract['FID'].first)) unless contract['FID'].blank?
+    claimable.update(:last_intent_on, parse_cme_date.call(contract['LID'].first)) unless contract['LID'].blank?
 
     claimable.update_attribute(:first_delivery_on, parse_cme_date.call(contract['FDD'].first)) unless contract['FDD'].blank?
     claimable.update_attribute(:last_delivery_on, parse_cme_date.call(contract['LDD'].first)) unless contract['LDD'].blank?

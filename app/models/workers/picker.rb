@@ -1,5 +1,3 @@
-require "bunny"
-
 module Workers
   class Picker
 
@@ -60,11 +58,11 @@ module Workers
     #       Rails.logger.info("Picker: TODO handling PickerReport #{report.id}")
     #       puts "PickerReport: #{report.id}"
     #       x.publish(message, :routing_key => q.name)
-    #       report.update_attribute(:fate, 'DONE')
+    #       report.update(:fate, 'DONE')
     #       Rails.logger.info("Picker: DONE handling PickerReport #{report.id}")
     #     rescue Exception => e
     #       Rails.logger.info("Picker: FAIL handling PickerReport #{report.id}")
-    #       report.update_attributes(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
+    #       report.updates(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
     #     end
     #
     #     sleep 0.001

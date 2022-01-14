@@ -58,13 +58,13 @@ module Workers
         puts "PickerReport: #{report.id}"
         Rails.logger.info("Picker: TODO handling PickerReport #{report.id}")
         send_message(@all, report.data)
-        report.update_attribute(:fate, 'DONE')
+        report.update(:fate, 'DONE')
         Rails.logger.info("Picker: DONE handling PickerReport #{report.id}")
       rescue Exception => e
         msg - "Picker: FAIL handling PickerReport #{report.id}"
         Rails.logger.info(msg)
         EodMailer.alert(msg).deliver_now
-        report.update_attributes(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
+        report.updates(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
       end
     end
 

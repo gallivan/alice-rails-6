@@ -16,12 +16,12 @@ module Builders
     #   end
     #
     #   if fill.done > 0
-    #     position.update_attribute(:bot, position.bot - fill.done)
+    #     position.update(:bot, position.bot - fill.done)
     #   else
-    #     position.update_attribute(:sld, position.sld - fill.done.abs)
+    #     position.update(:sld, position.sld - fill.done.abs)
     #   end
     #
-    #   position.update_attribute(:net, position.bot - position.sld)
+    #   position.update(:net, position.bot - position.sld)
     #
     #   # puts '+' * 40
     #   # puts position.inspect
@@ -69,12 +69,12 @@ module Builders
         # puts "Position CACHE HIT...UPDATE"
 
         if fill.done > 0
-          position.update_attribute(:bot, position.bot + fill.done)
+          position.update(bot: position.bot + fill.done)
         else
-          position.update_attribute(:sld, position.sld + fill.done.abs)
+          position.update(sld: position.sld + fill.done.abs)
         end
 
-        position.update_attribute(:net, position.bot - position.sld)
+        position.update(net: position.bot - position.sld)
       end
 
       # puts '+' * 40

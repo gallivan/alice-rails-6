@@ -20,7 +20,8 @@ RSpec.describe Account, type: :model do
 
       FactoryBot.create(:account_regular, entity: firm, code: acct_code, name: firm.name + " account #{acct_code}")
 
-      FactoryBot.create(:entity_cbt)
+      find_or_create(:entity_cbt)
+
       FactoryBot.create(:system_cme)
 
       FactoryBot.create(:entity_alias_cme_cbt)
@@ -94,7 +95,7 @@ RSpec.describe Account, type: :model do
       norm[:booker_report_id] = booker_report.id
       @account = Account.find(norm[:account_id])
       @account.handle_fill(norm)
-      booker_report.update_attributes!(fate: 'DONE')
+      booker_report.update!(fate: 'DONE')
 
       # create adjustment
       adjustment_type = AdjustmentType.find_by_code('FEE')

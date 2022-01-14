@@ -57,7 +57,7 @@ class ClaimMark < ApplicationRecord
         m.approved = params[:approved]
       end
     else
-      claim.update_attribute(:mark, params[:mark])
+      claim.update(:mark, params[:mark])
     end
   end
 
@@ -110,7 +110,7 @@ class ClaimMark < ApplicationRecord
       else
         fill = DealLegFill.for_claim(claim_id).last
         puts "Updating mark price for #{claim.code} of #{fill.price}"
-        mark.update_attribute(:mark, fill.price)
+        mark.update(:mark, fill.price)
       end
     end
   end

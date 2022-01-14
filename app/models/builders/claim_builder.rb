@@ -127,7 +127,7 @@ module Builders
             raise "Could not build Claim: #{claim.errors}."
           end
 
-          claimable.update_attribute(:claimable_id, claim.id)
+          claimable.update(:claimable_id, claim.id)
         else
           # puts "build claim alias"
           begin
@@ -212,7 +212,7 @@ module Builders
     #         raise "Could not build Claim: #{claim.errors}."
     #       end
     #
-    #       claimable.update_attribute(:claimable_id, claim.id)
+    #       claimable.update(:claimable_id, claim.id)
     #     else
     #       # puts "build claim alias"
     #       begin

@@ -72,27 +72,27 @@ module Builders
       if bot_position.id == sld_position.id
         position = bot_position
 
-        position.update_attribute(:bot, position.bot - netting.done)
-        position.update_attribute(:sld, position.sld - netting.done)
+        position.update(bot: position.bot - netting.done)
+        position.update(sld: position.sld - netting.done)
 
-        position.update_attribute(:bot_off, position.bot_off + netting.done)
-        position.update_attribute(:sld_off, position.sld_off + netting.done)
+        position.update(bot_off: position.bot_off + netting.done)
+        position.update(sld_off: position.sld_off + netting.done)
 
-        position.update_attribute(:net, position.bot - position.sld)
+        position.update(net: position.bot - position.sld )
 
-        position.update_attribute(:position_status_id, status.id) if position.bot == 0 and position.sld == 0
+        position.update(position_status_id: status.id) if position.bot == 0 and position.sld == 0
       else
-        bot_position.update_attribute(:bot, bot_position.bot - netting.done)
-        sld_position.update_attribute(:sld, sld_position.sld - netting.done)
+        bot_position.update(bot: bot_position.bot - netting.done)
+        sld_position.update(sld: sld_position.sld - netting.done)
 
-        bot_position.update_attribute(:bot_off, bot_position.bot_off + netting.done)
-        sld_position.update_attribute(:sld_off, sld_position.sld_off + netting.done)
+        bot_position.update(bot_off: bot_position.bot_off + netting.done)
+        sld_position.update(sld_off: sld_position.sld_off + netting.done)
 
-        bot_position.update_attribute(:net, bot_position.bot - bot_position.sld)
-        sld_position.update_attribute(:net, sld_position.bot - sld_position.sld)
+        bot_position.update({ net: bot_position.bot - bot_position.sld })
+        sld_position.update({ net: sld_position.bot - sld_position.sld })
 
-        bot_position.update_attribute(:position_status_id, status.id) if bot_position.bot == 0 and bot_position.sld == 0
-        sld_position.update_attribute(:position_status_id, status.id) if sld_position.bot == 0 and sld_position.sld == 0
+        bot_position.update(position_status_id: status.id) if bot_position.bot == 0 and bot_position.sld == 0
+        sld_position.update(position_status_id: status.id) if sld_position.bot == 0 and sld_position.sld == 0
       end
     end
 
@@ -117,27 +117,27 @@ module Builders
       if bot_position.id == sld_position.id
         position = bot_position
 
-        position.update_attribute(:bot, bot_position.bot + netting.done)
-        position.update_attribute(:sld, sld_position.sld + netting.done)
+        position.update(bot: bot_position.bot + netting.done)
+        position.update(sld: sld_position.sld + netting.done)
 
-        position.update_attribute(:bot_off, position.bot_off - netting.done)
-        position.update_attribute(:sld_off, position.sld_off - netting.done)
+        position.update(bot_off: position.bot_off - netting.done)
+        position.update(sld_off: position.sld_off - netting.done)
 
-        position.update_attribute(:net, position.bot - position.sld)
+        position.update(net: position.bot - position.sld)
 
-        position.update_attribute(:position_status_id, status.id)
+        position.update(position_status_id: status.id)
       else
-        bot_position.update_attribute(:bot, bot_position.bot + netting.done)
-        sld_position.update_attribute(:sld, sld_position.sld + netting.done)
+        bot_position.update(bot: bot_position.bot + netting.done)
+        sld_position.update(sld: sld_position.sld + netting.done)
 
-        bot_position.update_attribute(:bot_off, bot_position.bot_off - netting.done)
-        sld_position.update_attribute(:sld_off, sld_position.sld_off - netting.done)
+        bot_position.update(bot_off: bot_position.bot_off - netting.done)
+        sld_position.update(sld_off: sld_position.sld_off - netting.done)
 
-        bot_position.update_attribute(:net, bot_position.bot - bot_position.sld)
-        sld_position.update_attribute(:net, sld_position.bot - sld_position.sld)
+        bot_position.update(net: bot_position.bot - bot_position.sld)
+        sld_position.update(net: sld_position.bot - sld_position.sld)
 
-        bot_position.update_attribute(:position_status_id, status.id)
-        sld_position.update_attribute(:position_status_id, status.id)
+        bot_position.update(position_status_id: status.id)
+        sld_position.update(position_status_id: status.id)
       end
 
       netting.delete

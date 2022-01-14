@@ -48,7 +48,7 @@ RSpec.describe Account, type: :model do
 
       puts "preparation ended."
 
-      packer = Workers::PackerOfEodCme.new('picked', 'packed')
+      packer = Workers::PackerOfEodCme.new
 
       # <?xml version="1.0" encoding="UTF-8"?>
       # <FIXML>
@@ -90,7 +90,7 @@ RSpec.describe Account, type: :model do
       norm[:booker_report_id] = booker_report.id
       @account = Account.find(norm[:account_id])
       @account.handle_fill(norm)
-      booker_report.update_attributes!(fate: 'DONE')
+      booker_report.update!(fate: 'DONE')
 
       # create adjustment
       adjustment_type = AdjustmentType.find_by_code('FEE')

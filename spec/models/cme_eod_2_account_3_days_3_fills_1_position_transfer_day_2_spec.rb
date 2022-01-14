@@ -68,7 +68,7 @@ RSpec.describe Account, type: :model do
     ##############
 
     @day_1 = Date.parse('2016-07-21')
-    packer = Workers::PackerOfEodCme.new('picked', 'packed')
+    packer = Workers::PackerOfEodCme.new
 
     # sld
 
@@ -111,7 +111,7 @@ RSpec.describe Account, type: :model do
     norm[:booker_report_id] = booker_report.id
     @account = Account.find(norm[:account_id])
     @account.handle_fill(norm)
-    booker_report.update_attributes!(fate: 'DONE')
+    booker_report.update!(fate: 'DONE')
 
     # bot
 
@@ -154,7 +154,7 @@ RSpec.describe Account, type: :model do
     norm[:booker_report_id] = booker_report.id
     @account = Account.find(norm[:account_id])
     @account.handle_fill(norm)
-    booker_report.update_attributes!(fate: 'DONE')
+    booker_report.update!(fate: 'DONE')
 
     claim = @fm_account.deal_leg_fills.last.claim
 
@@ -280,7 +280,7 @@ RSpec.describe Account, type: :model do
     norm[:booker_report_id] = booker_report.id
     @fm_account = Account.find(norm[:account_id])
     @fm_account.handle_fill(norm)
-    booker_report.update_attributes!(fate: 'DONE')
+    booker_report.update!(fate: 'DONE')
 
     params = [
         {

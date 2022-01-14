@@ -46,7 +46,7 @@ module Builders
         end
 
         journal_entry = JournalEntryBuilder.build_for_charge(charge)
-        charge.update_attribute(:journal_entry_id, journal_entry.id)
+        charge.update({journal_entry_id: journal_entry.id})
 
         charge
       end

@@ -30,7 +30,7 @@ class CurrencyMark < ApplicationRecord
         m.mark = params[:mark]
       end
     else
-      rate.update_attribute(:mark, params[:mark])
+      rate.update(:mark, params[:mark])
     end
   end
 
@@ -82,7 +82,7 @@ class CurrencyMark < ApplicationRecord
             m.mark = rates[key]
           end
         else
-          mark.update_attribute(:mark, rates[key])
+          mark.update(:mark, rates[key])
         end
       rescue Exception => e
         Rails.logger.warn e.message

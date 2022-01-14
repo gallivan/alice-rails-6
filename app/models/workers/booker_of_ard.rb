@@ -17,10 +17,10 @@ module Workers
         position = Builders::PositionBuilder.build_or_update(fill)
         fill.update(position_id: position.id)
 
-        report.update_attribute(:fate, 'DONE')
+        report.update(:fate, 'DONE')
       rescue Exception => e
         puts "Booker: #{e.message}"
-        report.update_attributes(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
+        report.updates(fate: 'FAIL', goof_error: e.message, goof_trace: e.backtrace)
         Rails.logger.warn "Booker: #{e.message} #{e.backtrace}"
         e.backtrace_locations.each do |location|
           Rails.logger.warn location
@@ -47,7 +47,7 @@ module Workers
       #   begin
       #     account = Account.find(norm[:account_id])
       #     account.handle_fill(norm)
-      #     report.update_attribute(:fate, 'DONE')
+      #     report.update(:fate, 'DONE')
       #   rescue Exception => e
       #     puts "Booker: #{e.message}"
       #     Rails.logger.warn "Booker: #{e.message} #{e.backtrace}"

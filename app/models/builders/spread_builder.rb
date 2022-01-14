@@ -34,7 +34,7 @@ module Builders
           c.name = spread.name
         end
 
-        spread.update_attribute(:claim, claim)
+        spread.update(:claim, claim)
 
         spread.claim
       end

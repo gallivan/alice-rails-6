@@ -146,7 +146,7 @@ module Workers
           Rails.logger.info '.' * 20
           Rails.logger.info "Old: #{claim.name}"
           Rails.logger.info "New: #{name}"
-          claim.update_attribute(:name, name)
+          claim.update(:name, name)
         end
       end
     end
@@ -186,7 +186,7 @@ module Workers
         if claim.code.match(/^IFEU:G[FGHJKMNQUVXZ][0-9]{2}/)
           currency = Currency.usd
           Rails.logger.info "Setting currency to #{currency.code} for claim #{claim.code}."
-          claim.update_attribute(:point_currency_id, currency.id)
+          claim.update(:point_currency_id, currency.id)
         else
           Rails.logger.info "Could not fix #{claim.code}."
         end
@@ -200,7 +200,7 @@ module Workers
           currency = Currency.usd
           claim.positions.each do |position|
             Rails.logger.info "Setting currency to #{currency.code} for position #{position.id} with claim #{claim.code}."
-            position.update_attribute(:currency_id, currency.id)
+            position.update(:currency_id, currency.id)
           end
         else
           Rails.logger.info "Could not fix positions with #{claim.code}."

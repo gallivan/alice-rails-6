@@ -31,7 +31,7 @@ class PackerReport < ApplicationRecord
   scope :posted_on, -> (posted_on) { where(posted_on: posted_on) }
 
   def self.do_redo(report)
-    report.update_attributes(goof_error: nil, goof_trace: nil )
+    report.updates(goof_error: nil, goof_trace: nil )
 
     if report.root == 'ITD_ABN'
       picker = Workers::PickerOfItdAbn.new

@@ -92,7 +92,7 @@ RSpec.describe Account, type: :model do
       norm[:booker_report_id] = booker_report.id
       @account = Account.find(norm[:account_id])
       @account.handle_fill(norm)
-      booker_report.update_attributes!(fate: 'DONE')
+      booker_report.update({fate: 'DONE'})
 
       # create adjustment
       adjustment_type = AdjustmentType.find_by_code('FEE')

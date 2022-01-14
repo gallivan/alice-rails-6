@@ -1,5 +1,3 @@
-require "bunny"
-
 module Workers
   class Booker
 
@@ -11,7 +9,7 @@ module Workers
       begin
         account = Rails.cache.fetch("account:#{packed[:account_id]}") {Account.find(packed[:account_id]) }
         account.handle_fill(packed)
-        report.update_attribute(:fate, 'DONE')
+        report.update(:fate, 'DONE')
       rescue Exception => e
         puts "Booker: #{e.message}"
         Rails.logger.warn "Booker: #{e.message} #{e.backtrace}"
@@ -44,7 +42,7 @@ module Workers
     #       account = Rails.cache.fetch("account:#{norm[:account_id]}") { Account.find(norm[:account_id]) }
     #       account.handle_fill(norm)
     #       c.ack(delivery_info.delivery_tag)
-    #       report.update_attribute(:fate, 'DONE')
+    #       report.update(:fate, 'DONE')
     #     rescue Exception => e
     #       c.reject(delivery_info.delivery_tag)
     #       puts "Booker: #{e.message}"
@@ -77,7 +75,7 @@ module Workers
         begin
           account = Account.find(norm[:account_id])
           account.handle_fill(norm)
-          report.update_attribute(:fate, 'DONE')
+          report.update(:fate, 'DONE')
         rescue Exception => e
           puts "Booker: #{e.message}"
           Rails.logger.warn "Booker: #{e.message} #{e.backtrace}"

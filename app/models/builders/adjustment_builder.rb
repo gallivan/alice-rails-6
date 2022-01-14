@@ -13,7 +13,7 @@ module Builders
         a.segregation_id = params[:segregation_id]
       end
       journal_entry = JournalEntryBuilder.build_for_adjustment(adjustment)
-      adjustment.update_attribute(:journal_entry_id, journal_entry.id)
+      adjustment.update({journal_entry_id: journal_entry.id})
       adjustment.save!
       adjustment
     end
@@ -28,7 +28,7 @@ module Builders
       adjustment = Adjustment.find(params[:id])
       hash = adjustment.attributes
       hash.merge!(params)
-      adjustment.update_attributes!(hash)
+      adjustment.update!(hash)
       Builders::JournalEntryBuilder.update_for_adjustment(adjustment)
       adjustment
     end

@@ -56,7 +56,7 @@ RSpec.describe Account, type: :model do
     puts "preparing ended."
 
     @account = Account.find_by_code('00123')
-    packer = Workers::PackerOfEodCme.new('picked', 'packed')
+    packer = Workers::PackerOfEodCme.new
 
     ##############
     # 2016-07-21 #
@@ -105,7 +105,7 @@ RSpec.describe Account, type: :model do
     norm[:booker_report_id] = booker_report.id
     @account = Account.find(norm[:account_id])
     @account.handle_fill(norm)
-    booker_report.update_attributes!(fate: 'DONE')
+    booker_report.update!(fate: 'DONE')
 
     # bot
 
@@ -148,7 +148,7 @@ RSpec.describe Account, type: :model do
     norm[:booker_report_id] = booker_report.id
     @account = Account.find(norm[:account_id])
     @account.handle_fill(norm)
-    booker_report.update_attributes!(fate: 'DONE')
+    booker_report.update!(fate: 'DONE')
 
     claim = @account.deal_leg_fills.last.claim
 
@@ -260,7 +260,7 @@ RSpec.describe Account, type: :model do
     norm[:booker_report_id] = booker_report.id
     @account = Account.find(norm[:account_id])
     @account.handle_fill(norm)
-    booker_report.update_attributes!(fate: 'DONE')
+    booker_report.update!(fate: 'DONE')
 
     params = [
         {

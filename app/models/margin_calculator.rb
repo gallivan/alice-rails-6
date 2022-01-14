@@ -131,9 +131,9 @@ class MarginCalculator < ApplicationRecord
     req_xml = cme_transactions_xml_stub(portfolio.account.id, portfolio.account.id, lines)
 
     margin_request = MarginRequest.build(margin, posted_on)
-    margin_request.update_attribute(:body, req_xml)
+    margin_request.update(:body, req_xml)
     margin_response = MarginResponse.build(margin_request, posted_on)
-    margin_request.update_attribute(:margin_response, margin_response)
+    margin_request.update(:margin_response, margin_response)
 
     begin
       uri_root = RuntimeKnob.code_for_name('cme_core_api_root')
@@ -145,19 +145,19 @@ class MarginCalculator < ApplicationRecord
       doc = Nokogiri::XML(res_xml)
       portfolio_id = doc.xpath('//transaction/@portfolioId').first.value
 
-      margin.update_attribute(:remote_portfolio_id, portfolio_id)
-      margin.update_attribute(:margin_status, MarginStatus.find_by_code('OPEN'))
-      margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
-      margin_response.update_attribute(:body, res_xml)
-      margin_response.update_attribute(:margin_response_status, MarginResponseStatus.find_by_code('DONE'))
+      margin.update(:remote_portfolio_id, portfolio_id)
+      margin.update(:margin_status, MarginStatus.find_by_code('OPEN'))
+      margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
+      margin_response.update(:body, res_xml)
+      margin_response.update(:margin_response_status, MarginResponseStatus.find_by_code('DONE'))
     rescue => e
       msg = "MarginRequest for #{margin.id} failed #{e}"
       Rails.logger.warn msg
-      margin.update_attribute(:margin_status, MarginStatus.find_by_code('FAIL'))
-      margin_request.update_attribute(:fail, msg)
-      margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('FAIL'))
-      margin_response.update_attribute(:body, res_xml)
-      margin_response.update_attribute(:margin_response_status, MarginResponseStatus.find_by_code('FAIL'))
+      margin.update(:margin_status, MarginStatus.find_by_code('FAIL'))
+      margin_request.update(:fail, msg)
+      margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('FAIL'))
+      margin_response.update(:body, res_xml)
+      margin_response.update(:margin_response_status, MarginResponseStatus.find_by_code('FAIL'))
     end
 
     margin
@@ -169,9 +169,9 @@ class MarginCalculator < ApplicationRecord
     req_xml = cme_margin_request_xml_stub(margin.remote_portfolio_id)
 
     margin_request = MarginRequest.build(margin, posted_on)
-    margin_request.update_attribute(:body, req_xml)
+    margin_request.update(:body, req_xml)
     margin_response = MarginResponse.build(margin_request, posted_on)
-    margin_request.update_attribute(:margin_response, margin_response)
+    margin_request.update(:margin_response, margin_response)
 
     begin
       uri_root = RuntimeKnob.code_for_name('cme_core_api_root')
@@ -184,19 +184,19 @@ class MarginCalculator < ApplicationRecord
       doc = Nokogiri::XML(res_xml)
       margin_id = doc.xpath('//margin/@id').first.value
 
-      margin.update_attribute(:remote_margin_id, margin_id)
-      margin.update_attribute(:margin_status, MarginStatus.find_by_code('SENT'))
-      margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
-      margin_response.update_attribute(:body, res_xml)
-      margin_response.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
+      margin.update(:remote_margin_id, margin_id)
+      margin.update(:margin_status, MarginStatus.find_by_code('SENT'))
+      margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
+      margin_response.update(:body, res_xml)
+      margin_response.update(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
     rescue => e
       msg = "MarginRequest for #{margin.id} failed #{e}"
       Rails.logger.warn msg
-      margin.update_attribute(:margin_status, MarginStatus.find_by_code('FAIL'))
-      margin_request.update_attribute(:fail, msg)
-      margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('FAIL'))
-      margin_response.update_attribute(:body, res_xml)
-      margin_response.update_attribute(:margin_response_status, MarginResponseStatus.find_by_code('FAIL'))
+      margin.update(:margin_status, MarginStatus.find_by_code('FAIL'))
+      margin_request.update(:fail, msg)
+      margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('FAIL'))
+      margin_response.update(:body, res_xml)
+      margin_response.update(:margin_response_status, MarginResponseStatus.find_by_code('FAIL'))
     end
 
     margin
@@ -207,11 +207,11 @@ class MarginCalculator < ApplicationRecord
 
     margin_request = MarginRequest.build(margin, posted_on)
     margin_response = MarginResponse.build(margin_request, posted_on)
-    margin_request.update_attribute(:margin_response, margin_response)
+    margin_request.update(:margin_response, margin_response)
 
     begin
       uri_root = RuntimeKnob.code_for_name('cme_core_api_root')
-      margin_request.update_attribute(:body, "https://#{uri_root}/MarginServiceApi/margins/#{margin.remote_margin_id}")
+      margin_request.update(:body, "https://#{uri_root}/MarginServiceApi/margins/#{margin.remote_margin_id}")
 
       http, req = setup_get(margin_request.body)
       res = http.request(req)
@@ -219,32 +219,32 @@ class MarginCalculator < ApplicationRecord
 
       doc = Nokogiri::XML(res_xml)
 
-      margin_response.update_attribute(:body, res_xml)
+      margin_response.update(:body, res_xml)
 
       if doc.xpath('//amounts/@init').first.value.blank?
-        margin.update_attribute(:margin_status, MarginStatus.find_by_code('WORK'))
-        margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
-        margin_response.update_attribute(:margin_response_status, MarginResponseStatus.find_by_code('DONE'))
+        margin.update(:margin_status, MarginStatus.find_by_code('WORK'))
+        margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
+        margin_response.update(:margin_response_status, MarginResponseStatus.find_by_code('DONE'))
       else
         initial = doc.xpath('//amounts/@init').first.value
         maintenance = doc.xpath('//amounts/@maint').first.value
 
-        margin.update_attribute(:initial, initial)
-        margin.update_attribute(:maintenance, maintenance)
-        margin.update_attribute(:margin_status, MarginStatus.find_by_code('DONE'))
-        margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
-        margin_response.update_attribute(:body, res_xml)
-        margin_response.update_attribute(:margin_response_status, MarginResponseStatus.find_by_code('DONE'))
+        margin.update(:initial, initial)
+        margin.update(:maintenance, maintenance)
+        margin.update(:margin_status, MarginStatus.find_by_code('DONE'))
+        margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('DONE'))
+        margin_response.update(:body, res_xml)
+        margin_response.update(:margin_response_status, MarginResponseStatus.find_by_code('DONE'))
       end
     rescue => e
       msg = "MarginRequest for #{margin.id} failed #{e}"
       Rails.logger.warn msg
 
-      margin.update_attribute(:margin_status, MarginStatus.find_by_code('FAIL'))
-      margin_request.update_attribute(:fail, msg)
-      margin_request.update_attribute(:margin_request_status, MarginRequestStatus.find_by_code('FAIL'))
-      margin_response.update_attribute(:body, res_xml)
-      margin_response.update_attribute(:margin_response_status, MarginResponseStatus.find_by_code('FAIL'))
+      margin.update(:margin_status, MarginStatus.find_by_code('FAIL'))
+      margin_request.update(:fail, msg)
+      margin_request.update(:margin_request_status, MarginRequestStatus.find_by_code('FAIL'))
+      margin_response.update(:body, res_xml)
+      margin_response.update(:margin_response_status, MarginResponseStatus.find_by_code('FAIL'))
     end
 
     margin
