@@ -1,8 +1,7 @@
 RSpec.describe Account, type: :model do
 
   #
-  # Two fills and one day with one lot netting.
-  # No fills next day. Change in settlement.
+  # Two fills and one day with one lot netting. No fills next day. Change in settlement.
   #
 
   describe "#handle_fills CBT:CU20 bot and sld - two days two fills one netting" do
