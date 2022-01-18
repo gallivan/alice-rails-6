@@ -20,8 +20,6 @@ set :linked_files, %w{config/master.key}
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/system')
 set :keep_releases, 5
 
-# set :rvm_ruby_version, 'ruby-2.7.2@rails-5.2.4.4' ### set in environment specific deploy files
-
 set :puma_threads, [4, 16]
 set :puma_workers, 0
 # set :puma_bind, "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
@@ -32,6 +30,9 @@ set :puma_error_log, "#{release_path}/log/puma.access.log"
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
+
+before 'deploy', 'rvm:install_rvm'  # update RVM
+before 'deploy', 'rvm:install_ruby' # install Ruby and create gemset (both if missing)
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'

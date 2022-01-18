@@ -30,7 +30,7 @@ server "stg.jackijack.com", user: 'alice', roles: %w{app web db}
 # Feel free to add new variables to customise your setup.
 
 set :stage, :staging
-set :rvm_ruby_version, 'ruby-2.7.2@rails-5.2.4.4'
+set :rvm_ruby_version, 'ruby-2.7.2@rails-6.1.4.4'
 
 # Custom SSH Options
 # ==================
