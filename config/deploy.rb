@@ -31,8 +31,8 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 
-before 'deploy', 'rvm:install_rvm'  # update RVM
-before 'deploy', 'rvm:install_ruby' # install Ruby and create gemset (both if missing)
+# before 'deploy', 'rvm:install_rvm'  # update RVM
+# before 'deploy', 'rvm:install_ruby' # install Ruby and create gemset (both if missing)
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
